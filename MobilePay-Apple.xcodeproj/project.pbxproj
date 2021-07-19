@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,8 @@
 		FA5DF9CA26A567B600664755 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5DF99F26A567B500664755 /* ContentView.swift */; };
 		FA5DF9CB26A567B600664755 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA5DF9A026A567B600664755 /* Assets.xcassets */; };
 		FA5DF9CC26A567B600664755 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA5DF9A026A567B600664755 /* Assets.xcassets */; };
+		FAB50D3026A578030093D56F /* MobilePayKit in Frameworks */ = {isa = PBXBuildFile; productRef = FAB50D2F26A578030093D56F /* MobilePayKit */; };
+		FAB50D3226A578070093D56F /* MobilePayKit in Frameworks */ = {isa = PBXBuildFile; productRef = FAB50D3126A578070093D56F /* MobilePayKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAB50D3026A578030093D56F /* MobilePayKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAB50D3226A578070093D56F /* MobilePayKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +98,7 @@
 				FA5DF9B826A567B600664755 /* Tests iOS */,
 				FA5DF9C326A567B600664755 /* Tests macOS */,
 				FA5DF9A626A567B600664755 /* Products */,
+				FAB50D2E26A578030093D56F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -153,6 +158,13 @@
 			path = "Tests macOS";
 			sourceTree = "<group>";
 		};
+		FAB50D2E26A578030093D56F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -170,6 +182,9 @@
 			dependencies = (
 			);
 			name = "MobilePay-Apple (iOS)";
+			packageProductDependencies = (
+				FAB50D2F26A578030093D56F /* MobilePayKit */,
+			);
 			productName = "MobilePay-Apple (iOS)";
 			productReference = FA5DF9A526A567B600664755 /* MobilePay-Apple.app */;
 			productType = "com.apple.product-type.application";
@@ -187,6 +202,9 @@
 			dependencies = (
 			);
 			name = "MobilePay-Apple (macOS)";
+			packageProductDependencies = (
+				FAB50D3126A578070093D56F /* MobilePayKit */,
+			);
 			productName = "MobilePay-Apple (macOS)";
 			productReference = FA5DF9AD26A567B600664755 /* MobilePay-Apple.app */;
 			productType = "com.apple.product-type.application";
@@ -720,6 +738,17 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FAB50D2F26A578030093D56F /* MobilePayKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MobilePayKit;
+		};
+		FAB50D3126A578070093D56F /* MobilePayKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MobilePayKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FA5DF99926A567B500664755 /* Project object */;
 }
