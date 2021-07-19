@@ -10,7 +10,7 @@ import SwiftUI
 @main
 struct MobilePay_AppleApp: App {
 
-    @StateObject private var paymentCoordinator = PaymentCoordinator()
+    @StateObject private var paymentCoordinator = PaymentViewModel()
 
     var body: some Scene {
         WindowGroup {

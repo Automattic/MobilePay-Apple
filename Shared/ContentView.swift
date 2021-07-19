@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct PurchasableContentRow: View {
+
     let content: PurchasableContent
     let action: () -> Void
 
@@ -49,29 +50,41 @@ struct PurchasableContentRow: View {
             }
         }
     }
+
 }
 
-struct ContentView: View {
-    @EnvironmentObject private var coordinator: PaymentCoordinator
+struct PurchasableContentDetail: View {
+
+    let content: PurchasableContent
+
+    @Environment(\.presentationMode) var presentation
 
     var body: some View {
         NavigationView {
-            List(coordinator.contentList, id: \.self) { content in
+            VStack(alignment: .center) {
+                Image(content.imageName)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 256, height: 256)
+                    .cornerRadius(9)
+                    .padding()
+            }
+
+        }.navigationTitle(content.title)
+    }
+}
+
+struct ContentView: View {
+
+    @EnvironmentObject private var viewModel: PaymentViewModel
+
+    var body: some View {
+        NavigationView {
+            List(viewModel.contentList, id: \.self) { content in
                 Group {
                     if !content.isLocked {
-                        NavigationLink(destination:
-                                        VStack(alignment: .leading) {
-                                            Text(content.title)
-                                                .font(.headline)
-                                            Image(content.imageName)
-                                                .resizable()
-                                                .aspectRatio(contentMode: .fill)
-                                                .frame(width: 256, height: 256)
-                                                .cornerRadius(9)
-                                                .padding()
-                                        }
 
-                        ) {
+                        NavigationLink(destination: PurchasableContentDetail(content: content)) {
 
                             // Content is already unlocked - nothing to see here
                             PurchasableContentRow(content: content) { }
@@ -80,16 +93,15 @@ struct ContentView: View {
                         PurchasableContentRow(content: content) {
 
                             // Check if the product exists before purchasing
-                            if let product = coordinator.fetchProduct(for: content.id) {
-                                coordinator.purchaseProduct(product)
+                            if let product = viewModel.fetchProduct(for: content.id) {
+                                viewModel.purchaseProduct(product)
                             }
                         }
                     }
                 }.navigationBarItems(trailing: Button("Restore") {
-                    coordinator.restorePurchases()
+                    viewModel.restorePurchases()
                 })
             }.navigationTitle("Rocket fuel shop")
-
         }
     }
 }
