@@ -21,6 +21,8 @@
 		FAB50D3526A5793F0093D56F /* PaymentCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB50D3326A5793F0093D56F /* PaymentCoordinator.swift */; };
 		FAB50D3726A579790093D56F /* PurchasableContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB50D3626A579790093D56F /* PurchasableContent.swift */; };
 		FAB50D3826A579790093D56F /* PurchasableContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB50D3626A579790093D56F /* PurchasableContent.swift */; };
+		FAB50D3A26A57A460093D56F /* Configuration.storekit in Resources */ = {isa = PBXBuildFile; fileRef = FAB50D3926A57A460093D56F /* Configuration.storekit */; };
+		FAB50D3B26A57A460093D56F /* Configuration.storekit in Resources */ = {isa = PBXBuildFile; fileRef = FAB50D3926A57A460093D56F /* Configuration.storekit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +60,7 @@
 		FAB50D2D26A577970093D56F /* MobilePayKit */ = {isa = PBXFileReference; lastKnownFileType = folder; path = MobilePayKit; sourceTree = "<group>"; };
 		FAB50D3326A5793F0093D56F /* PaymentCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentCoordinator.swift; sourceTree = "<group>"; };
 		FAB50D3626A579790093D56F /* PurchasableContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasableContent.swift; sourceTree = "<group>"; };
+		FAB50D3926A57A460093D56F /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +119,7 @@
 				FA5DF9A026A567B600664755 /* Assets.xcassets */,
 				FAB50D3326A5793F0093D56F /* PaymentCoordinator.swift */,
 				FAB50D3626A579790093D56F /* PurchasableContent.swift */,
+				FAB50D3926A57A460093D56F /* Configuration.storekit */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -305,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA5DF9CB26A567B600664755 /* Assets.xcassets in Resources */,
+				FAB50D3A26A57A460093D56F /* Configuration.storekit in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA5DF9CC26A567B600664755 /* Assets.xcassets in Resources */,
+				FAB50D3B26A57A460093D56F /* Configuration.storekit in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
