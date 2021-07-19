@@ -16,7 +16,8 @@ class PaymentCoordinator: NSObject, ObservableObject {
     let paymentQueueService = PaymentQueueService()
 
     private let productIdentifiers = Set([
-        "com.mobilepay.consumable"
+        "com.mobilepay.consumable.rocketfuel",
+        "com.mobilepay.consumable.premiumrocketfuel"
     ])
 
     override init() {
