@@ -68,3 +68,16 @@ class PaymentViewModel: NSObject, ObservableObject {
     }
 
 }
+
+extension PaymentViewModel: PaymentQueueServiceDelegate {
+
+    func failedTransaction(_ transaction: SKPaymentTransaction) {
+        // TODO
+    }
+
+    func completeTransaction(_ transaction: SKPaymentTransaction) {
+        // Add the purhcased and restored transaction product Ids to the "completedPurchases" array
+        completedPurchases.append(transaction.payment.productIdentifier)
+    }
+
+}

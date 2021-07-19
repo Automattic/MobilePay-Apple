@@ -8,9 +8,17 @@
 import Foundation
 import StoreKit
 
+public protocol PaymentQueueServiceDelegate: AnyObject {
+    func failedTransaction(_ transaction: SKPaymentTransaction)
+    func completeTransaction(_ transaction: SKPaymentTransaction)
+}
+
 public class PaymentQueueService: NSObject {
 
     public typealias FetchCompletionCallback = ([SKProduct]) -> Void
+
+    // Delegate that gets called when transactions are updated
+    public var delegate: PaymentQueueServiceDelegate?
 
     // A callback to help with handling the completion of loaded products
     public var fetchCompletionCallback: FetchCompletionCallback?
@@ -73,41 +81,23 @@ extension PaymentQueueService: SKPaymentTransactionObserver {
     public func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         for transaction in transactions {
             switch transaction.transactionState {
-            case .purchasing:
-                showTransactionInProgress(transaction, deferred: false)
-            case .deferred:
-                showTransactionInProgress(transaction, deferred: true)
+            case .purchasing,
+                 .deferred:
+                // FIXME: ignore for now
+                break
             case .failed:
-                failedTransaction(transaction)
-            case .purchased:
-                completeTransaction(transaction)
-            case .restored:
-                restoreTransaction(transaction)
+                delegate?.failedTransaction(transaction)
+                SKPaymentQueue.default().finishTransaction(transaction)
+            case .purchased,
+                 .restored:
+                delegate?.completeTransaction(transaction)
+                SKPaymentQueue.default().finishTransaction(transaction)
             @unknown default:
                 print("Unexpected transaction state: \(transaction.transactionState)")
             }
         }
     }
 
-    private func showTransactionInProgress(_ transaction: SKPaymentTransaction, deferred: Bool) {
-        // TODO
-    }
-
-    private func failedTransaction(_ transaction: SKPaymentTransaction) {
-        finishTransaction(transaction)
-    }
-
-    private func completeTransaction(_ transaction: SKPaymentTransaction) {
-        finishTransaction(transaction)
-    }
-
-    private func restoreTransaction(_ transaction: SKPaymentTransaction) {
-        finishTransaction(transaction)
-    }
-
-    private func finishTransaction(_ transaction: SKPaymentTransaction) {
-        SKPaymentQueue.default().finishTransaction(transaction)
-    }
 }
 
 // MARK: - SKProductsRequestDelegate
