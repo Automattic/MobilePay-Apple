@@ -52,6 +52,7 @@
 		FA5DF9C426A567B600664755 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		FA5DF9C626A567B600664755 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAB50D2A26A576E40093D56F /* PaymentQueueService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentQueueService.swift; sourceTree = "<group>"; };
+		FAB50D2D26A577970093D56F /* MobilePayKit */ = {isa = PBXFileReference; lastKnownFileType = folder; path = MobilePayKit; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +90,7 @@
 		FA5DF99826A567B500664755 = {
 			isa = PBXGroup;
 			children = (
+				FAB50D2D26A577970093D56F /* MobilePayKit */,
 				FA5DF99D26A567B500664755 /* Shared */,
 				FA5DF9A726A567B600664755 /* iOS */,
 				FA5DF9AE26A567B600664755 /* macOS */,
