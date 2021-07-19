@@ -10,7 +10,7 @@ import SwiftUI
 struct PurchasableContentRow: View {
     let content: PurchasableContent
     let action: () -> Void
-    
+
     var body: some View {
         HStack {
             ZStack {
@@ -22,21 +22,21 @@ struct PurchasableContentRow: View {
                     .opacity(content.isLocked ? 0.8 : 1)
                     .blur(radius: content.isLocked ? 3.0 : 0)
                     .padding()
-                
+
                 Image(systemName: "lock.fill")
                     .font(.largeTitle)
                     .opacity(content.isLocked ? 1 : 0)
             }
-            
+
             VStack(alignment: .leading) {
                 Text(content.title)
                     .font(.headline)
                 Text(content.description)
                     .font(.caption)
             }
-            
+
             Spacer()
-            
+
             if let price = content.price, content.isLocked {
                 Button(action: action, label: {
                     Text(price)
@@ -53,7 +53,7 @@ struct PurchasableContentRow: View {
 
 struct ContentView: View {
     @EnvironmentObject private var coordinator: PaymentCoordinator
-    
+
     var body: some View {
         NavigationView {
             List(coordinator.contentList, id: \.self) { content in
@@ -70,15 +70,15 @@ struct ContentView: View {
                                                 .cornerRadius(9)
                                                 .padding()
                                         }
-                                       
+
                         ) {
-                            
+
                             // Content is already unlocked - nothing to see here
                             PurchasableContentRow(content: content) { }
                         }
                     } else {
                         PurchasableContentRow(content: content) {
-                            
+
                             // Check if the product exists before purchasing
                             if let product = coordinator.fetchProduct(for: content.id) {
                                 coordinator.purchaseProduct(product)
@@ -89,7 +89,7 @@ struct ContentView: View {
                     coordinator.restorePurchases()
                 })
             }.navigationTitle("Rocket fuel shop")
-            
+
         }
     }
 }
