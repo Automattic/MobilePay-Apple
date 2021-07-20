@@ -1,4 +1,5 @@
 import SwiftUI
+import MobilePayKit
 
 struct PurchasableContentRow: View {
 

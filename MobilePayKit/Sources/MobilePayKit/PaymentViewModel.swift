@@ -1,12 +1,11 @@
 import Foundation
 import StoreKit
-import MobilePayKit
 
-class PaymentViewModel: NSObject, ObservableObject {
+public class PaymentViewModel: NSObject, ObservableObject {
 
-    @Published var contentList: [PurchasableContent] = []
+    @Published public var contentList: [PurchasableContent] = []
 
-    @Published var currentContent: PurchasableContent?
+    @Published public var currentContent: PurchasableContent?
 
     private let paymentQueueService = PaymentQueueService()
 
@@ -36,7 +35,7 @@ class PaymentViewModel: NSObject, ObservableObject {
         }
     }
 
-    override init() {
+    public override init() {
         super.init()
 
         paymentQueueService.delegate = self
@@ -46,19 +45,19 @@ class PaymentViewModel: NSObject, ObservableObject {
         }
     }
 
-    func fetchProduct(for identifier: String) -> SKProduct? {
+    public func fetchProduct(for identifier: String) -> SKProduct? {
         return paymentQueueService.fetchProduct(for: identifier)
     }
 
-    func purchaseProduct(_ product: SKProduct) {
+    public func purchaseProduct(_ product: SKProduct) {
         paymentQueueService.purchaseProduct(product)
     }
 
-    func restorePurchases() {
+    public func restorePurchases() {
         paymentQueueService.restorePurchases()
     }
 
-    func consumeCurrentContent() {
+    public func consumeCurrentContent() {
         currentContent?.isLocked = true
     }
 
@@ -66,11 +65,11 @@ class PaymentViewModel: NSObject, ObservableObject {
 
 extension PaymentViewModel: PaymentQueueServiceDelegate {
 
-    func failedTransaction(_ transaction: SKPaymentTransaction) {
+    public func failedTransaction(_ transaction: SKPaymentTransaction) {
         // TODO
     }
 
-    func completeTransaction(_ transaction: SKPaymentTransaction) {
+    public func completeTransaction(_ transaction: SKPaymentTransaction) {
         // Add the purhcased and restored transaction product Ids to the "completedPurchases" array
         completedPurchases.append(transaction.payment.productIdentifier)
     }

@@ -1,4 +1,5 @@
 import SwiftUI
+import MobilePayKit
 
 @main
 struct MobilePay_AppleApp: App {
