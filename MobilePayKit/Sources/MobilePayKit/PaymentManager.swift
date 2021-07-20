@@ -1,7 +1,7 @@
 import Foundation
 import StoreKit
 
-public class PaymentViewModel: NSObject, ObservableObject {
+public class PaymentManager: NSObject, ObservableObject {
 
     @Published public var contentList: [PurchasableContent] = []
 
@@ -35,6 +35,8 @@ public class PaymentViewModel: NSObject, ObservableObject {
         }
     }
 
+    // MARK: - Init
+
     public override init() {
         super.init()
 
@@ -44,6 +46,8 @@ public class PaymentViewModel: NSObject, ObservableObject {
             self.contentList = products.map { PurchasableContent(product: $0) }
         }
     }
+
+    // MARK: - Public
 
     public func fetchProduct(for identifier: String) -> SKProduct? {
         return paymentQueueService.fetchProduct(for: identifier)
@@ -63,7 +67,9 @@ public class PaymentViewModel: NSObject, ObservableObject {
 
 }
 
-extension PaymentViewModel: PaymentQueueServiceDelegate {
+// MARK: - PaymentQueueServiceDelegate
+
+extension PaymentManager: PaymentQueueServiceDelegate {
 
     public func failedTransaction(_ transaction: SKPaymentTransaction) {
         // TODO
