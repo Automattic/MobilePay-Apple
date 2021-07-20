@@ -1,10 +1,3 @@
-//
-//  PaymentViewModel.swift
-//  MobilePay-Apple
-//
-//  Created by Momo Ozawa on 2021/07/19.
-//
-
 import Foundation
 import StoreKit
 import MobilePayKit

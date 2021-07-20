@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  Shared
-//
-//  Created by Momo Ozawa on 2021/07/19.
-//
-
 import SwiftUI
 
 struct PurchasableContentRow: View {
