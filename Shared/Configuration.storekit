@@ -1,0 +1,48 @@
+{
+  "identifier" : "64982C81",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "0.99",
+      "familyShareable" : false,
+      "internalID" : "9C01CDCE",
+      "localizations" : [
+        {
+          "description" : "Fuel for your rocket",
+          "displayName" : "Rocket Fuel",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.mobilepay.consumable.rocketfuel",
+      "referenceName" : "Rocket Fuel",
+      "type" : "Consumable"
+    },
+    {
+      "displayPrice" : "5.99",
+      "familyShareable" : false,
+      "internalID" : "5B28878A",
+      "localizations" : [
+        {
+          "description" : "Premium fuel for your rocket",
+          "displayName" : "Premium Rocket Fuel",
+          "locale" : "en_US"
+        }
+      ],
+      "productID" : "com.mobilepay.consumable.premiumrocketfuel",
+      "referenceName" : "Premium Rocket Fuel",
+      "type" : "Consumable"
+    }
+  ],
+  "settings" : {
+
+  },
+  "subscriptionGroups" : [
+
+  ],
+  "version" : {
+    "major" : 1,
+    "minor" : 1
+  }
+}
