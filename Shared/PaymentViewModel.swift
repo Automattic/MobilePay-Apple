@@ -22,8 +22,10 @@ class PaymentViewModel: NSObject, ObservableObject {
         didSet {
             // We have to do this on the main queue as this might affect the UI
             DispatchQueue.main.async { [weak self] in
-                // Ensure we can access self here
-                guard let self = self else { return }
+
+                guard let self = self else {
+                    return
+                }
 
                 for index in self.contentList.indices {
 
