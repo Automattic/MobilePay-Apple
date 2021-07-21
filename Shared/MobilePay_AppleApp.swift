@@ -4,11 +4,11 @@ import MobilePayKit
 @main
 struct MobilePay_AppleApp: App {
 
-    @StateObject private var viewModel = PaymentViewModel()
+    @StateObject private var viewModel = ProductListViewModel()
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ProductList()
                 .environmentObject(viewModel)
         }
     }
