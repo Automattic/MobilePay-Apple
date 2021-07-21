@@ -39,22 +39,20 @@ public class PaymentManager: NSObject, ObservableObject {
 
     public override init() {
         super.init()
-
-        paymentQueueService.delegate = self
-
-        paymentQueueService.fetchProducts(for: productIdentifiers) { products in
-            self.contentList = products.map { PurchasableContent(product: $0) }
-        }
     }
 
     // MARK: - Public
+
+    public func fetchProducts(completion: @escaping FetchCompletionCallback) {
+        paymentQueueService.fetchProducts(for: productIdentifiers, completion: completion)
+    }
 
     public func fetchProduct(for identifier: String) -> SKProduct? {
         return paymentQueueService.fetchProduct(for: identifier)
     }
 
-    public func purchaseProduct(_ product: SKProduct) {
-        paymentQueueService.purchaseProduct(product)
+    public func purchaseProduct(_ product: SKProduct, completion: @escaping PurchaseCompletionCallback) {
+        paymentQueueService.purchaseProduct(product, completion: completion)
     }
 
     public func restorePurchases() {
@@ -63,21 +61,6 @@ public class PaymentManager: NSObject, ObservableObject {
 
     public func consumeCurrentContent() {
         currentContent?.isLocked = true
-    }
-
-}
-
-// MARK: - PaymentQueueServiceDelegate
-
-extension PaymentManager: PaymentQueueServiceDelegate {
-
-    public func failedTransaction(_ transaction: SKPaymentTransaction) {
-        // TODO
-    }
-
-    public func completeTransaction(_ transaction: SKPaymentTransaction) {
-        // Add the purhcased and restored transaction product Ids to the "completedPurchases" array
-        completedPurchases.append(transaction.payment.productIdentifier)
     }
 
 }

@@ -88,7 +88,7 @@ struct ContentView: View {
 
                             // Check if the product exists before purchasing
                             if let product = paymentManager.fetchProduct(for: content.id) {
-                                paymentManager.purchaseProduct(product)
+                                paymentManager.purchaseProduct(product) { _ in }
                             }
                         }
                     }
