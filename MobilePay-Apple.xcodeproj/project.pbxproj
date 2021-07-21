@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA3DF19226A831CF00111746 /* PaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3DF19126A831CF00111746 /* PaymentViewModel.swift */; };
+		FA3DF19326A831CF00111746 /* PaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3DF19126A831CF00111746 /* PaymentViewModel.swift */; };
 		FA5DF9BA26A567B600664755 /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5DF9B926A567B600664755 /* Tests_iOS.swift */; };
 		FA5DF9C526A567B600664755 /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5DF9C426A567B600664755 /* Tests_macOS.swift */; };
 		FA5DF9C726A567B600664755 /* MobilePay_AppleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5DF99E26A567B500664755 /* MobilePay_AppleApp.swift */; };
@@ -17,10 +19,6 @@
 		FA5DF9CC26A567B600664755 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA5DF9A026A567B600664755 /* Assets.xcassets */; };
 		FAB50D3026A578030093D56F /* MobilePayKit in Frameworks */ = {isa = PBXBuildFile; productRef = FAB50D2F26A578030093D56F /* MobilePayKit */; };
 		FAB50D3226A578070093D56F /* MobilePayKit in Frameworks */ = {isa = PBXBuildFile; productRef = FAB50D3126A578070093D56F /* MobilePayKit */; };
-		FAB50D3426A5793F0093D56F /* PaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB50D3326A5793F0093D56F /* PaymentViewModel.swift */; };
-		FAB50D3526A5793F0093D56F /* PaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB50D3326A5793F0093D56F /* PaymentViewModel.swift */; };
-		FAB50D3726A579790093D56F /* PurchasableContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB50D3626A579790093D56F /* PurchasableContent.swift */; };
-		FAB50D3826A579790093D56F /* PurchasableContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB50D3626A579790093D56F /* PurchasableContent.swift */; };
 		FAB50D3A26A57A460093D56F /* Configuration.storekit in Resources */ = {isa = PBXBuildFile; fileRef = FAB50D3926A57A460093D56F /* Configuration.storekit */; };
 		FAB50D3B26A57A460093D56F /* Configuration.storekit in Resources */ = {isa = PBXBuildFile; fileRef = FAB50D3926A57A460093D56F /* Configuration.storekit */; };
 /* End PBXBuildFile section */
@@ -43,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FA3DF19126A831CF00111746 /* PaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewModel.swift; sourceTree = "<group>"; };
 		FA5DF99E26A567B500664755 /* MobilePay_AppleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobilePay_AppleApp.swift; sourceTree = "<group>"; };
 		FA5DF99F26A567B500664755 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FA5DF9A026A567B600664755 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -58,8 +57,6 @@
 		FA5DF9C426A567B600664755 /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		FA5DF9C626A567B600664755 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAB50D2D26A577970093D56F /* MobilePayKit */ = {isa = PBXFileReference; lastKnownFileType = folder; path = MobilePayKit; sourceTree = "<group>"; };
-		FAB50D3326A5793F0093D56F /* PaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewModel.swift; sourceTree = "<group>"; };
-		FAB50D3626A579790093D56F /* PurchasableContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasableContent.swift; sourceTree = "<group>"; };
 		FAB50D3926A57A460093D56F /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,10 +112,9 @@
 			isa = PBXGroup;
 			children = (
 				FA5DF99E26A567B500664755 /* MobilePay_AppleApp.swift */,
+				FA3DF19126A831CF00111746 /* PaymentViewModel.swift */,
 				FA5DF99F26A567B500664755 /* ContentView.swift */,
 				FA5DF9A026A567B600664755 /* Assets.xcassets */,
-				FAB50D3326A5793F0093D56F /* PaymentViewModel.swift */,
-				FAB50D3626A579790093D56F /* PurchasableContent.swift */,
 				FAB50D3926A57A460093D56F /* Configuration.storekit */,
 			);
 			path = Shared;
@@ -364,10 +360,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAB50D3726A579790093D56F /* PurchasableContent.swift in Sources */,
 				FA5DF9C926A567B600664755 /* ContentView.swift in Sources */,
+				FA3DF19226A831CF00111746 /* PaymentViewModel.swift in Sources */,
 				FA5DF9C726A567B600664755 /* MobilePay_AppleApp.swift in Sources */,
-				FAB50D3426A5793F0093D56F /* PaymentViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,10 +370,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAB50D3826A579790093D56F /* PurchasableContent.swift in Sources */,
 				FA5DF9CA26A567B600664755 /* ContentView.swift in Sources */,
+				FA3DF19326A831CF00111746 /* PaymentViewModel.swift in Sources */,
 				FA5DF9C826A567B600664755 /* MobilePay_AppleApp.swift in Sources */,
-				FAB50D3526A5793F0093D56F /* PaymentViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

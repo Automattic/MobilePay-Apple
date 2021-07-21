@@ -1,4 +1,5 @@
 import SwiftUI
+import MobilePayKit
 
 struct PurchasableContentRow: View {
 
@@ -84,11 +85,7 @@ struct ContentView: View {
                         }
                     } else {
                         PurchasableContentRow(content: content) {
-
-                            // Check if the product exists before purchasing
-                            if let product = viewModel.fetchProduct(for: content.id) {
-                                viewModel.purchaseProduct(product)
-                            }
+                            viewModel.buyProduct(with: content.id)
                         }
                     }
                 }.navigationBarItems(trailing: Button("Restore") {

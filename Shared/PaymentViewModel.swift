@@ -1,22 +1,15 @@
+import Combine
 import Foundation
-import StoreKit
 import MobilePayKit
 
-class PaymentViewModel: NSObject, ObservableObject {
+class PaymentViewModel: ObservableObject {
 
-    @Published var contentList: [PurchasableContent] = []
+    @Published private(set) var contentList: [PurchasableContent]
 
-    @Published var currentContent: PurchasableContent?
-
-    private let paymentQueueService = PaymentQueueService()
-
-    private let productIdentifiers = Set([
-        "com.mobilepay.consumable.rocketfuel",
-        "com.mobilepay.consumable.premiumrocketfuel"
-    ])
+    private let paymentManager: PaymentManager
 
     // Here we're going to store all the completed purchases
-    private var completedPurchases = [String]() {
+    private var completedPurchases: [String] = [] {
 
         // We need to update set the subscription.isLocked value to true after a purchase
         didSet {
@@ -36,43 +29,30 @@ class PaymentViewModel: NSObject, ObservableObject {
         }
     }
 
-    override init() {
-        super.init()
+    init(paymentManager: PaymentManager = .init()) {
+        self.contentList = []
+        self.paymentManager = paymentManager
 
-        paymentQueueService.delegate = self
-
-        paymentQueueService.fetchProducts(for: productIdentifiers) { products in
+        paymentManager.fetchProducts(completion: { products in
             self.contentList = products.map { PurchasableContent(product: $0) }
+        })
+    }
+
+    func buyProduct(with identifier: String) {
+        // Check if the product exists before purchasing
+        guard let product = paymentManager.fetchProduct(for: identifier) else {
+            return
         }
-    }
 
-    func fetchProduct(for identifier: String) -> SKProduct? {
-        return paymentQueueService.fetchProduct(for: identifier)
-    }
-
-    func purchaseProduct(_ product: SKProduct) {
-        paymentQueueService.purchaseProduct(product)
+        paymentManager.purchaseProduct(product, completion: { [weak self] transaction in
+            guard let transaction = transaction else {
+                return
+            }
+            self?.completedPurchases.append(transaction.payment.productIdentifier)
+        })
     }
 
     func restorePurchases() {
-        paymentQueueService.restorePurchases()
+        paymentManager.restorePurchases()
     }
-
-    func consumeCurrentContent() {
-        currentContent?.isLocked = true
-    }
-
-}
-
-extension PaymentViewModel: PaymentQueueServiceDelegate {
-
-    func failedTransaction(_ transaction: SKPaymentTransaction) {
-        // TODO
-    }
-
-    func completeTransaction(_ transaction: SKPaymentTransaction) {
-        // Add the purhcased and restored transaction product Ids to the "completedPurchases" array
-        completedPurchases.append(transaction.payment.productIdentifier)
-    }
-
 }

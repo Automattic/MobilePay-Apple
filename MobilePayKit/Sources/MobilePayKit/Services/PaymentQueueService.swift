@@ -1,20 +1,16 @@
 import Foundation
 import StoreKit
 
-public protocol PaymentQueueServiceDelegate: AnyObject {
-    func failedTransaction(_ transaction: SKPaymentTransaction)
-    func completeTransaction(_ transaction: SKPaymentTransaction)
-}
+public typealias FetchCompletionCallback = ([SKProduct]) -> Void
+public typealias PurchaseCompletionCallback = (SKPaymentTransaction?) -> Void
 
 public class PaymentQueueService: NSObject {
 
-    public typealias FetchCompletionCallback = ([SKProduct]) -> Void
+    // A callback to help with handling fetch products completion
+    private var fetchCompletionCallback: FetchCompletionCallback?
 
-    // Delegate that gets called when transactions are updated
-    public var delegate: PaymentQueueServiceDelegate?
-
-    // A callback to help with handling the completion of loaded products
-    public var fetchCompletionCallback: FetchCompletionCallback?
+    // A callback to help with handling purchase product completion
+    private var purchaseCompletionCallback: PurchaseCompletionCallback?
 
     // This variable will be used as a cache to store the products we fetched
     private var fetchedProducts: [SKProduct] = []
@@ -56,7 +52,12 @@ public class PaymentQueueService: NSObject {
         return fetchedProducts.first(where: { $0.productIdentifier == identifier})
     }
 
-    public func purchaseProduct(_ product: SKProduct) {
+    public func purchaseProduct(_ product: SKProduct, completion: @escaping PurchaseCompletionCallback) {
+
+        // Initialiaze the handler
+        purchaseCompletionCallback = completion
+
+        // Submit the payment request to the App Store by adding it to the payment queue
         let payment = SKPayment(product: product)
         SKPaymentQueue.default().add(payment)
     }
@@ -74,17 +75,25 @@ extension PaymentQueueService: SKPaymentTransactionObserver {
     public func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         for transaction in transactions {
             switch transaction.transactionState {
+
             case .purchasing,
                  .deferred:
                 // FIXME: ignore for now
                 break
+
             case .failed:
-                delegate?.failedTransaction(transaction)
                 SKPaymentQueue.default().finishTransaction(transaction)
+                // FIXME: handle failed transaction
+
             case .purchased,
                  .restored:
-                delegate?.completeTransaction(transaction)
                 SKPaymentQueue.default().finishTransaction(transaction)
+
+                DispatchQueue.main.async { [weak self] in
+                    self?.purchaseCompletionCallback?(transaction)
+                    self?.purchaseCompletionCallback = nil
+                }
+
             @unknown default:
                 print("Unexpected transaction state: \(transaction.transactionState)")
             }
@@ -97,12 +106,12 @@ extension PaymentQueueService: SKPaymentTransactionObserver {
 
 extension PaymentQueueService: SKProductsRequestDelegate {
 
-    public func productsRequest( _ request: SKProductsRequest, didReceive response: SKProductsResponse ) {
+    public func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         let products = response.products
 
         // We want to know when products arn't loaded
         guard !products.isEmpty else {
-            print( "We could not load the products 😢" )
+            print("We could not load the products 😢")
             productsRequest = nil
             return
         }
@@ -113,7 +122,8 @@ extension PaymentQueueService: SKProductsRequestDelegate {
         fetchedProducts = products
 
         DispatchQueue.main.async { [weak self] in
-            self?.fetchCompletionCallback?( products )
+            self?.fetchCompletionCallback?(products)
+            self?.fetchCompletionCallback = nil
         }
     }
 
