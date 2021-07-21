@@ -70,11 +70,11 @@ struct PurchasableContentDetail: View {
 
 struct ContentView: View {
 
-    @EnvironmentObject private var paymentManager: PaymentManager
+    @EnvironmentObject private var viewModel: PaymentViewModel
 
     var body: some View {
         NavigationView {
-            List(paymentManager.contentList, id: \.self) { content in
+            List(viewModel.contentList, id: \.self) { content in
                 Group {
                     if !content.isLocked {
 
@@ -85,15 +85,11 @@ struct ContentView: View {
                         }
                     } else {
                         PurchasableContentRow(content: content) {
-
-                            // Check if the product exists before purchasing
-                            if let product = paymentManager.fetchProduct(for: content.id) {
-                                paymentManager.purchaseProduct(product) { _ in }
-                            }
+                            viewModel.buyProduct(with: content.id)
                         }
                     }
                 }.navigationBarItems(trailing: Button("Restore") {
-                    paymentManager.restorePurchases()
+                    viewModel.restorePurchases()
                 })
             }.navigationTitle("Rocket fuel shop")
         }

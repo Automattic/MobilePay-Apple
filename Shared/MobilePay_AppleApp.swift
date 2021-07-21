@@ -4,12 +4,12 @@ import MobilePayKit
 @main
 struct MobilePay_AppleApp: App {
 
-    @StateObject private var paymentManager = PaymentManager()
+    @StateObject private var viewModel = PaymentViewModel()
 
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environmentObject(paymentManager)
+                .environmentObject(viewModel)
         }
     }
 }

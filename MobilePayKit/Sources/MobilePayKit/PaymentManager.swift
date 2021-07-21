@@ -1,11 +1,7 @@
 import Foundation
 import StoreKit
 
-public class PaymentManager: NSObject, ObservableObject {
-
-    @Published public var contentList: [PurchasableContent] = []
-
-    @Published public var currentContent: PurchasableContent?
+public class PaymentManager: NSObject {
 
     private let paymentQueueService = PaymentQueueService()
 
@@ -13,27 +9,6 @@ public class PaymentManager: NSObject, ObservableObject {
         "com.mobilepay.consumable.rocketfuel",
         "com.mobilepay.consumable.premiumrocketfuel"
     ])
-
-    // Here we're going to store all the completed purchases
-    private var completedPurchases = [String]() {
-
-        // We need to update set the subscription.isLocked value to true after a purchase
-        didSet {
-            // We have to do this on the main queue as this might affect the UI
-            DispatchQueue.main.async { [weak self] in
-
-                guard let self = self else {
-                    return
-                }
-
-                for index in self.contentList.indices {
-
-                    // Update the "isLocked" if the product has been purchased
-                    self.contentList[index].isLocked = !self.completedPurchases.contains( self.contentList[index].id )
-                }
-            }
-        }
-    }
 
     // MARK: - Init
 
@@ -58,9 +33,4 @@ public class PaymentManager: NSObject, ObservableObject {
     public func restorePurchases() {
         paymentQueueService.restorePurchases()
     }
-
-    public func consumeCurrentContent() {
-        currentContent?.isLocked = true
-    }
-
 }
