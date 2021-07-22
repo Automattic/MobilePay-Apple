@@ -33,7 +33,7 @@ class ProductListViewModel: ObservableObject {
         self.products = []
         self.paymentManager = paymentManager
 
-        paymentManager.fetchProducts(completion: { products in
+        paymentManager.fetchRemoteProducts(completion: { products in
             self.products = products.map { Product(product: $0) }
         })
     }

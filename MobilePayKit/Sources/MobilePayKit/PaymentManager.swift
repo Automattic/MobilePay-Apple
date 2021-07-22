@@ -18,7 +18,7 @@ public class PaymentManager: NSObject {
 
     // MARK: - Public
 
-    public func fetchProducts(completion: @escaping FetchCompletionCallback) {
+    public func fetchRemoteProducts(completion: @escaping FetchCompletionCallback) {
         paymentQueueService.fetchProducts(for: productIdentifiers, completion: completion)
     }
 
