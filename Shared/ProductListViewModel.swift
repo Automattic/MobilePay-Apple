@@ -38,13 +38,8 @@ class ProductListViewModel: ObservableObject {
         })
     }
 
-    func buyProduct(with identifier: String) {
-        // Check if the product exists before purchasing
-        guard let product = paymentManager.fetchProduct(for: identifier) else {
-            return
-        }
-
-        paymentManager.purchaseProduct(product, completion: { [weak self] transaction in
+    func purchaseProduct(with identifier: String) {
+        paymentManager.purchaseProduct(with: identifier, completion: { [weak self] transaction in
             guard let transaction = transaction else {
                 return
             }
