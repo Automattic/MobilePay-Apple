@@ -85,7 +85,7 @@ struct ProductList: View {
                         }
                     } else {
                         ProductRow(product: product) {
-                            viewModel.buyProduct(with: product.id)
+                            viewModel.purchaseProduct(with: product.id)
                         }
                     }
                 }.navigationBarItems(trailing: Button("Restore") {
