@@ -4,7 +4,7 @@ import StoreKit
 public typealias FetchCompletionCallback = ([SKProduct]) -> Void
 public typealias PurchaseCompletionCallback = (SKPaymentTransaction?) -> Void
 
-public class PaymentQueueService: NSObject {
+class PaymentQueueService: NSObject {
 
     // A callback to help with handling fetch products completion
     private var fetchCompletionCallback: FetchCompletionCallback?
@@ -20,7 +20,7 @@ public class PaymentQueueService: NSObject {
 
     // MARK: - Lifecycle
 
-    public override init() {
+    override init() {
         super.init()
         start()
     }
@@ -31,11 +31,11 @@ public class PaymentQueueService: NSObject {
 
     // MARK: - Public
 
-    public func start() {
+    func start() {
         SKPaymentQueue.default().add(self)
     }
 
-    public func fetchProducts(for identifiers: Set<String>, completion: @escaping FetchCompletionCallback) {
+    func fetchProducts(for identifiers: Set<String>, completion: @escaping FetchCompletionCallback) {
 
         // Initialize the handler
         fetchCompletionCallback = completion
@@ -48,11 +48,11 @@ public class PaymentQueueService: NSObject {
         productsRequest?.start()
     }
 
-    public func fetchProduct(for identifier: String) -> SKProduct? {
+    func fetchProduct(for identifier: String) -> SKProduct? {
         return fetchedProducts.first(where: { $0.productIdentifier == identifier})
     }
 
-    public func purchaseProduct(_ product: SKProduct, completion: @escaping PurchaseCompletionCallback) {
+    func purchaseProduct(_ product: SKProduct, completion: @escaping PurchaseCompletionCallback) {
 
         // Initialiaze the handler
         purchaseCompletionCallback = completion
@@ -62,7 +62,7 @@ public class PaymentQueueService: NSObject {
         SKPaymentQueue.default().add(payment)
     }
 
-    public func restorePurchases() {
+    func restorePurchases() {
         SKPaymentQueue.default().restoreCompletedTransactions()
     }
 
@@ -72,7 +72,7 @@ public class PaymentQueueService: NSObject {
 
 extension PaymentQueueService: SKPaymentTransactionObserver {
 
-    public func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         for transaction in transactions {
             switch transaction.transactionState {
 
@@ -106,7 +106,7 @@ extension PaymentQueueService: SKPaymentTransactionObserver {
 
 extension PaymentQueueService: SKProductsRequestDelegate {
 
-    public func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
+    func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         let products = response.products
 
         // We want to know when products arn't loaded
