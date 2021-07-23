@@ -21,14 +21,14 @@ public class PaymentManager: NSObject {
     public func fetchProducts(completion: @escaping FetchCompletionCallback) {
         paymentQueueService.fetchProducts(for: productIdentifiers, completion: completion)
     }
-    
+
     public func purchaseProduct(with identifier: String, completion: @escaping PurchaseCompletionCallback) {
-        
+
         // Check if the product exists in the App Store before purchasing
         guard let product = paymentQueueService.fetchProduct(for: identifier) else {
             return
         }
-        
+
         paymentQueueService.purchaseProduct(product, completion: completion)
 
     }
