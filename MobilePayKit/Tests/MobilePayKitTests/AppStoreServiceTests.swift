@@ -40,11 +40,61 @@ final class AppStoreServiceTests: XCTestCase {
 
         XCTAssertEqual(spy.addPaymentCalled, true)
     }
-    
+
     func testRestorePurchases_CallsRestoresCompletedTransactions() {
         service.restorePurchases()
 
         XCTAssertEqual(spy.restoreCompletedTransactionCalled, true)
+    }
+
+    func testPaymentQueueUpdatedTransactions_WhenTransactionStateIsFailed_CallsFinishTransaction() {
+        let transactions: [TestPaymentTransaction] = [
+            .fixture(transactionState: .failed)
+        ]
+
+        service.paymentQueue(SKPaymentQueue(), updatedTransactions: transactions)
+
+        XCTAssertEqual(spy.finishTransactionCalled, true)
+    }
+
+    func testPaymentQueueUpdatedTransactions_WhenTransactionStateIsPurchased_CallsFinishTransaction() {
+        let transactions: [TestPaymentTransaction] = [
+            .fixture(transactionState: .purchased)
+        ]
+
+        service.paymentQueue(SKPaymentQueue(), updatedTransactions: transactions)
+
+        XCTAssertEqual(spy.finishTransactionCalled, true)
+    }
+
+    func testPaymentQueueUpdatedTransactions_WhenTransactionStateIsRestored_CallsFinishTransaction() {
+        let transactions: [TestPaymentTransaction] = [
+            .fixture(transactionState: .restored)
+        ]
+
+        service.paymentQueue(SKPaymentQueue(), updatedTransactions: transactions)
+
+        XCTAssertEqual(spy.finishTransactionCalled, true)
+    }
+
+    func testPaymentQueueUpdatedTransactions_WhenTransactionStateIsPurchasing_DoesNotCallFinishTransaction() {
+        let transactions: [TestPaymentTransaction] = [
+            .fixture(transactionState: .purchasing)
+        ]
+
+        service.paymentQueue(SKPaymentQueue(), updatedTransactions: transactions)
+
+        XCTAssertEqual(spy.finishTransactionCalled, false)
+    }
+
+    func testPaymentQueueUpdatedTransactions_WhenTransactionStateIsDeferred_DoesNotCallFinishTransaction() {
+        let transactions: [TestPaymentTransaction] = [
+            .fixture(transactionState: .deferred)
+        ]
+
+        service.paymentQueue(SKPaymentQueue(), updatedTransactions: transactions)
+
+        XCTAssertEqual(spy.finishTransactionCalled, false)
     }
 
 }
