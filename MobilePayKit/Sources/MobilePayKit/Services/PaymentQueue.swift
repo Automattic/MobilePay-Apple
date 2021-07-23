@@ -1,7 +1,7 @@
 import Foundation
 import StoreKit
 
-protocol PaymentQueue: AnyObject {
+public protocol PaymentQueue: AnyObject {
 
     func add(_ observer: SKPaymentTransactionObserver)
     func remove(_ observer: SKPaymentTransactionObserver)
