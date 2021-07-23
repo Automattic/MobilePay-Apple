@@ -22,12 +22,15 @@ public class PaymentManager: NSObject {
         paymentQueueService.fetchProducts(for: productIdentifiers, completion: completion)
     }
 
-    public func fetchProduct(for identifier: String) -> SKProduct? {
-        return paymentQueueService.fetchProduct(for: identifier)
-    }
+    public func purchaseProduct(with identifier: String, completion: @escaping PurchaseCompletionCallback) {
 
-    public func purchaseProduct(_ product: SKProduct, completion: @escaping PurchaseCompletionCallback) {
+        // Check if the product exists in the App Store before purchasing
+        guard let product = paymentQueueService.fetchProduct(for: identifier) else {
+            return
+        }
+
         paymentQueueService.purchaseProduct(product, completion: completion)
+
     }
 
     public func restorePurchases() {

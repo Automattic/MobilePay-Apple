@@ -1,7 +1,7 @@
 import Foundation
 import StoreKit
 
-public struct PurchasableContent: Hashable {
+public struct Product: Hashable {
     public let id: String
     public let title: String
     public let description: String

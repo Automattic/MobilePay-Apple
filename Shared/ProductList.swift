@@ -1,38 +1,38 @@
 import SwiftUI
 import MobilePayKit
 
-struct PurchasableContentRow: View {
+struct ProductRow: View {
 
-    let content: PurchasableContent
+    let product: Product
     let action: () -> Void
 
     var body: some View {
         HStack {
             ZStack {
-                Image(content.imageName)
+                Image(product.imageName)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 80, height: 80)
                     .cornerRadius(9)
-                    .opacity(content.isLocked ? 0.8 : 1)
-                    .blur(radius: content.isLocked ? 3.0 : 0)
+                    .opacity(product.isLocked ? 0.8 : 1)
+                    .blur(radius: product.isLocked ? 3.0 : 0)
                     .padding()
 
                 Image(systemName: "lock.fill")
                     .font(.largeTitle)
-                    .opacity(content.isLocked ? 1 : 0)
+                    .opacity(product.isLocked ? 1 : 0)
             }
 
             VStack(alignment: .leading) {
-                Text(content.title)
+                Text(product.title)
                     .font(.headline)
-                Text(content.description)
+                Text(product.description)
                     .font(.caption)
             }
 
             Spacer()
 
-            if let price = content.price, content.isLocked {
+            if let price = product.price, product.isLocked {
                 Button(action: action, label: {
                     Text(price)
                         .foregroundColor(.white)
@@ -47,16 +47,16 @@ struct PurchasableContentRow: View {
 
 }
 
-struct PurchasableContentDetail: View {
+struct ProductDetail: View {
 
-    let content: PurchasableContent
+    let product: Product
 
     @Environment(\.presentationMode) var presentation
 
     var body: some View {
         NavigationView {
             VStack(alignment: .center) {
-                Image(content.imageName)
+                Image(product.imageName)
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 256, height: 256)
@@ -64,28 +64,28 @@ struct PurchasableContentDetail: View {
                     .padding()
             }
 
-        }.navigationTitle(content.title)
+        }.navigationTitle(product.title)
     }
 }
 
-struct ContentView: View {
+struct ProductList: View {
 
-    @EnvironmentObject private var viewModel: PaymentViewModel
+    @EnvironmentObject private var viewModel: ProductListViewModel
 
     var body: some View {
         NavigationView {
-            List(viewModel.contentList, id: \.self) { content in
+            List(viewModel.products, id: \.self) { product in
                 Group {
-                    if !content.isLocked {
+                    if !product.isLocked {
 
-                        NavigationLink(destination: PurchasableContentDetail(content: content)) {
+                        NavigationLink(destination: ProductDetail(product: product)) {
 
                             // Content is already unlocked - nothing to see here
-                            PurchasableContentRow(content: content) { }
+                            ProductRow(product: product) { }
                         }
                     } else {
-                        PurchasableContentRow(content: content) {
-                            viewModel.buyProduct(with: content.id)
+                        ProductRow(product: product) {
+                            viewModel.purchaseProduct(with: product.id)
                         }
                     }
                 }.navigationBarItems(trailing: Button("Restore") {
@@ -96,8 +96,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct ProductList_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ProductList()
     }
 }

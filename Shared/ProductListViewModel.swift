@@ -2,9 +2,9 @@ import Combine
 import Foundation
 import MobilePayKit
 
-class PaymentViewModel: ObservableObject {
+class ProductListViewModel: ObservableObject {
 
-    @Published private(set) var contentList: [PurchasableContent]
+    @Published private(set) var products: [MobilePayKit.Product]
 
     private let paymentManager: PaymentManager
 
@@ -20,31 +20,26 @@ class PaymentViewModel: ObservableObject {
                     return
                 }
 
-                for index in self.contentList.indices {
+                for index in self.products.indices {
 
                     // Update the "isLocked" if the product has been purchased
-                    self.contentList[index].isLocked = !self.completedPurchases.contains( self.contentList[index].id )
+                    self.products[index].isLocked = !self.completedPurchases.contains( self.products[index].id )
                 }
             }
         }
     }
 
     init(paymentManager: PaymentManager = .init()) {
-        self.contentList = []
+        self.products = []
         self.paymentManager = paymentManager
 
         paymentManager.fetchProducts(completion: { products in
-            self.contentList = products.map { PurchasableContent(product: $0) }
+            self.products = products.map { Product(product: $0) }
         })
     }
 
-    func buyProduct(with identifier: String) {
-        // Check if the product exists before purchasing
-        guard let product = paymentManager.fetchProduct(for: identifier) else {
-            return
-        }
-
-        paymentManager.purchaseProduct(product, completion: { [weak self] transaction in
+    func purchaseProduct(with identifier: String) {
+        paymentManager.purchaseProduct(with: identifier, completion: { [weak self] transaction in
             guard let transaction = transaction else {
                 return
             }
