@@ -6,6 +6,8 @@ public typealias PurchaseCompletionCallback = (SKPaymentTransaction?) -> Void
 
 class AppStoreService: NSObject {
 
+    private let paymentQueue: PaymentQueue
+
     // A callback to help with handling fetch products completion
     private var fetchCompletionCallback: FetchCompletionCallback?
 
@@ -20,20 +22,17 @@ class AppStoreService: NSObject {
 
     // MARK: - Lifecycle
 
-    override init() {
+    init(paymentQueue: PaymentQueue = SKPaymentQueue.default()) {
+        self.paymentQueue = paymentQueue
         super.init()
-        start()
+        paymentQueue.add(self)
     }
 
     deinit {
-        SKPaymentQueue.default().remove(self)
+        paymentQueue.remove(self)
     }
 
     // MARK: - Public
-
-    func start() {
-        SKPaymentQueue.default().add(self)
-    }
 
     func fetchProducts(for identifiers: Set<String>, completion: @escaping FetchCompletionCallback) {
 
@@ -59,11 +58,11 @@ class AppStoreService: NSObject {
 
         // Submit the payment request to the App Store by adding it to the payment queue
         let payment = SKPayment(product: product)
-        SKPaymentQueue.default().add(payment)
+        paymentQueue.add(payment)
     }
 
     func restorePurchases() {
-        SKPaymentQueue.default().restoreCompletedTransactions()
+        paymentQueue.restoreCompletedTransactions()
     }
 
 }
@@ -82,12 +81,12 @@ extension AppStoreService: SKPaymentTransactionObserver {
                 break
 
             case .failed:
-                SKPaymentQueue.default().finishTransaction(transaction)
+                paymentQueue.finishTransaction(transaction)
                 // FIXME: handle failed transaction
 
             case .purchased,
                  .restored:
-                SKPaymentQueue.default().finishTransaction(transaction)
+                paymentQueue.finishTransaction(transaction)
 
                 DispatchQueue.main.async { [weak self] in
                     self?.purchaseCompletionCallback?(transaction)
