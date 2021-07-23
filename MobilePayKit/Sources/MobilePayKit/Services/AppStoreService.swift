@@ -4,7 +4,7 @@ import StoreKit
 public typealias FetchCompletionCallback = ([SKProduct]) -> Void
 public typealias PurchaseCompletionCallback = (SKPaymentTransaction?) -> Void
 
-class PaymentQueueService: NSObject {
+class AppStoreService: NSObject {
 
     // A callback to help with handling fetch products completion
     private var fetchCompletionCallback: FetchCompletionCallback?
@@ -70,7 +70,7 @@ class PaymentQueueService: NSObject {
 
 // MARK: - SKPaymentTransactionObserver
 
-extension PaymentQueueService: SKPaymentTransactionObserver {
+extension AppStoreService: SKPaymentTransactionObserver {
 
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         for transaction in transactions {
@@ -104,7 +104,7 @@ extension PaymentQueueService: SKPaymentTransactionObserver {
 
 // MARK: - SKProductsRequestDelegate
 
-extension PaymentQueueService: SKProductsRequestDelegate {
+extension AppStoreService: SKProductsRequestDelegate {
 
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         let products = response.products
