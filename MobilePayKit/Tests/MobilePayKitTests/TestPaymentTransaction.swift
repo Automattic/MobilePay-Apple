@@ -21,7 +21,7 @@ class TestPaymentTransaction: SKPaymentTransaction {
 }
 
 extension TestPaymentTransaction {
-    
+
     static func fixture(
         productIdentifier: String = "com.mobilepaykit.product",
         transactionState: SKPaymentTransactionState
