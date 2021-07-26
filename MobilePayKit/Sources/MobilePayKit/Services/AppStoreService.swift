@@ -8,22 +8,26 @@ class AppStoreService: NSObject {
 
     private let paymentQueue: PaymentQueue
 
+    private let productsRequestFactory: ProductsRequestFactory
+
     // A callback to help with handling fetch products completion
     private var fetchCompletionCallback: FetchCompletionCallback?
 
     // A callback to help with handling purchase product completion
     private var purchaseCompletionCallback: PurchaseCompletionCallback?
 
-    // This variable will be used as a cache to store the products we fetched
-    private var fetchedProducts: [SKProduct] = []
-
     // An object that can retrieve product info from the App Store
-    private var productsRequest: SKProductsRequest?
+    private var productsRequest: ProductsRequest?
 
-    // MARK: - Lifecycle
 
-    init(paymentQueue: PaymentQueue = SKPaymentQueue.default()) {
+    // MARK: - Init
+
+    init(
+        paymentQueue: PaymentQueue = SKPaymentQueue.default(),
+        productsRequestFactory: ProductsRequestFactory = AppStoreProductsRequestFactory()
+    ) {
         self.paymentQueue = paymentQueue
+        self.productsRequestFactory = productsRequestFactory
         super.init()
         paymentQueue.add(self)
     }
@@ -35,20 +39,16 @@ class AppStoreService: NSObject {
     // MARK: - Public
 
     func fetchProducts(for identifiers: Set<String>, completion: @escaping FetchCompletionCallback) {
-
-        // Initialize the handler
-        fetchCompletionCallback = completion
-
-        // Initialize the product request with the above identifiers
-        productsRequest = SKProductsRequest(productIdentifiers: identifiers)
-        productsRequest?.delegate = self
-
-        // Send the request to the App Store
+        productsRequest = productsRequestFactory.createRequest(with: identifiers, completion: completion)
         productsRequest?.start()
     }
 
     func fetchProduct(for identifier: String) -> SKProduct? {
-        return fetchedProducts.first(where: { $0.productIdentifier == identifier})
+        guard let productsRequest = productsRequest else {
+            return nil
+        }
+
+        return productsRequest.fetchedProducts.first(where: { $0.productIdentifier == identifier })
     }
 
     func purchaseProduct(_ product: SKProduct, completion: @escaping PurchaseCompletionCallback) {
@@ -96,33 +96,6 @@ extension AppStoreService: SKPaymentTransactionObserver {
             @unknown default:
                 print("Unexpected transaction state: \(transaction.transactionState)")
             }
-        }
-    }
-
-}
-
-// MARK: - SKProductsRequestDelegate
-
-extension AppStoreService: SKProductsRequestDelegate {
-
-    func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
-        let products = response.products
-
-        // We want to know when products arn't loaded
-        guard !products.isEmpty else {
-            print("We could not load the products 😢")
-            productsRequest = nil
-            return
-        }
-
-        print("invalid products:", response.invalidProductIdentifiers)
-
-        // Here we are caching the products
-        fetchedProducts = products
-
-        DispatchQueue.main.async { [weak self] in
-            self?.fetchCompletionCallback?(products)
-            self?.fetchCompletionCallback = nil
         }
     }
 
