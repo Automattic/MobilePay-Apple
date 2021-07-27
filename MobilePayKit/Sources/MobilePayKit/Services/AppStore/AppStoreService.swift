@@ -10,15 +10,11 @@ class AppStoreService: NSObject {
 
     private let productsRequestFactory: ProductsRequestFactory
 
-    // A callback to help with handling fetch products completion
-    private var fetchCompletionCallback: FetchCompletionCallback?
-
     // A callback to help with handling purchase product completion
     private var purchaseCompletionCallback: PurchaseCompletionCallback?
 
     // An object that can retrieve product info from the App Store
-    private var productsRequest: ProductsRequest?
-
+    private(set) var productsRequest: ProductsRequest?
 
     // MARK: - Init
 
