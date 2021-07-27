@@ -22,7 +22,7 @@ class MockProductsRequest: ProductsRequest {
 }
 
 class MockProductsRequestFactory: ProductsRequestFactory {
-    
+
     var request: MockProductsRequest?
 
     func createRequest(with identifiers: Set<String>, completion: @escaping FetchCompletionCallback) -> ProductsRequest {
