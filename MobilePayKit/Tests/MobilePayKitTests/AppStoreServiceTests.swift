@@ -6,6 +6,7 @@ import XCTest
 final class AppStoreServiceTests: XCTestCase {
 
     let spy = PaymentQueueSpy()
+    let requestFactory = MockProductsRequestFactory()
 
     var service: AppStoreService!
 
@@ -13,7 +14,7 @@ final class AppStoreServiceTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        service = AppStoreService(paymentQueue: spy)
+        service = AppStoreService(paymentQueue: spy, productsRequestFactory: requestFactory)
     }
 
     override func tearDown() {
@@ -32,6 +33,22 @@ final class AppStoreServiceTests: XCTestCase {
 
         XCTAssertEqual(spy.removeObserverCalled, true)
     }
+
+    // MARK: - Fetch product
+    
+    func testfetchProducts_CreatesProductsRequestAndCallsStart() {
+        // call fetchProducts
+
+        XCTAssertNil(service.productsRequest)
+
+
+        service.fetchProducts(for: Set([]), completion: { _ in })
+
+        XCTAssertNotNil(requestFactory.request)
+        XCTAssertEqual(requestFactory.request?.startCalled, true)
+    }
+    
+    // MARK: - Purchase product
 
     func testPurchaseProduct_CallsAddPaymentToQueue() {
         let testProduct = SKProduct()
