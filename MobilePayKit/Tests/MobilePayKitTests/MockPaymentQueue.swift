@@ -1,7 +1,7 @@
 import MobilePayKit
 import StoreKit
 
-class PaymentQueueSpy: PaymentQueue {
+class MockPaymentQueue: PaymentQueue {
 
     var addObserverCalled = false
     var removeObserverCalled = false

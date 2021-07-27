@@ -5,16 +5,16 @@ import XCTest
 
 final class AppStoreServiceTests: XCTestCase {
 
-    let spy = PaymentQueueSpy()
-    let requestFactory = MockProductsRequestFactory()
-
     var service: AppStoreService!
+    
+    let paymentQueue = MockPaymentQueue()
+    let requestFactory = MockProductsRequestFactory()
 
     // MARK: - Override
 
     override func setUp() {
         super.setUp()
-        service = AppStoreService(paymentQueue: spy, productsRequestFactory: requestFactory)
+        service = AppStoreService(paymentQueue: paymentQueue, productsRequestFactory: requestFactory)
     }
 
     override func tearDown() {
@@ -25,22 +25,19 @@ final class AppStoreServiceTests: XCTestCase {
     // MARK: - Init
 
     func testInit_CallsAddObserver() {
-        XCTAssertEqual(spy.addObserverCalled, true)
+        XCTAssertEqual(paymentQueue.addObserverCalled, true)
     }
 
     func testDeinit_CallsRemoveObserver() {
         service = nil
 
-        XCTAssertEqual(spy.removeObserverCalled, true)
+        XCTAssertEqual(paymentQueue.removeObserverCalled, true)
     }
 
     // MARK: - Fetch product
     
     func testfetchProducts_CreatesProductsRequestAndCallsStart() {
-        // call fetchProducts
-
         XCTAssertNil(service.productsRequest)
-
 
         service.fetchProducts(for: Set([]), completion: { _ in })
 
@@ -55,7 +52,7 @@ final class AppStoreServiceTests: XCTestCase {
 
         service.purchaseProduct(testProduct, completion: { _ in })
 
-        XCTAssertEqual(spy.addPaymentCalled, true)
+        XCTAssertEqual(paymentQueue.addPaymentCalled, true)
     }
     
     // MARK: - Restore purchases
@@ -63,7 +60,7 @@ final class AppStoreServiceTests: XCTestCase {
     func testRestorePurchases_CallsRestoresCompletedTransactions() {
         service.restorePurchases()
 
-        XCTAssertEqual(spy.restoreCompletedTransactionCalled, true)
+        XCTAssertEqual(paymentQueue.restoreCompletedTransactionCalled, true)
     }
     
     // MARK: - Payment queue updated transactions
@@ -75,7 +72,7 @@ final class AppStoreServiceTests: XCTestCase {
 
         service.paymentQueue(SKPaymentQueue(), updatedTransactions: transactions)
 
-        XCTAssertEqual(spy.finishTransactionCalled, true)
+        XCTAssertEqual(paymentQueue.finishTransactionCalled, true)
     }
 
     func testPaymentQueueUpdatedTransactions_WhenTransactionStateIsPurchased_CallsFinishTransaction() {
@@ -85,7 +82,7 @@ final class AppStoreServiceTests: XCTestCase {
 
         service.paymentQueue(SKPaymentQueue(), updatedTransactions: transactions)
 
-        XCTAssertEqual(spy.finishTransactionCalled, true)
+        XCTAssertEqual(paymentQueue.finishTransactionCalled, true)
     }
 
     func testPaymentQueueUpdatedTransactions_WhenTransactionStateIsRestored_CallsFinishTransaction() {
@@ -95,7 +92,7 @@ final class AppStoreServiceTests: XCTestCase {
 
         service.paymentQueue(SKPaymentQueue(), updatedTransactions: transactions)
 
-        XCTAssertEqual(spy.finishTransactionCalled, true)
+        XCTAssertEqual(paymentQueue.finishTransactionCalled, true)
     }
 
     func testPaymentQueueUpdatedTransactions_WhenTransactionStateIsPurchasing_DoesNotCallFinishTransaction() {
@@ -105,7 +102,7 @@ final class AppStoreServiceTests: XCTestCase {
 
         service.paymentQueue(SKPaymentQueue(), updatedTransactions: transactions)
 
-        XCTAssertEqual(spy.finishTransactionCalled, false)
+        XCTAssertEqual(paymentQueue.finishTransactionCalled, false)
     }
 
     func testPaymentQueueUpdatedTransactions_WhenTransactionStateIsDeferred_DoesNotCallFinishTransaction() {
@@ -115,7 +112,7 @@ final class AppStoreServiceTests: XCTestCase {
 
         service.paymentQueue(SKPaymentQueue(), updatedTransactions: transactions)
 
-        XCTAssertEqual(spy.finishTransactionCalled, false)
+        XCTAssertEqual(paymentQueue.finishTransactionCalled, false)
     }
 
 }
