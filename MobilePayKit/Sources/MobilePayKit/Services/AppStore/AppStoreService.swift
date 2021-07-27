@@ -1,3 +1,4 @@
+import Combine
 import Foundation
 import StoreKit
 
@@ -10,6 +11,10 @@ class AppStoreService: NSObject {
 
     private let productsRequestFactory: ProductsRequestFactory
 
+    private let networking: Networking
+
+    private var cancellables = Set<AnyCancellable>()
+
     // A callback to help with handling purchase product completion
     private var purchaseCompletionCallback: PurchaseCompletionCallback?
 
@@ -20,10 +25,12 @@ class AppStoreService: NSObject {
 
     init(
         paymentQueue: PaymentQueue = SKPaymentQueue.default(),
-        productsRequestFactory: ProductsRequestFactory = AppStoreProductsRequestFactory()
+        productsRequestFactory: ProductsRequestFactory = AppStoreProductsRequestFactory(),
+        networking: Networking = NetworkingPlaceholder()
     ) {
         self.paymentQueue = paymentQueue
         self.productsRequestFactory = productsRequestFactory
+        self.networking = networking
         super.init()
         paymentQueue.add(self)
     }
@@ -33,6 +40,19 @@ class AppStoreService: NSObject {
     }
 
     // MARK: - Public
+
+    func fetchProducts(completion: @escaping FetchCompletionCallback) {
+        networking.fetchProductSKUs()
+            .sink(
+                receiveCompletion: { _ in },
+                receiveValue: { [weak self] skus in
+                    let productIdentifiers = Set(skus)
+                    self?.fetchProducts(for: productIdentifiers, completion: completion)
+                }
+            )
+            .store(in: &cancellables)
+    }
+
 
     func fetchProducts(for identifiers: Set<String>, completion: @escaping FetchCompletionCallback) {
         productsRequest = productsRequestFactory.createRequest(with: identifiers, completion: completion)
@@ -94,5 +114,4 @@ extension AppStoreService: SKPaymentTransactionObserver {
             }
         }
     }
-
 }
