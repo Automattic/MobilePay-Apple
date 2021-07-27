@@ -22,7 +22,7 @@ final class AppStoreServiceTests: XCTestCase {
         service = nil
     }
 
-    // MARK: - Tests
+    // MARK: - Init
 
     func testInit_CallsAddObserver() {
         XCTAssertEqual(spy.addObserverCalled, true)
@@ -57,12 +57,16 @@ final class AppStoreServiceTests: XCTestCase {
 
         XCTAssertEqual(spy.addPaymentCalled, true)
     }
+    
+    // MARK: - Restore purchases
 
     func testRestorePurchases_CallsRestoresCompletedTransactions() {
         service.restorePurchases()
 
         XCTAssertEqual(spy.restoreCompletedTransactionCalled, true)
     }
+    
+    // MARK: - Payment queue updated transactions
 
     func testPaymentQueueUpdatedTransactions_WhenTransactionStateIsFailed_CallsFinishTransaction() {
         let transactions: [TestPaymentTransaction] = [
