@@ -1,7 +1,8 @@
 import Foundation
 import StoreKit
 
-protocol ProductsRequest {
+public protocol ProductsRequest {
+
     var fetchedProducts: [SKProduct] { get }
 
     func start()
@@ -30,6 +31,7 @@ class ProductsRequestHelper: NSObject, ProductsRequest {
     // MARK: - ProductsRequest
 
     func start() {
+        // Send a request to the App Store
         request.start()
     }
 }

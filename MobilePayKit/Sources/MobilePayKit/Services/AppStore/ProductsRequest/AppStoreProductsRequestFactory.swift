@@ -1,6 +1,6 @@
 import Foundation
 
-protocol ProductsRequestFactory {
+public protocol ProductsRequestFactory {
     func createRequest(with identifiers: Set<String>, completion: @escaping FetchCompletionCallback) -> ProductsRequest
 }
 
