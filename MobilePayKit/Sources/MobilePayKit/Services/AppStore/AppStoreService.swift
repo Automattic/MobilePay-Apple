@@ -18,6 +18,9 @@ class AppStoreService: NSObject {
     // A callback to help with handling purchase product completion
     private var purchaseCompletionCallback: PurchaseCompletionCallback?
 
+    // The product being purchased
+    private var purchasingProduct: SKProduct?
+
     // An object that can retrieve product info from the App Store
     private(set) var productsRequest: ProductsRequest?
 
@@ -69,6 +72,9 @@ class AppStoreService: NSObject {
 
     func purchaseProduct(_ product: SKProduct, completion: @escaping PurchaseCompletionCallback) {
 
+        // Initialize the product being purchased
+        purchasingProduct = product
+
         // Initialiaze the handler
         purchaseCompletionCallback = completion
 
@@ -97,21 +103,79 @@ extension AppStoreService: SKPaymentTransactionObserver {
                 break
 
             case .failed:
-                paymentQueue.finishTransaction(transaction)
-                // FIXME: handle failed transaction
+                handleFailedTransaction(transaction)
 
             case .purchased,
                  .restored:
-                paymentQueue.finishTransaction(transaction)
-
-                DispatchQueue.main.async { [weak self] in
-                    self?.purchaseCompletionCallback?(transaction)
-                    self?.purchaseCompletionCallback = nil
-                }
+                handleCompletedTransaction(transaction)
 
             @unknown default:
                 print("Unexpected transaction state: \(transaction.transactionState)")
             }
         }
     }
+
+    private func handleFailedTransaction(_ transaction: SKPaymentTransaction) {
+        // FIXME: handle failed transaction
+        paymentQueue.finishTransaction(transaction)
+    }
+
+    private func handleCompletedTransaction(_ transaction: SKPaymentTransaction) {
+
+        guard let appStoreReceiptURL = Bundle.main.appStoreReceiptURL,
+              FileManager.default.fileExists(atPath: appStoreReceiptURL.path) else {
+            print("Could not find app store receipt")
+            return
+        }
+
+        guard let product = purchasingProduct else {
+            print("Purchasing product is nil")
+            return
+        }
+
+        do {
+            let receiptData = try Data(contentsOf: appStoreReceiptURL, options: .alwaysMapped)
+            print(receiptData)
+
+            let receiptString = receiptData.base64EncodedString(options: [])
+
+            createOrder(for: product, transaction: transaction, receipt: receiptString)
+
+        } catch let error {
+            print("Could not read receipt data: \(error.localizedDescription)")
+        }
+    }
+
+    private func createOrder(for product: SKProduct, transaction: SKPaymentTransaction, receipt: String) {
+
+        let country = paymentQueue.storefront?.countryCode ?? ""
+
+        networking.createOrder(
+            identifier: product.productIdentifier,
+            price: Int(truncating: product.price),
+            country: country,
+            receipt: receipt
+        ).sink(receiveCompletion: { completion in
+
+            switch completion {
+            case .finished:
+                print("create order finished")
+            case .failure(let error):
+                print("create order error: \(error.localizedDescription)")
+            }
+
+        }, receiveValue: { [weak self] orderId in
+
+            // Finish the transaction once we've successfully created an order remotely
+            self?.paymentQueue.finishTransaction(transaction)
+
+            DispatchQueue.main.async {
+                self?.purchaseCompletionCallback?(transaction)
+                self?.purchaseCompletionCallback = nil
+            }
+
+        })
+        .store(in: &cancellables)
+    }
+
 }

@@ -4,7 +4,7 @@ import Foundation
 protocol Networking {
 
     func fetchProductSKUs() -> AnyPublisher<[String], Error>
-    func createOrder(price: Int, identifier: String, receipt: String, country: String) -> AnyPublisher<Int, Error>
+    func createOrder(identifier: String, price: Int, country: String, receipt: String) -> AnyPublisher<Int, Error>
 }
 
 class NetworkingPlaceholder: Networking {
@@ -21,7 +21,7 @@ class NetworkingPlaceholder: Networking {
             .eraseToAnyPublisher()
     }
 
-    func createOrder(price: Int, identifier: String, receipt: String, country: String) -> AnyPublisher<Int, Error> {
+    func createOrder(identifier: String, price: Int, country: String, receipt: String) -> AnyPublisher<Int, Error> {
 
         let orderIdentifier = 1
 
