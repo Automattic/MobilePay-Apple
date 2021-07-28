@@ -3,7 +3,7 @@ import StoreKit
 
 public class PaymentManager: NSObject {
 
-    private let paymentQueueService = PaymentQueueService()
+    private let appStoreService = AppStoreService()
 
     private let productIdentifiers = Set([
         "com.mobilepay.consumable.rocketfuel",
@@ -19,21 +19,21 @@ public class PaymentManager: NSObject {
     // MARK: - Public
 
     public func fetchProducts(completion: @escaping FetchCompletionCallback) {
-        paymentQueueService.fetchProducts(for: productIdentifiers, completion: completion)
+        appStoreService.fetchProducts(for: productIdentifiers, completion: completion)
     }
 
     public func purchaseProduct(with identifier: String, completion: @escaping PurchaseCompletionCallback) {
 
         // Check if the product exists in the App Store before purchasing
-        guard let product = paymentQueueService.fetchProduct(for: identifier) else {
+        guard let product = appStoreService.fetchProduct(for: identifier) else {
             return
         }
 
-        paymentQueueService.purchaseProduct(product, completion: completion)
+        appStoreService.purchaseProduct(product, completion: completion)
 
     }
 
     public func restorePurchases() {
-        paymentQueueService.restorePurchases()
+        appStoreService.restorePurchases()
     }
 }
