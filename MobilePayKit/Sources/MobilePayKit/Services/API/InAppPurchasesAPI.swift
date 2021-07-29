@@ -1,3 +1,4 @@
+import Alamofire
 import Combine
 import Foundation
 
@@ -32,5 +33,11 @@ class InAppPurchasesAPI: InAppPurchasesAPIProtocol {
         return Future { $0(.success(orderIdentifier)) }
             .delay(for: 0.5, scheduler: RunLoop.main)
             .eraseToAnyPublisher()
+    }
+
+    private func request<T>(urlRequest: URLRequestConvertible) -> AnyPublisher<T, AFError> where T: Decodable {
+        return AF.request(urlRequest)
+            .publishDecodable(type: T.self)
+            .value()
     }
 }
