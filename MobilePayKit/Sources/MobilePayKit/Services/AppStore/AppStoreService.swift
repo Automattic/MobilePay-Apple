@@ -11,7 +11,7 @@ class AppStoreService: NSObject {
 
     private let productsRequestFactory: ProductsRequestFactory
 
-    private let networking: Networking
+    private let api: InAppPurchasesAPIProtocol
 
     private var cancellables = Set<AnyCancellable>()
 
@@ -29,11 +29,11 @@ class AppStoreService: NSObject {
     init(
         paymentQueue: PaymentQueue = SKPaymentQueue.default(),
         productsRequestFactory: ProductsRequestFactory = AppStoreProductsRequestFactory(),
-        networking: Networking = NetworkingPlaceholder()
+        api: InAppPurchasesAPIProtocol = InAppPurchasesAPI()
     ) {
         self.paymentQueue = paymentQueue
         self.productsRequestFactory = productsRequestFactory
-        self.networking = networking
+        self.api = api
         super.init()
         paymentQueue.add(self)
     }
@@ -45,7 +45,7 @@ class AppStoreService: NSObject {
     // MARK: - Public
 
     func fetchProducts(completion: @escaping FetchCompletionCallback) {
-        networking.fetchProductSKUs()
+        api.fetchProductSKUs()
             .sink(
                 receiveCompletion: { _ in },
                 receiveValue: { [weak self] skus in
@@ -150,7 +150,7 @@ extension AppStoreService: SKPaymentTransactionObserver {
 
         let country = paymentQueue.storefront?.countryCode ?? ""
 
-        networking.createOrder(
+        api.createOrder(
             identifier: product.productIdentifier,
             price: Int(truncating: product.price),
             country: country,

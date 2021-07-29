@@ -1,15 +1,17 @@
 import Combine
 import Foundation
 
-protocol Networking {
+protocol InAppPurchasesAPIProtocol {
 
     func fetchProductSKUs() -> AnyPublisher<[String], Error>
     func createOrder(identifier: String, price: Int, country: String, receipt: String) -> AnyPublisher<Int, Error>
 }
 
-class NetworkingPlaceholder: Networking {
+class InAppPurchasesAPI: InAppPurchasesAPIProtocol {
 
     func fetchProductSKUs() -> AnyPublisher<[String], Error> {
+
+        // FIXME: send actual request
 
         let productIdentifiers = [
             "com.mobilepay.consumable.rocketfuel",
@@ -22,6 +24,8 @@ class NetworkingPlaceholder: Networking {
     }
 
     func createOrder(identifier: String, price: Int, country: String, receipt: String) -> AnyPublisher<Int, Error> {
+
+        // FIXME: send actual request
 
         let orderIdentifier = 1
 
