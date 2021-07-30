@@ -76,9 +76,9 @@ final class AppStoreServiceTests: XCTestCase {
     }
 
     func testPaymentQueueUpdatedTransactions_WhenTransactionStateIsPurchased_CallsFinishTransaction() throws {
-        
+
         try XCTSkipIf(true, "skipping this for now, need to stub receipt and mock iapService for this test to pass")
-        
+
         let transactions: [TestPaymentTransaction] = [
             .fixture(transactionState: .purchased)
         ]
@@ -89,7 +89,7 @@ final class AppStoreServiceTests: XCTestCase {
     }
 
     func testPaymentQueueUpdatedTransactions_WhenTransactionStateIsRestored_CallsFinishTransaction() throws {
-        
+
         try XCTSkipIf(true, "skipping this for now, need to stub receipt and mock iapService for this test to pass")
 
         let transactions: [TestPaymentTransaction] = [
