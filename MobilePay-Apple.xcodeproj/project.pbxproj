@@ -7,47 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8B023EFE26B4464100BAFD56 /* AppStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B023EE726B4464000BAFD56 /* AppStoreService.swift */; };
-		8B023EFF26B4464100BAFD56 /* AppStoreProductsRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B023EE926B4464000BAFD56 /* AppStoreProductsRequestFactory.swift */; };
-		8B023F0026B4464100BAFD56 /* ProductsRequestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B023EEA26B4464000BAFD56 /* ProductsRequestHelper.swift */; };
-		8B023F0126B4464100BAFD56 /* PaymentQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B023EEC26B4464000BAFD56 /* PaymentQueue.swift */; };
-		8B023F0926B4464100BAFD56 /* PaymentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B023EFA26B4464000BAFD56 /* PaymentManager.swift */; };
-		8B023F0A26B4464100BAFD56 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B023EFC26B4464100BAFD56 /* Product.swift */; };
-		8B023F0B26B4464100BAFD56 /* MobilePayKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B023EFD26B4464100BAFD56 /* MobilePayKit.swift */; };
-		8B023F1C26B447A100BAFD56 /* MobilePayKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B023F1B26B447A100BAFD56 /* MobilePayKitTests.swift */; };
-		8B023F1E26B447A100BAFD56 /* libMobilePayKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B023ECB26B4460300BAFD56 /* libMobilePayKit.a */; };
-		8B023F3326B447C800BAFD56 /* MockProductsRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B023F2E26B447C800BAFD56 /* MockProductsRequestFactory.swift */; };
-		8B023F3426B447C800BAFD56 /* AppStoreServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B023F2F26B447C800BAFD56 /* AppStoreServiceTests.swift */; };
-		8B023F3526B447C800BAFD56 /* MockPaymentQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B023F3026B447C800BAFD56 /* MockPaymentQueue.swift */; };
-		8B023F3626B447C800BAFD56 /* TestPaymentTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B023F3126B447C800BAFD56 /* TestPaymentTransaction.swift */; };
-		8B023F3726B447C800BAFD56 /* TestProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B023F3226B447C800BAFD56 /* TestProduct.swift */; };
+		8B023FAD26B45B1400BAFD56 /* MobilePayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B023F8326B4544400BAFD56 /* MobilePayKit.framework */; };
+		8B023FBD26B45B8600BAFD56 /* AppStoreServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B023FB826B45B7200BAFD56 /* AppStoreServiceTests.swift */; };
+		8B023FBE26B45B8900BAFD56 /* MockPaymentQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B023FBB26B45B7200BAFD56 /* MockPaymentQueue.swift */; };
+		8B023FBF26B45B8B00BAFD56 /* MockProductsRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B023FB926B45B7200BAFD56 /* MockProductsRequestFactory.swift */; };
+		8B023FC026B45B9600BAFD56 /* TestPaymentTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B023FBC26B45B7200BAFD56 /* TestPaymentTransaction.swift */; };
+		8B023FC126B45B9800BAFD56 /* TestProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B023FBA26B45B7200BAFD56 /* TestProduct.swift */; };
+		8B023FC226B45CAF00BAFD56 /* MobilePayKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B023EFD26B4464100BAFD56 /* MobilePayKit.swift */; };
+		8B023FC326B45CB100BAFD56 /* PaymentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B023EFA26B4464000BAFD56 /* PaymentManager.swift */; };
+		8B023FC426B45CB600BAFD56 /* AppStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B023EE726B4464000BAFD56 /* AppStoreService.swift */; };
+		8B023FC526B45CB900BAFD56 /* AppStoreProductsRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B023EE926B4464000BAFD56 /* AppStoreProductsRequestFactory.swift */; };
+		8B023FC626B45CBC00BAFD56 /* ProductsRequestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B023EEA26B4464000BAFD56 /* ProductsRequestHelper.swift */; };
+		8B023FC726B45CBF00BAFD56 /* PaymentQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B023EEC26B4464000BAFD56 /* PaymentQueue.swift */; };
+		8B023FC826B45CC200BAFD56 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B023EFC26B4464100BAFD56 /* Product.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		8B023F1F26B447A100BAFD56 /* PBXContainerItemProxy */ = {
+		8B023FAE26B45B1400BAFD56 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = FA5DF99926A567B500664755 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 8B023ECA26B4460300BAFD56;
+			remoteGlobalIDString = 8B023F8226B4544400BAFD56;
 			remoteInfo = MobilePayKit;
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		8B023EC926B4460300BAFD56 /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "include/$(PRODUCT_NAME)";
-			dstSubfolderSpec = 16;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		8B023ECB26B4460300BAFD56 /* libMobilePayKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMobilePayKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		8B023ECD26B4460300BAFD56 /* MobilePayKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobilePayKit.swift; sourceTree = "<group>"; };
 		8B023EE726B4464000BAFD56 /* AppStoreService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStoreService.swift; sourceTree = "<group>"; };
 		8B023EE926B4464000BAFD56 /* AppStoreProductsRequestFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStoreProductsRequestFactory.swift; sourceTree = "<group>"; };
 		8B023EEA26B4464000BAFD56 /* ProductsRequestHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsRequestHelper.swift; sourceTree = "<group>"; };
@@ -57,29 +42,29 @@
 		8B023EFD26B4464100BAFD56 /* MobilePayKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobilePayKit.swift; sourceTree = "<group>"; };
 		8B023F0D26B4468C00BAFD56 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		8B023F1326B4471D00BAFD56 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		8B023F1926B447A100BAFD56 /* MobilePayKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobilePayKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8B023F1B26B447A100BAFD56 /* MobilePayKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobilePayKitTests.swift; sourceTree = "<group>"; };
-		8B023F1D26B447A100BAFD56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8B023F2E26B447C800BAFD56 /* MockProductsRequestFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockProductsRequestFactory.swift; sourceTree = "<group>"; };
-		8B023F2F26B447C800BAFD56 /* AppStoreServiceTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStoreServiceTests.swift; sourceTree = "<group>"; };
-		8B023F3026B447C800BAFD56 /* MockPaymentQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockPaymentQueue.swift; sourceTree = "<group>"; };
-		8B023F3126B447C800BAFD56 /* TestPaymentTransaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestPaymentTransaction.swift; sourceTree = "<group>"; };
-		8B023F3226B447C800BAFD56 /* TestProduct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestProduct.swift; sourceTree = "<group>"; };
+		8B023F8326B4544400BAFD56 /* MobilePayKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MobilePayKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B023F9226B4544400BAFD56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B023FA826B45B1400BAFD56 /* MobilePayKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MobilePayKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B023FB826B45B7200BAFD56 /* AppStoreServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStoreServiceTests.swift; sourceTree = "<group>"; };
+		8B023FB926B45B7200BAFD56 /* MockProductsRequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockProductsRequestFactory.swift; sourceTree = "<group>"; };
+		8B023FBA26B45B7200BAFD56 /* TestProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestProduct.swift; sourceTree = "<group>"; };
+		8B023FBB26B45B7200BAFD56 /* MockPaymentQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPaymentQueue.swift; sourceTree = "<group>"; };
+		8B023FBC26B45B7200BAFD56 /* TestPaymentTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPaymentTransaction.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		8B023EC826B4460300BAFD56 /* Frameworks */ = {
+		8B023F8026B4544400BAFD56 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8B023F1626B447A100BAFD56 /* Frameworks */ = {
+		8B023FA526B45B1400BAFD56 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B023F1E26B447A100BAFD56 /* libMobilePayKit.a in Frameworks */,
+				8B023FAD26B45B1400BAFD56 /* MobilePayKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,14 +80,6 @@
 				8B023EFA26B4464000BAFD56 /* PaymentManager.swift */,
 			);
 			path = Source;
-			sourceTree = "<group>";
-		};
-		8B023ECC26B4460300BAFD56 /* MobilePayKit */ = {
-			isa = PBXGroup;
-			children = (
-				8B023ECD26B4460300BAFD56 /* MobilePayKit.swift */,
-			);
-			path = MobilePayKit;
 			sourceTree = "<group>";
 		};
 		8B023EE526B4464000BAFD56 /* Services */ = {
@@ -164,25 +141,17 @@
 			name = Documentation;
 			sourceTree = "<group>";
 		};
-		8B023F1426B4473500BAFD56 /* Tests */ = {
+		8B023F8F26B4544400BAFD56 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				8B023F2F26B447C800BAFD56 /* AppStoreServiceTests.swift */,
-				8B023F3026B447C800BAFD56 /* MockPaymentQueue.swift */,
-				8B023F2E26B447C800BAFD56 /* MockProductsRequestFactory.swift */,
-				8B023F3126B447C800BAFD56 /* TestPaymentTransaction.swift */,
-				8B023F3226B447C800BAFD56 /* TestProduct.swift */,
+				8B023FB826B45B7200BAFD56 /* AppStoreServiceTests.swift */,
+				8B023FBB26B45B7200BAFD56 /* MockPaymentQueue.swift */,
+				8B023FB926B45B7200BAFD56 /* MockProductsRequestFactory.swift */,
+				8B023FBC26B45B7200BAFD56 /* TestPaymentTransaction.swift */,
+				8B023FBA26B45B7200BAFD56 /* TestProduct.swift */,
+				8B023F9226B4544400BAFD56 /* Info.plist */,
 			);
 			path = Tests;
-			sourceTree = "<group>";
-		};
-		8B023F1A26B447A100BAFD56 /* MobilePayKitTests */ = {
-			isa = PBXGroup;
-			children = (
-				8B023F1B26B447A100BAFD56 /* MobilePayKitTests.swift */,
-				8B023F1D26B447A100BAFD56 /* Info.plist */,
-			);
-			path = MobilePayKitTests;
 			sourceTree = "<group>";
 		};
 		FA5DF99826A567B500664755 = {
@@ -191,9 +160,7 @@
 				8B023F1126B446EC00BAFD56 /* Deployment */,
 				8B023F1226B446FF00BAFD56 /* Documentation */,
 				8B023EC626B445A100BAFD56 /* Source */,
-				8B023F1426B4473500BAFD56 /* Tests */,
-				8B023ECC26B4460300BAFD56 /* MobilePayKit */,
-				8B023F1A26B447A100BAFD56 /* MobilePayKitTests */,
+				8B023F8F26B4544400BAFD56 /* Tests */,
 				FA5DF9A626A567B600664755 /* Products */,
 				FAB50D2E26A578030093D56F /* Frameworks */,
 			);
@@ -202,8 +169,8 @@
 		FA5DF9A626A567B600664755 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8B023ECB26B4460300BAFD56 /* libMobilePayKit.a */,
-				8B023F1926B447A100BAFD56 /* MobilePayKitTests.xctest */,
+				8B023F8326B4544400BAFD56 /* MobilePayKit.framework */,
+				8B023FA826B45B1400BAFD56 /* MobilePayKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -217,14 +184,25 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		8B023F7E26B4544400BAFD56 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
-		8B023ECA26B4460300BAFD56 /* MobilePayKit */ = {
+		8B023F8226B4544400BAFD56 /* MobilePayKit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8B023ECF26B4460300BAFD56 /* Build configuration list for PBXNativeTarget "MobilePayKit" */;
+			buildConfigurationList = 8B023F9426B4544400BAFD56 /* Build configuration list for PBXNativeTarget "MobilePayKit" */;
 			buildPhases = (
-				8B023EC726B4460300BAFD56 /* Sources */,
-				8B023EC826B4460300BAFD56 /* Frameworks */,
-				8B023EC926B4460300BAFD56 /* CopyFiles */,
+				8B023F7E26B4544400BAFD56 /* Headers */,
+				8B023F7F26B4544400BAFD56 /* Sources */,
+				8B023F8026B4544400BAFD56 /* Frameworks */,
+				8B023F8126B4544400BAFD56 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -232,25 +210,25 @@
 			);
 			name = MobilePayKit;
 			productName = MobilePayKit;
-			productReference = 8B023ECB26B4460300BAFD56 /* libMobilePayKit.a */;
-			productType = "com.apple.product-type.library.static";
+			productReference = 8B023F8326B4544400BAFD56 /* MobilePayKit.framework */;
+			productType = "com.apple.product-type.framework";
 		};
-		8B023F1826B447A100BAFD56 /* MobilePayKitTests */ = {
+		8B023FA726B45B1400BAFD56 /* MobilePayKitTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8B023F2126B447A100BAFD56 /* Build configuration list for PBXNativeTarget "MobilePayKitTests" */;
+			buildConfigurationList = 8B023FB026B45B1400BAFD56 /* Build configuration list for PBXNativeTarget "MobilePayKitTests" */;
 			buildPhases = (
-				8B023F1526B447A100BAFD56 /* Sources */,
-				8B023F1626B447A100BAFD56 /* Frameworks */,
-				8B023F1726B447A100BAFD56 /* Resources */,
+				8B023FA426B45B1400BAFD56 /* Sources */,
+				8B023FA526B45B1400BAFD56 /* Frameworks */,
+				8B023FA626B45B1400BAFD56 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				8B023F2026B447A100BAFD56 /* PBXTargetDependency */,
+				8B023FAF26B45B1400BAFD56 /* PBXTargetDependency */,
 			);
 			name = MobilePayKitTests;
 			productName = MobilePayKitTests;
-			productReference = 8B023F1926B447A100BAFD56 /* MobilePayKitTests.xctest */;
+			productReference = 8B023FA826B45B1400BAFD56 /* MobilePayKitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -262,10 +240,10 @@
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
-					8B023ECA26B4460300BAFD56 = {
+					8B023F8226B4544400BAFD56 = {
 						CreatedOnToolsVersion = 12.5.1;
 					};
-					8B023F1826B447A100BAFD56 = {
+					8B023FA726B45B1400BAFD56 = {
 						CreatedOnToolsVersion = 12.5.1;
 					};
 				};
@@ -283,14 +261,21 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8B023ECA26B4460300BAFD56 /* MobilePayKit */,
-				8B023F1826B447A100BAFD56 /* MobilePayKitTests */,
+				8B023F8226B4544400BAFD56 /* MobilePayKit */,
+				8B023FA726B45B1400BAFD56 /* MobilePayKitTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		8B023F1726B447A100BAFD56 /* Resources */ = {
+		8B023F8126B4544400BAFD56 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B023FA626B45B1400BAFD56 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -300,78 +285,108 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		8B023EC726B4460300BAFD56 /* Sources */ = {
+		8B023F7F26B4544400BAFD56 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B023F0926B4464100BAFD56 /* PaymentManager.swift in Sources */,
-				8B023EFF26B4464100BAFD56 /* AppStoreProductsRequestFactory.swift in Sources */,
-				8B023F0B26B4464100BAFD56 /* MobilePayKit.swift in Sources */,
-				8B023F0126B4464100BAFD56 /* PaymentQueue.swift in Sources */,
-				8B023EFE26B4464100BAFD56 /* AppStoreService.swift in Sources */,
-				8B023F0026B4464100BAFD56 /* ProductsRequestHelper.swift in Sources */,
-				8B023F0A26B4464100BAFD56 /* Product.swift in Sources */,
+				8B023FC326B45CB100BAFD56 /* PaymentManager.swift in Sources */,
+				8B023FC226B45CAF00BAFD56 /* MobilePayKit.swift in Sources */,
+				8B023FC726B45CBF00BAFD56 /* PaymentQueue.swift in Sources */,
+				8B023FC626B45CBC00BAFD56 /* ProductsRequestHelper.swift in Sources */,
+				8B023FC526B45CB900BAFD56 /* AppStoreProductsRequestFactory.swift in Sources */,
+				8B023FC426B45CB600BAFD56 /* AppStoreService.swift in Sources */,
+				8B023FC826B45CC200BAFD56 /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8B023F1526B447A100BAFD56 /* Sources */ = {
+		8B023FA426B45B1400BAFD56 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B023F3426B447C800BAFD56 /* AppStoreServiceTests.swift in Sources */,
-				8B023F3326B447C800BAFD56 /* MockProductsRequestFactory.swift in Sources */,
-				8B023F3526B447C800BAFD56 /* MockPaymentQueue.swift in Sources */,
-				8B023F3726B447C800BAFD56 /* TestProduct.swift in Sources */,
-				8B023F1C26B447A100BAFD56 /* MobilePayKitTests.swift in Sources */,
-				8B023F3626B447C800BAFD56 /* TestPaymentTransaction.swift in Sources */,
+				8B023FBE26B45B8900BAFD56 /* MockPaymentQueue.swift in Sources */,
+				8B023FBF26B45B8B00BAFD56 /* MockProductsRequestFactory.swift in Sources */,
+				8B023FBD26B45B8600BAFD56 /* AppStoreServiceTests.swift in Sources */,
+				8B023FC026B45B9600BAFD56 /* TestPaymentTransaction.swift in Sources */,
+				8B023FC126B45B9800BAFD56 /* TestProduct.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		8B023F2026B447A100BAFD56 /* PBXTargetDependency */ = {
+		8B023FAF26B45B1400BAFD56 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8B023ECA26B4460300BAFD56 /* MobilePayKit */;
-			targetProxy = 8B023F1F26B447A100BAFD56 /* PBXContainerItemProxy */;
+			target = 8B023F8226B4544400BAFD56 /* MobilePayKit */;
+			targetProxy = 8B023FAE26B45B1400BAFD56 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		8B023ED026B4460300BAFD56 /* Debug */ = {
+		8B023F9526B4544400BAFD56 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = PZYM8XX95Q;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = MobilePayKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = com.automattic.MobilePayKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		8B023ED126B4460300BAFD56 /* Release */ = {
+		8B023F9626B4544400BAFD56 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = PZYM8XX95Q;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = MobilePayKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_BUNDLE_IDENTIFIER = com.automattic.MobilePayKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		8B023F2226B447A100BAFD56 /* Debug */ = {
+		8B023FB126B45B1400BAFD56 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PZYM8XX95Q;
 				INFOPLIST_FILE = MobilePayKitTests/Info.plist;
@@ -389,9 +404,10 @@
 			};
 			name = Debug;
 		};
-		8B023F2326B447A100BAFD56 /* Release */ = {
+		8B023FB226B45B1400BAFD56 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = PZYM8XX95Q;
 				INFOPLIST_FILE = MobilePayKitTests/Info.plist;
@@ -524,20 +540,20 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8B023ECF26B4460300BAFD56 /* Build configuration list for PBXNativeTarget "MobilePayKit" */ = {
+		8B023F9426B4544400BAFD56 /* Build configuration list for PBXNativeTarget "MobilePayKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8B023ED026B4460300BAFD56 /* Debug */,
-				8B023ED126B4460300BAFD56 /* Release */,
+				8B023F9526B4544400BAFD56 /* Debug */,
+				8B023F9626B4544400BAFD56 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8B023F2126B447A100BAFD56 /* Build configuration list for PBXNativeTarget "MobilePayKitTests" */ = {
+		8B023FB026B45B1400BAFD56 /* Build configuration list for PBXNativeTarget "MobilePayKitTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				8B023F2226B447A100BAFD56 /* Debug */,
-				8B023F2326B447A100BAFD56 /* Release */,
+				8B023FB126B45B1400BAFD56 /* Debug */,
+				8B023FB226B45B1400BAFD56 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -22,6 +22,7 @@
 		8B023F6B26B451DC00BAFD56 /* Configuration.storekit */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
 		8B023F6C26B451DC00BAFD56 /* ProductList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductList.swift; sourceTree = "<group>"; };
 		8B023F6D26B451DC00BAFD56 /* MobilePay_AppleApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobilePay_AppleApp.swift; sourceTree = "<group>"; };
+		8B023F7426B4530900BAFD56 /* MobilePay-Apple.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "MobilePay-Apple.xcodeproj"; path = "../../MobilePay-Apple.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +41,7 @@
 			children = (
 				8B023F4326B450F800BAFD56 /* MobilePayKit-iOS */,
 				8B023F4226B450F800BAFD56 /* Products */,
+				8B023F7426B4530900BAFD56 /* MobilePay-Apple.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
