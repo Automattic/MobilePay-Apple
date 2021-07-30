@@ -16,7 +16,6 @@ Pod::Spec.new do |s|
   s.swift_version = '5.0'
 
   s.source        = { :git => 'https://github.com/Automattic/MobilePay-Apple.git', :tag => s.version.to_s }
-  s.module_name = "MobilePayKit"
-  s.source_files = 'Source/**/*.{h,m,swift}'
+  s.source_files = 'Source/**/*.{swift}'
 
 end
