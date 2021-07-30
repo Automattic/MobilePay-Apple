@@ -1,6 +1,6 @@
 import Combine
 import Foundation
 
-protocol Networking {
-    func load<T: Decodable>(_ request: URLRequest) -> AnyPublisher<T, Error>
+public protocol Networking {
+    func load(_ request: URLRequest) -> AnyPublisher<Data, URLError>
 }
