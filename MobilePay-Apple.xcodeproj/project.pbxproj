@@ -50,7 +50,7 @@
 		8B023FBA26B45B7200BAFD56 /* TestProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestProduct.swift; sourceTree = "<group>"; };
 		8B023FBB26B45B7200BAFD56 /* MockPaymentQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPaymentQueue.swift; sourceTree = "<group>"; };
 		8B023FBC26B45B7200BAFD56 /* TestPaymentTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPaymentTransaction.swift; sourceTree = "<group>"; };
-		8B023FDE26B462AB00BAFD56 /* MobilePay.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = MobilePay.podspec; sourceTree = "<group>"; };
+		8B023FE226B464C100BAFD56 /* MobilePayKit.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = MobilePayKit.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,7 +130,7 @@
 			isa = PBXGroup;
 			children = (
 				8B023F0D26B4468C00BAFD56 /* Package.swift */,
-				8B023FDE26B462AB00BAFD56 /* MobilePay.podspec */,
+				8B023FE226B464C100BAFD56 /* MobilePayKit.podspec */,
 			);
 			name = Deployment;
 			sourceTree = "<group>";
