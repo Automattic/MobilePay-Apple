@@ -1,21 +1,25 @@
-import Alamofire
 import Foundation
+
+protocol URLRequestConvertible {
+    func asURLRequest() -> URLRequest
+}
 
 enum InAppPurchasesAPIRouter: URLRequestConvertible {
 
     private enum Constants {
         static let baseURLPath = "https://public-api.wordpress.com/wpcom/v2"
+        static let token = "token"
     }
 
     case products
     case createOrder(parameters: CreateOrderParameters)
 
-    var method: HTTPMethod {
+    var httpMethod: String {
         switch self {
         case .products:
-            return .get
+            return "GET"
         case .createOrder:
-            return .post
+            return "POST"
         }
     }
 
@@ -28,27 +32,28 @@ enum InAppPurchasesAPIRouter: URLRequestConvertible {
         }
     }
 
-    var headers: HTTPHeaders {
-        return [
-            .authorization(bearerToken: "oauthToken"),
-            HTTPHeader(name: "X-APP-ID", value: "appBundleID")
-        ]
-    }
+    func asURLRequest() -> URLRequest {
+        guard let baseURL = URL(string: Constants.baseURLPath) else {
+            preconditionFailure("Invalid URL string: \(Constants.baseURLPath)")
+        }
 
-    func asURLRequest() throws -> URLRequest {
-        let url = try Constants.baseURLPath.asURL()
+        var request = URLRequest(url: baseURL.appendingPathComponent(path))
 
-        var request = try URLRequest(
-            url: url.appendingPathComponent(path),
-            method: method,
-            headers: headers
-        )
+        // Set headers
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue( "Bearer \(Constants.token)", forHTTPHeaderField: "Authorization")
+        request.setValue(Bundle.main.bundleIdentifier, forHTTPHeaderField: "X-APP-ID")
 
         switch self {
         case .products:
             break
         case .createOrder(let parameters):
-            request = try JSONParameterEncoder().encode(parameters, into: request)
+            do {
+                request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: [])
+            } catch let error {
+                print("error serializing parameters: \(error.localizedDescription)")
+            }
         }
 
         return request
