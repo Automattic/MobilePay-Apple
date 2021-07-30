@@ -4,4 +4,7 @@
    <FileRef
       location = "group:MobilePay-Apple.xcodeproj">
    </FileRef>
+   <FileRef
+      location = "group:Example/iOS/MobilePayKit-iOS.xcodeproj">
+   </FileRef>
 </Workspace>

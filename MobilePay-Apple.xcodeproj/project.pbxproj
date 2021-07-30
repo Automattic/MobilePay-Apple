@@ -31,6 +31,27 @@
 			remoteGlobalIDString = 8B023ECA26B4460300BAFD56;
 			remoteInfo = MobilePayKit;
 		};
+		8B023F5726B4512200BAFD56 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B023F5326B4512200BAFD56 /* MobilePayKit-iOS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8B023F4126B450F800BAFD56;
+			remoteInfo = "MobilePayKit-iOS";
+		};
+		8B023F5D26B4512A00BAFD56 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B023F5926B4512A00BAFD56 /* MobilePayKit-iOS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8B023F4126B450F800BAFD56;
+			remoteInfo = "MobilePayKit-iOS";
+		};
+		8B023F6526B4513B00BAFD56 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B023F6126B4513B00BAFD56 /* MobilePayKit-iOS.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8B023F4126B450F800BAFD56;
+			remoteInfo = "MobilePayKit-iOS";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -65,11 +86,9 @@
 		8B023F3026B447C800BAFD56 /* MockPaymentQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockPaymentQueue.swift; sourceTree = "<group>"; };
 		8B023F3126B447C800BAFD56 /* TestPaymentTransaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestPaymentTransaction.swift; sourceTree = "<group>"; };
 		8B023F3226B447C800BAFD56 /* TestProduct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestProduct.swift; sourceTree = "<group>"; };
-		FA3DF19126A831CF00111746 /* ProductListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewModel.swift; sourceTree = "<group>"; };
-		FA5DF99E26A567B500664755 /* MobilePay_AppleApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobilePay_AppleApp.swift; sourceTree = "<group>"; };
-		FA5DF99F26A567B500664755 /* ProductList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductList.swift; sourceTree = "<group>"; };
-		FA5DF9A026A567B600664755 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FAB50D3926A57A460093D56F /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
+		8B023F5326B4512200BAFD56 /* MobilePayKit-iOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "MobilePayKit-iOS.xcodeproj"; path = "Example/iOS/MobilePayKit-iOS.xcodeproj"; sourceTree = "<group>"; };
+		8B023F5926B4512A00BAFD56 /* MobilePayKit-iOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "MobilePayKit-iOS.xcodeproj"; path = "Example/iOS/MobilePayKit-iOS.xcodeproj"; sourceTree = "<group>"; };
+		8B023F6126B4513B00BAFD56 /* MobilePayKit-iOS.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "MobilePayKit-iOS.xcodeproj"; path = "Example/iOS/MobilePayKit-iOS.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,31 +209,45 @@
 			path = MobilePayKitTests;
 			sourceTree = "<group>";
 		};
+		8B023F5426B4512200BAFD56 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8B023F5826B4512200BAFD56 /* MobilePayKit-iOS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8B023F5A26B4512A00BAFD56 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8B023F5E26B4512A00BAFD56 /* MobilePayKit-iOS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8B023F6226B4513B00BAFD56 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8B023F6626B4513B00BAFD56 /* MobilePayKit-iOS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		FA5DF99826A567B500664755 = {
 			isa = PBXGroup;
 			children = (
+				8B023F5326B4512200BAFD56 /* MobilePayKit-iOS.xcodeproj */,
+				8B023F5926B4512A00BAFD56 /* MobilePayKit-iOS.xcodeproj */,
+				8B023F6126B4513B00BAFD56 /* MobilePayKit-iOS.xcodeproj */,
 				8B023F1126B446EC00BAFD56 /* Deployment */,
 				8B023F1226B446FF00BAFD56 /* Documentation */,
 				8B023EC626B445A100BAFD56 /* Source */,
 				8B023F1426B4473500BAFD56 /* Tests */,
-				FA5DF99D26A567B500664755 /* Shared */,
 				8B023ECC26B4460300BAFD56 /* MobilePayKit */,
 				8B023F1A26B447A100BAFD56 /* MobilePayKitTests */,
 				FA5DF9A626A567B600664755 /* Products */,
 				FAB50D2E26A578030093D56F /* Frameworks */,
 			);
-			sourceTree = "<group>";
-		};
-		FA5DF99D26A567B500664755 /* Shared */ = {
-			isa = PBXGroup;
-			children = (
-				FA5DF99E26A567B500664755 /* MobilePay_AppleApp.swift */,
-				FA3DF19126A831CF00111746 /* ProductListViewModel.swift */,
-				FA5DF99F26A567B500664755 /* ProductList.swift */,
-				FA5DF9A026A567B600664755 /* Assets.xcassets */,
-				FAB50D3926A57A460093D56F /* Configuration.storekit */,
-			);
-			path = Shared;
 			sourceTree = "<group>";
 		};
 		FA5DF9A626A567B600664755 /* Products */ = {
@@ -299,6 +332,20 @@
 			mainGroup = FA5DF99826A567B500664755;
 			productRefGroup = FA5DF9A626A567B600664755 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 8B023F6226B4513B00BAFD56 /* Products */;
+					ProjectRef = 8B023F6126B4513B00BAFD56 /* MobilePayKit-iOS.xcodeproj */;
+				},
+				{
+					ProductGroup = 8B023F5426B4512200BAFD56 /* Products */;
+					ProjectRef = 8B023F5326B4512200BAFD56 /* MobilePayKit-iOS.xcodeproj */;
+				},
+				{
+					ProductGroup = 8B023F5A26B4512A00BAFD56 /* Products */;
+					ProjectRef = 8B023F5926B4512A00BAFD56 /* MobilePayKit-iOS.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				8B023ECA26B4460300BAFD56 /* MobilePayKit */,
@@ -306,6 +353,30 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		8B023F5826B4512200BAFD56 /* MobilePayKit-iOS.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "MobilePayKit-iOS.app";
+			remoteRef = 8B023F5726B4512200BAFD56 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8B023F5E26B4512A00BAFD56 /* MobilePayKit-iOS.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "MobilePayKit-iOS.app";
+			remoteRef = 8B023F5D26B4512A00BAFD56 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8B023F6626B4513B00BAFD56 /* MobilePayKit-iOS.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = "MobilePayKit-iOS.app";
+			remoteRef = 8B023F6526B4513B00BAFD56 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		8B023F1726B447A100BAFD56 /* Resources */ = {
