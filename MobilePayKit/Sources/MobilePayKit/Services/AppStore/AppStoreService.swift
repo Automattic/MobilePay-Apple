@@ -152,7 +152,7 @@ extension AppStoreService: SKPaymentTransactionObserver {
 
         iapService.createOrder(
             identifier: product.productIdentifier,
-            price: Int(truncating: product.price),
+            price: product.priceInCents,
             country: country,
             receipt: receipt
         ).sink(receiveCompletion: { completion in
