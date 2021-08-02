@@ -20,6 +20,9 @@ class AppStoreService: NSObject {
 
     // An object that can retrieve product info from the App Store
     private(set) var productsRequest: ProductsRequest?
+    
+    // The product being purchased
+    private var purchasingProduct: SKProduct?
 
     // MARK: - Init
 
@@ -114,11 +117,60 @@ extension AppStoreService: SKPaymentTransactionObserver {
     }
     
     private func handleCompletedTransaction(_ transaction: SKPaymentTransaction) {
-        paymentQueue.finishTransaction(transaction)
-
-        DispatchQueue.main.async { [weak self] in
-            self?.purchaseCompletionCallback?(transaction)
-            self?.purchaseCompletionCallback = nil
+        
+        guard let appStoreReceiptURL = Bundle.main.appStoreReceiptURL,
+              FileManager.default.fileExists(atPath: appStoreReceiptURL.path) else {
+            print("Could not find app store receipt")
+            return
         }
+
+        guard let product = purchasingProduct else {
+            print("Purchasing product is nil")
+            return
+        }
+
+        do {
+            let receiptData = try Data(contentsOf: appStoreReceiptURL, options: .alwaysMapped)
+            print(receiptData)
+
+            let receiptString = receiptData.base64EncodedString(options: [])
+
+            createOrder(for: product, transaction: transaction, receipt: receiptString)
+
+        } catch let error {
+            print("Could not read receipt data: \(error.localizedDescription)")
+        }
+    }
+
+    private func createOrder(for product: SKProduct, transaction: SKPaymentTransaction, receipt: String) {
+
+        let country = paymentQueue.storefront?.countryCode ?? ""
+
+        iapService.createOrder(
+            identifier: product.productIdentifier,
+            price: product.priceInCents,
+            country: country,
+            receipt: receipt
+        ).sink(receiveCompletion: { completion in
+
+            switch completion {
+            case .finished:
+                print("create order finished")
+            case .failure(let error):
+                print("create order error: \(error.localizedDescription)")
+            }
+
+        }, receiveValue: { [weak self] orderId in
+
+            // Finish the transaction once we've successfully created an order remotely
+            self?.paymentQueue.finishTransaction(transaction)
+
+            DispatchQueue.main.async {
+                self?.purchaseCompletionCallback?(transaction)
+                self?.purchaseCompletionCallback = nil
+            }
+
+        })
+        .store(in: &cancellables)
     }
 }
