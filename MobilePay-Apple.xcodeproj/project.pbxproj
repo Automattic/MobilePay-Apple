@@ -22,6 +22,7 @@
 		8B023FC826B45CC200BAFD56 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B023EFC26B4464100BAFD56 /* Product.swift */; };
 		FA6447F826B84CEB00896D81 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6447F726B84CEB00896D81 /* Networking.swift */; };
 		FA6447FA26B84D3100896D81 /* URLSession+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6447F926B84D3100896D81 /* URLSession+Networking.swift */; };
+		FA6447FC26B84D8900896D81 /* InAppPurchasesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6447FB26B84D8900896D81 /* InAppPurchasesService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		8B023FE226B464C100BAFD56 /* MobilePayKit.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = MobilePayKit.podspec; sourceTree = "<group>"; };
 		FA6447F726B84CEB00896D81 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		FA6447F926B84D3100896D81 /* URLSession+Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Networking.swift"; sourceTree = "<group>"; };
+		FA6447FB26B84D8900896D81 /* InAppPurchasesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchasesService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +97,7 @@
 				8B023EE726B4464000BAFD56 /* AppStoreService.swift */,
 				FA6447F726B84CEB00896D81 /* Networking.swift */,
 				FA6447F926B84D3100896D81 /* URLSession+Networking.swift */,
+				FA6447FB26B84D8900896D81 /* InAppPurchasesService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				8B023FC726B45CBF00BAFD56 /* PaymentQueue.swift in Sources */,
 				FA6447F826B84CEB00896D81 /* Networking.swift in Sources */,
 				FA6447FA26B84D3100896D81 /* URLSession+Networking.swift in Sources */,
+				FA6447FC26B84D8900896D81 /* InAppPurchasesService.swift in Sources */,
 				8B023FC626B45CBC00BAFD56 /* ProductsRequestHelper.swift in Sources */,
 				8B023FC526B45CB900BAFD56 /* AppStoreProductsRequestFactory.swift in Sources */,
 				8B023FC426B45CB600BAFD56 /* AppStoreService.swift in Sources */,
