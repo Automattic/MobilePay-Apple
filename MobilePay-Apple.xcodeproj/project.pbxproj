@@ -86,19 +86,11 @@
 		8B023EE526B4464000BAFD56 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				8B023EE626B4464000BAFD56 /* AppStore */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
-		8B023EE626B4464000BAFD56 /* AppStore */ = {
-			isa = PBXGroup;
-			children = (
-				8B023EE726B4464000BAFD56 /* AppStoreService.swift */,
 				8B023EE826B4464000BAFD56 /* ProductsRequest */,
 				8B023EEB26B4464000BAFD56 /* PaymentQueue */,
+				8B023EE726B4464000BAFD56 /* AppStoreService.swift */,
 			);
-			path = AppStore;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		8B023EE826B4464000BAFD56 /* ProductsRequest */ = {
