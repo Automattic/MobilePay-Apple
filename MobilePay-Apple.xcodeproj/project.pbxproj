@@ -24,6 +24,7 @@
 		FA6447FA26B84D3100896D81 /* URLSession+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6447F926B84D3100896D81 /* URLSession+Networking.swift */; };
 		FA6447FC26B84D8900896D81 /* InAppPurchasesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6447FB26B84D8900896D81 /* InAppPurchasesService.swift */; };
 		FA6447FE26B851D900896D81 /* SKProduct+MobilePayKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6447FD26B851D900896D81 /* SKProduct+MobilePayKit.swift */; };
+		FA64480026B8525000896D81 /* InAppPurchasesAPIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6447FF26B8525000896D81 /* InAppPurchasesAPIRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		FA6447F926B84D3100896D81 /* URLSession+Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Networking.swift"; sourceTree = "<group>"; };
 		FA6447FB26B84D8900896D81 /* InAppPurchasesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchasesService.swift; sourceTree = "<group>"; };
 		FA6447FD26B851D900896D81 /* SKProduct+MobilePayKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKProduct+MobilePayKit.swift"; sourceTree = "<group>"; };
+		FA6447FF26B8525000896D81 /* InAppPurchasesAPIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchasesAPIRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 				FA6447F926B84D3100896D81 /* URLSession+Networking.swift */,
 				FA6447FB26B84D8900896D81 /* InAppPurchasesService.swift */,
 				FA6447FD26B851D900896D81 /* SKProduct+MobilePayKit.swift */,
+				FA6447FF26B8525000896D81 /* InAppPurchasesAPIRouter.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B023FC326B45CB100BAFD56 /* PaymentManager.swift in Sources */,
+				FA64480026B8525000896D81 /* InAppPurchasesAPIRouter.swift in Sources */,
 				8B023FC226B45CAF00BAFD56 /* MobilePayKit.swift in Sources */,
 				8B023FC726B45CBF00BAFD56 /* PaymentQueue.swift in Sources */,
 				FA6447F826B84CEB00896D81 /* Networking.swift in Sources */,
