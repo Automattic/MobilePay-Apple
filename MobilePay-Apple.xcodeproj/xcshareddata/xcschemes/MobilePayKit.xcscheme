@@ -14,23 +14,23 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FA5DF9AC26A567B600664755"
-               BuildableName = "MobilePay-Apple.app"
-               BlueprintName = "MobilePay-Apple (macOS)"
+               BlueprintIdentifier = "8B023F8226B4544400BAFD56"
+               BuildableName = "MobilePayKit.framework"
+               BlueprintName = "MobilePayKit"
                ReferencedContainer = "container:MobilePay-Apple.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
-            buildForTesting = "NO"
+            buildForTesting = "YES"
             buildForRunning = "NO"
             buildForProfiling = "NO"
             buildForArchiving = "NO"
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FA5DF9BF26A567B600664755"
-               BuildableName = "Tests macOS.xctest"
-               BlueprintName = "Tests macOS"
+               BlueprintIdentifier = "8B023FA726B45B1400BAFD56"
+               BuildableName = "MobilePayKitTests.xctest"
+               BlueprintName = "MobilePayKitTests"
                ReferencedContainer = "container:MobilePay-Apple.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -42,6 +42,16 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "8B023FA726B45B1400BAFD56"
+               BuildableName = "MobilePayKitTests.xctest"
+               BlueprintName = "MobilePayKitTests"
+               ReferencedContainer = "container:MobilePay-Apple.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
@@ -54,16 +64,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FA5DF9AC26A567B600664755"
-            BuildableName = "MobilePay-Apple.app"
-            BlueprintName = "MobilePay-Apple (macOS)"
-            ReferencedContainer = "container:MobilePay-Apple.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -71,16 +71,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FA5DF9AC26A567B600664755"
-            BuildableName = "MobilePay-Apple.app"
-            BlueprintName = "MobilePay-Apple (macOS)"
+            BlueprintIdentifier = "8B023F8226B4544400BAFD56"
+            BuildableName = "MobilePayKit.framework"
+            BlueprintName = "MobilePayKit"
             ReferencedContainer = "container:MobilePay-Apple.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

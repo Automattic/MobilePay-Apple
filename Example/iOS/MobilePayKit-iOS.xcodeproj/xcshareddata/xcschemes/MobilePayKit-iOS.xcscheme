@@ -14,24 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FA5DF9A426A567B600664755"
-               BuildableName = "MobilePay-Apple.app"
-               BlueprintName = "MobilePay-Apple (iOS)"
-               ReferencedContainer = "container:MobilePay-Apple.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "NO"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "FA5DF9B426A567B600664755"
-               BuildableName = "Tests iOS.xctest"
-               BlueprintName = "Tests iOS"
-               ReferencedContainer = "container:MobilePay-Apple.xcodeproj">
+               BlueprintIdentifier = "8B023F4026B450F800BAFD56"
+               BuildableName = "MobilePayKit-iOS.app"
+               BlueprintName = "MobilePayKit-iOS"
+               ReferencedContainer = "container:MobilePayKit-iOS.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -58,12 +44,15 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FA5DF9A426A567B600664755"
-            BuildableName = "MobilePay-Apple.app"
-            BlueprintName = "MobilePay-Apple (iOS)"
-            ReferencedContainer = "container:MobilePay-Apple.xcodeproj">
+            BlueprintIdentifier = "8B023F4026B450F800BAFD56"
+            BuildableName = "MobilePayKit-iOS.app"
+            BlueprintName = "MobilePayKit-iOS"
+            ReferencedContainer = "container:MobilePayKit-iOS.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <StoreKitConfigurationFileReference
+         identifier = "../Example/iOS/MobilePayKit-iOS/Configuration.storekit">
+      </StoreKitConfigurationFileReference>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -75,10 +64,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "FA5DF9A426A567B600664755"
-            BuildableName = "MobilePay-Apple.app"
-            BlueprintName = "MobilePay-Apple (iOS)"
-            ReferencedContainer = "container:MobilePay-Apple.xcodeproj">
+            BlueprintIdentifier = "8B023F4026B450F800BAFD56"
+            BuildableName = "MobilePayKit-iOS.app"
+            BlueprintName = "MobilePayKit-iOS"
+            ReferencedContainer = "container:MobilePayKit-iOS.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

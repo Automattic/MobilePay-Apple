@@ -1,0 +1,388 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8B023F6E26B451DC00BAFD56 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B023F6926B451DC00BAFD56 /* Assets.xcassets */; };
+		8B023F6F26B451DC00BAFD56 /* ProductListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B023F6A26B451DC00BAFD56 /* ProductListViewModel.swift */; };
+		8B023F7026B451DC00BAFD56 /* Configuration.storekit in Resources */ = {isa = PBXBuildFile; fileRef = 8B023F6B26B451DC00BAFD56 /* Configuration.storekit */; };
+		8B023F7126B451DC00BAFD56 /* ProductList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B023F6C26B451DC00BAFD56 /* ProductList.swift */; };
+		8B023F7226B451DC00BAFD56 /* MobilePay_AppleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B023F6D26B451DC00BAFD56 /* MobilePay_AppleApp.swift */; };
+		8B023FD226B45CE900BAFD56 /* MobilePayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B023FCE26B45CDD00BAFD56 /* MobilePayKit.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8B023FCD26B45CDD00BAFD56 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B023F7426B4530900BAFD56 /* MobilePay-Apple.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8B023F8326B4544400BAFD56;
+			remoteInfo = MobilePayKit;
+		};
+		8B023FCF26B45CDD00BAFD56 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B023F7426B4530900BAFD56 /* MobilePay-Apple.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8B023FA826B45B1400BAFD56;
+			remoteInfo = MobilePayKitTests;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8B023F4126B450F800BAFD56 /* MobilePayKit-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MobilePayKit-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B023F4D26B450F900BAFD56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B023F6926B451DC00BAFD56 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8B023F6A26B451DC00BAFD56 /* ProductListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductListViewModel.swift; sourceTree = "<group>"; };
+		8B023F6B26B451DC00BAFD56 /* Configuration.storekit */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Configuration.storekit; sourceTree = "<group>"; };
+		8B023F6C26B451DC00BAFD56 /* ProductList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductList.swift; sourceTree = "<group>"; };
+		8B023F6D26B451DC00BAFD56 /* MobilePay_AppleApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobilePay_AppleApp.swift; sourceTree = "<group>"; };
+		8B023F7426B4530900BAFD56 /* MobilePay-Apple.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "MobilePay-Apple.xcodeproj"; path = "../../MobilePay-Apple.xcodeproj"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8B023F3E26B450F800BAFD56 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B023FD226B45CE900BAFD56 /* MobilePayKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8B023F3826B450F800BAFD56 = {
+			isa = PBXGroup;
+			children = (
+				8B023F4326B450F800BAFD56 /* MobilePayKit-iOS */,
+				8B023F4226B450F800BAFD56 /* Products */,
+				8B023F7426B4530900BAFD56 /* MobilePay-Apple.xcodeproj */,
+				8B023FD126B45CE900BAFD56 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		8B023F4226B450F800BAFD56 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8B023F4126B450F800BAFD56 /* MobilePayKit-iOS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8B023F4326B450F800BAFD56 /* MobilePayKit-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				8B023F6D26B451DC00BAFD56 /* MobilePay_AppleApp.swift */,
+				8B023F6A26B451DC00BAFD56 /* ProductListViewModel.swift */,
+				8B023F6C26B451DC00BAFD56 /* ProductList.swift */,
+				8B023F6926B451DC00BAFD56 /* Assets.xcassets */,
+				8B023F6B26B451DC00BAFD56 /* Configuration.storekit */,
+				8B023F4D26B450F900BAFD56 /* Info.plist */,
+			);
+			path = "MobilePayKit-iOS";
+			sourceTree = "<group>";
+		};
+		8B023FC926B45CDD00BAFD56 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8B023FCE26B45CDD00BAFD56 /* MobilePayKit.framework */,
+				8B023FD026B45CDD00BAFD56 /* MobilePayKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8B023FD126B45CE900BAFD56 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8B023F4026B450F800BAFD56 /* MobilePayKit-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B023F5026B450F900BAFD56 /* Build configuration list for PBXNativeTarget "MobilePayKit-iOS" */;
+			buildPhases = (
+				8B023F3D26B450F800BAFD56 /* Sources */,
+				8B023F3E26B450F800BAFD56 /* Frameworks */,
+				8B023F3F26B450F800BAFD56 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MobilePayKit-iOS";
+			productName = "MobilePayKit-iOS";
+			productReference = 8B023F4126B450F800BAFD56 /* MobilePayKit-iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8B023F3926B450F800BAFD56 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					8B023F4026B450F800BAFD56 = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+				};
+			};
+			buildConfigurationList = 8B023F3C26B450F800BAFD56 /* Build configuration list for PBXProject "MobilePayKit-iOS" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8B023F3826B450F800BAFD56;
+			productRefGroup = 8B023F4226B450F800BAFD56 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 8B023FC926B45CDD00BAFD56 /* Products */;
+					ProjectRef = 8B023F7426B4530900BAFD56 /* MobilePay-Apple.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				8B023F4026B450F800BAFD56 /* MobilePayKit-iOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		8B023FCE26B45CDD00BAFD56 /* MobilePayKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MobilePayKit.framework;
+			remoteRef = 8B023FCD26B45CDD00BAFD56 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8B023FD026B45CDD00BAFD56 /* MobilePayKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = MobilePayKitTests.xctest;
+			remoteRef = 8B023FCF26B45CDD00BAFD56 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8B023F3F26B450F800BAFD56 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B023F6E26B451DC00BAFD56 /* Assets.xcassets in Resources */,
+				8B023F7026B451DC00BAFD56 /* Configuration.storekit in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8B023F3D26B450F800BAFD56 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B023F6F26B451DC00BAFD56 /* ProductListViewModel.swift in Sources */,
+				8B023F7226B451DC00BAFD56 /* MobilePay_AppleApp.swift in Sources */,
+				8B023F7126B451DC00BAFD56 /* ProductList.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		8B023F4E26B450F900BAFD56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8B023F4F26B450F900BAFD56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8B023F5126B450F900BAFD56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PZYM8XX95Q;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "MobilePayKit-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.automattic.MobilePayKit-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8B023F5226B450F900BAFD56 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PZYM8XX95Q;
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = "MobilePayKit-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.automattic.MobilePayKit-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8B023F3C26B450F800BAFD56 /* Build configuration list for PBXProject "MobilePayKit-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B023F4E26B450F900BAFD56 /* Debug */,
+				8B023F4F26B450F900BAFD56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8B023F5026B450F900BAFD56 /* Build configuration list for PBXNativeTarget "MobilePayKit-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B023F5126B450F900BAFD56 /* Debug */,
+				8B023F5226B450F900BAFD56 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8B023F3926B450F800BAFD56 /* Project object */;
+}
