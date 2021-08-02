@@ -40,6 +40,18 @@ class AppStoreService: NSObject {
     }
 
     // MARK: - Public
+    
+    func fetchProducts(completion: @escaping FetchCompletionCallback) {
+        iapService.fetchProductSKUs()
+            .sink(
+                receiveCompletion: { _ in },
+                receiveValue: { [weak self] skus in
+                    let productIdentifiers = Set(skus)
+                    self?.fetchProducts(for: productIdentifiers, completion: completion)
+                }
+            )
+            .store(in: &cancellables)
+    }
 
     func fetchProducts(for identifiers: Set<String>, completion: @escaping FetchCompletionCallback) {
         productsRequest = productsRequestFactory.createRequest(with: identifiers, completion: completion)
