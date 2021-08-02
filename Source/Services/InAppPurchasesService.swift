@@ -15,6 +15,15 @@ class InAppPurchasesService: InAppPurchasesServiceProtocol {
     }
 
     func fetchProductSKUs() -> AnyPublisher<[String], Error> {
+        
+//        FIXME: send actual request
+//
+//        let request = InAppPurchasesAPIRouter.products.asURLRequest()
+//
+//        return networking.load(request)
+//            .decode(type: [String].self, decoder: JSONDecoder())
+//            .eraseToAnyPublisher()
+        
         let productIdentifiers = [
             "com.mobilepay.consumable.rocketfuel",
             "com.mobilepay.consumable.premiumrocketfuel"
@@ -26,6 +35,22 @@ class InAppPurchasesService: InAppPurchasesServiceProtocol {
     }
 
     func createOrder(identifier: String, price: Int, country: String, receipt: String) -> AnyPublisher<Int, Error> {
+        
+//        FIXME: send actual request
+//
+//        let parameters = CreateOrderParameters(
+//            product_id: identifier,
+//            price: price,
+//            appstore_country: country,
+//            apple_receipt: receipt
+//        )
+//
+//        let request = InAppPurchasesAPIRouter.createOrder(parameters: parameters).asURLRequest()
+//
+//        return networking.load(request)
+//            .decode(type: Int.self, decoder: JSONDecoder())
+//            .eraseToAnyPublisher()
+        
         let orderIdentifier = 1
 
         return Future { $0(.success(orderIdentifier)) }
