@@ -96,22 +96,29 @@ extension AppStoreService: SKPaymentTransactionObserver {
                 break
 
             case .failed:
-                paymentQueue.finishTransaction(transaction)
-                // FIXME: handle failed transaction
+                handleFailedTransaction(transaction)
 
             case .purchased,
                  .restored:
-                paymentQueue.finishTransaction(transaction)
-
-                DispatchQueue.main.async { [weak self] in
-                    self?.purchaseCompletionCallback?(transaction)
-                    self?.purchaseCompletionCallback = nil
-                }
+                handleCompletedTransaction(transaction)
 
             @unknown default:
                 print("Unexpected transaction state: \(transaction.transactionState)")
             }
         }
     }
+    
+    private func handleFailedTransaction(_ transaction: SKPaymentTransaction) {
+        // FIXME: handle failed transaction
+        paymentQueue.finishTransaction(transaction)
+    }
+    
+    private func handleCompletedTransaction(_ transaction: SKPaymentTransaction) {
+        paymentQueue.finishTransaction(transaction)
 
+        DispatchQueue.main.async { [weak self] in
+            self?.purchaseCompletionCallback?(transaction)
+            self?.purchaseCompletionCallback = nil
+        }
+    }
 }
