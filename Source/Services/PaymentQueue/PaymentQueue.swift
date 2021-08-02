@@ -2,6 +2,8 @@ import Foundation
 import StoreKit
 
 public protocol PaymentQueue: AnyObject {
+    
+    var storefront: SKStorefront? { get }
 
     func add(_ observer: SKPaymentTransactionObserver)
     func remove(_ observer: SKPaymentTransactionObserver)
