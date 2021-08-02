@@ -20,6 +20,7 @@
 		8B023FC626B45CBC00BAFD56 /* ProductsRequestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B023EEA26B4464000BAFD56 /* ProductsRequestHelper.swift */; };
 		8B023FC726B45CBF00BAFD56 /* PaymentQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B023EEC26B4464000BAFD56 /* PaymentQueue.swift */; };
 		8B023FC826B45CC200BAFD56 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B023EFC26B4464100BAFD56 /* Product.swift */; };
+		FA6447F826B84CEB00896D81 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6447F726B84CEB00896D81 /* Networking.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		8B023FBB26B45B7200BAFD56 /* MockPaymentQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPaymentQueue.swift; sourceTree = "<group>"; };
 		8B023FBC26B45B7200BAFD56 /* TestPaymentTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPaymentTransaction.swift; sourceTree = "<group>"; };
 		8B023FE226B464C100BAFD56 /* MobilePayKit.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = MobilePayKit.podspec; sourceTree = "<group>"; };
+		FA6447F726B84CEB00896D81 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 				8B023EE826B4464000BAFD56 /* ProductsRequest */,
 				8B023EEB26B4464000BAFD56 /* PaymentQueue */,
 				8B023EE726B4464000BAFD56 /* AppStoreService.swift */,
+				FA6447F726B84CEB00896D81 /* Networking.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				8B023FC326B45CB100BAFD56 /* PaymentManager.swift in Sources */,
 				8B023FC226B45CAF00BAFD56 /* MobilePayKit.swift in Sources */,
 				8B023FC726B45CBF00BAFD56 /* PaymentQueue.swift in Sources */,
+				FA6447F826B84CEB00896D81 /* Networking.swift in Sources */,
 				8B023FC626B45CBC00BAFD56 /* ProductsRequestHelper.swift in Sources */,
 				8B023FC526B45CB900BAFD56 /* AppStoreProductsRequestFactory.swift in Sources */,
 				8B023FC426B45CB600BAFD56 /* AppStoreService.swift in Sources */,
