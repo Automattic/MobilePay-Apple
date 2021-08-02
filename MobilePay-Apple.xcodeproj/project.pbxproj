@@ -25,6 +25,7 @@
 		FA6447FC26B84D8900896D81 /* InAppPurchasesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6447FB26B84D8900896D81 /* InAppPurchasesService.swift */; };
 		FA6447FE26B851D900896D81 /* SKProduct+MobilePayKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6447FD26B851D900896D81 /* SKProduct+MobilePayKit.swift */; };
 		FA64480026B8525000896D81 /* InAppPurchasesAPIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6447FF26B8525000896D81 /* InAppPurchasesAPIRouter.swift */; };
+		FA64480426B85AFF00896D81 /* NetworkingStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64480326B85AFF00896D81 /* NetworkingStub.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		FA6447FB26B84D8900896D81 /* InAppPurchasesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchasesService.swift; sourceTree = "<group>"; };
 		FA6447FD26B851D900896D81 /* SKProduct+MobilePayKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKProduct+MobilePayKit.swift"; sourceTree = "<group>"; };
 		FA6447FF26B8525000896D81 /* InAppPurchasesAPIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchasesAPIRouter.swift; sourceTree = "<group>"; };
+		FA64480326B85AFF00896D81 /* NetworkingStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingStub.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				8B023FB826B45B7200BAFD56 /* AppStoreServiceTests.swift */,
+				FA64480326B85AFF00896D81 /* NetworkingStub.swift */,
 				8B023FBB26B45B7200BAFD56 /* MockPaymentQueue.swift */,
 				8B023FB926B45B7200BAFD56 /* MockProductsRequestFactory.swift */,
 				8B023FBC26B45B7200BAFD56 /* TestPaymentTransaction.swift */,
@@ -318,6 +321,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B023FBE26B45B8900BAFD56 /* MockPaymentQueue.swift in Sources */,
+				FA64480426B85AFF00896D81 /* NetworkingStub.swift in Sources */,
 				8B023FBF26B45B8B00BAFD56 /* MockProductsRequestFactory.swift in Sources */,
 				8B023FBD26B45B8600BAFD56 /* AppStoreServiceTests.swift in Sources */,
 				8B023FC026B45B9600BAFD56 /* TestPaymentTransaction.swift in Sources */,
