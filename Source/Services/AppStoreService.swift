@@ -6,13 +6,13 @@ public typealias FetchCompletionCallback = ([SKProduct]) -> Void
 public typealias PurchaseCompletionCallback = (SKPaymentTransaction?) -> Void
 
 class AppStoreService: NSObject {
-    
+
     private let iapService: InAppPurchasesService
 
     private let paymentQueue: PaymentQueue
 
     private let productsRequestFactory: ProductsRequestFactory
-    
+
     private var cancellables = Set<AnyCancellable>()
 
     // A callback to help with handling purchase product completion
@@ -20,7 +20,7 @@ class AppStoreService: NSObject {
 
     // An object that can retrieve product info from the App Store
     private(set) var productsRequest: ProductsRequest?
-    
+
     // The product being purchased
     private var purchasingProduct: SKProduct?
 
@@ -43,7 +43,7 @@ class AppStoreService: NSObject {
     }
 
     // MARK: - Public
-    
+
     func fetchProducts(completion: @escaping FetchCompletionCallback) {
         iapService.fetchProductSKUs()
             .sink(
@@ -110,14 +110,14 @@ extension AppStoreService: SKPaymentTransactionObserver {
             }
         }
     }
-    
+
     private func handleFailedTransaction(_ transaction: SKPaymentTransaction) {
         // FIXME: handle failed transaction
         paymentQueue.finishTransaction(transaction)
     }
-    
+
     private func handleCompletedTransaction(_ transaction: SKPaymentTransaction) {
-        
+
         guard let appStoreReceiptURL = Bundle.main.appStoreReceiptURL,
               FileManager.default.fileExists(atPath: appStoreReceiptURL.path) else {
             print("Could not find app store receipt")
