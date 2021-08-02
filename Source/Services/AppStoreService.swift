@@ -1,3 +1,4 @@
+import Combine
 import Foundation
 import StoreKit
 
@@ -5,10 +6,14 @@ public typealias FetchCompletionCallback = ([SKProduct]) -> Void
 public typealias PurchaseCompletionCallback = (SKPaymentTransaction?) -> Void
 
 class AppStoreService: NSObject {
+    
+    private let iapService: InAppPurchasesService
 
     private let paymentQueue: PaymentQueue
 
     private let productsRequestFactory: ProductsRequestFactory
+    
+    private var cancellables = Set<AnyCancellable>()
 
     // A callback to help with handling purchase product completion
     private var purchaseCompletionCallback: PurchaseCompletionCallback?
@@ -19,9 +24,11 @@ class AppStoreService: NSObject {
     // MARK: - Init
 
     init(
+        iapService: InAppPurchasesService = InAppPurchasesService(),
         paymentQueue: PaymentQueue = SKPaymentQueue.default(),
         productsRequestFactory: ProductsRequestFactory = AppStoreProductsRequestFactory()
     ) {
+        self.iapService = iapService
         self.paymentQueue = paymentQueue
         self.productsRequestFactory = productsRequestFactory
         super.init()
