@@ -103,11 +103,11 @@
 				8B023EE826B4464000BAFD56 /* ProductsRequest */,
 				8B023EEB26B4464000BAFD56 /* PaymentQueue */,
 				8B023EE726B4464000BAFD56 /* AppStoreService.swift */,
+				FA6447FB26B84D8900896D81 /* InAppPurchasesService.swift */,
+				FA6447FF26B8525000896D81 /* InAppPurchasesAPIRouter.swift */,
 				FA6447F726B84CEB00896D81 /* Networking.swift */,
 				FA6447F926B84D3100896D81 /* URLSession+Networking.swift */,
-				FA6447FB26B84D8900896D81 /* InAppPurchasesService.swift */,
 				FA6447FD26B851D900896D81 /* SKProduct+MobilePayKit.swift */,
-				FA6447FF26B8525000896D81 /* InAppPurchasesAPIRouter.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
