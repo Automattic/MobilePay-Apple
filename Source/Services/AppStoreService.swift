@@ -71,7 +71,10 @@ class AppStoreService: NSObject {
 
     func purchaseProduct(_ product: SKProduct, completion: @escaping PurchaseCompletionCallback) {
 
-        // Initialiaze the handler
+        // Initialize the product being purchased
+        purchasingProduct = product
+
+        // Initialize the handler
         purchaseCompletionCallback = completion
 
         // Submit the payment request to the App Store by adding it to the payment queue
