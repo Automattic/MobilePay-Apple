@@ -3,6 +3,8 @@ import StoreKit
 
 class MockPaymentQueue: PaymentQueue {
 
+    var storefront: SKStorefront?
+
     var addObserverCalled = false
     var removeObserverCalled = false
     var addPaymentCalled = false

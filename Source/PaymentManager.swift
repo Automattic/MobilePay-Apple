@@ -5,11 +5,6 @@ public class PaymentManager: NSObject {
 
     private let appStoreService = AppStoreService()
 
-    private let productIdentifiers = Set([
-        "com.mobilepay.consumable.rocketfuel",
-        "com.mobilepay.consumable.premiumrocketfuel"
-    ])
-
     // MARK: - Init
 
     public override init() {
@@ -19,7 +14,7 @@ public class PaymentManager: NSObject {
     // MARK: - Public
 
     public func fetchProducts(completion: @escaping FetchCompletionCallback) {
-        appStoreService.fetchProducts(for: productIdentifiers, completion: completion)
+        appStoreService.fetchProducts(completion: completion)
     }
 
     public func purchaseProduct(with identifier: String, completion: @escaping PurchaseCompletionCallback) {

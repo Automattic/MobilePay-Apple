@@ -20,6 +20,13 @@
 		8B023FC626B45CBC00BAFD56 /* ProductsRequestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B023EEA26B4464000BAFD56 /* ProductsRequestHelper.swift */; };
 		8B023FC726B45CBF00BAFD56 /* PaymentQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B023EEC26B4464000BAFD56 /* PaymentQueue.swift */; };
 		8B023FC826B45CC200BAFD56 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B023EFC26B4464100BAFD56 /* Product.swift */; };
+		FA6447F826B84CEB00896D81 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6447F726B84CEB00896D81 /* Networking.swift */; };
+		FA6447FA26B84D3100896D81 /* URLSession+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6447F926B84D3100896D81 /* URLSession+Networking.swift */; };
+		FA6447FC26B84D8900896D81 /* InAppPurchasesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6447FB26B84D8900896D81 /* InAppPurchasesService.swift */; };
+		FA6447FE26B851D900896D81 /* SKProduct+MobilePayKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6447FD26B851D900896D81 /* SKProduct+MobilePayKit.swift */; };
+		FA64480026B8525000896D81 /* InAppPurchasesAPIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6447FF26B8525000896D81 /* InAppPurchasesAPIRouter.swift */; };
+		FA64480426B85AFF00896D81 /* NetworkingStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64480326B85AFF00896D81 /* NetworkingStub.swift */; };
+		FA64480626B85B5B00896D81 /* InAppPurchasesServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64480526B85B5B00896D81 /* InAppPurchasesServiceTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +58,13 @@
 		8B023FBB26B45B7200BAFD56 /* MockPaymentQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockPaymentQueue.swift; sourceTree = "<group>"; };
 		8B023FBC26B45B7200BAFD56 /* TestPaymentTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPaymentTransaction.swift; sourceTree = "<group>"; };
 		8B023FE226B464C100BAFD56 /* MobilePayKit.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = MobilePayKit.podspec; sourceTree = "<group>"; };
+		FA6447F726B84CEB00896D81 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		FA6447F926B84D3100896D81 /* URLSession+Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Networking.swift"; sourceTree = "<group>"; };
+		FA6447FB26B84D8900896D81 /* InAppPurchasesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchasesService.swift; sourceTree = "<group>"; };
+		FA6447FD26B851D900896D81 /* SKProduct+MobilePayKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKProduct+MobilePayKit.swift"; sourceTree = "<group>"; };
+		FA6447FF26B8525000896D81 /* InAppPurchasesAPIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchasesAPIRouter.swift; sourceTree = "<group>"; };
+		FA64480326B85AFF00896D81 /* NetworkingStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingStub.swift; sourceTree = "<group>"; };
+		FA64480526B85B5B00896D81 /* InAppPurchasesServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchasesServiceTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,19 +100,16 @@
 		8B023EE526B4464000BAFD56 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				8B023EE626B4464000BAFD56 /* AppStore */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
-		8B023EE626B4464000BAFD56 /* AppStore */ = {
-			isa = PBXGroup;
-			children = (
-				8B023EE726B4464000BAFD56 /* AppStoreService.swift */,
 				8B023EE826B4464000BAFD56 /* ProductsRequest */,
 				8B023EEB26B4464000BAFD56 /* PaymentQueue */,
+				8B023EE726B4464000BAFD56 /* AppStoreService.swift */,
+				FA6447FB26B84D8900896D81 /* InAppPurchasesService.swift */,
+				FA6447FF26B8525000896D81 /* InAppPurchasesAPIRouter.swift */,
+				FA6447F726B84CEB00896D81 /* Networking.swift */,
+				FA6447F926B84D3100896D81 /* URLSession+Networking.swift */,
+				FA6447FD26B851D900896D81 /* SKProduct+MobilePayKit.swift */,
 			);
-			path = AppStore;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		8B023EE826B4464000BAFD56 /* ProductsRequest */ = {
@@ -147,6 +158,8 @@
 			isa = PBXGroup;
 			children = (
 				8B023FB826B45B7200BAFD56 /* AppStoreServiceTests.swift */,
+				FA64480526B85B5B00896D81 /* InAppPurchasesServiceTests.swift */,
+				FA64480326B85AFF00896D81 /* NetworkingStub.swift */,
 				8B023FBB26B45B7200BAFD56 /* MockPaymentQueue.swift */,
 				8B023FB926B45B7200BAFD56 /* MockProductsRequestFactory.swift */,
 				8B023FBC26B45B7200BAFD56 /* TestPaymentTransaction.swift */,
@@ -292,8 +305,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B023FC326B45CB100BAFD56 /* PaymentManager.swift in Sources */,
+				FA64480026B8525000896D81 /* InAppPurchasesAPIRouter.swift in Sources */,
 				8B023FC226B45CAF00BAFD56 /* MobilePayKit.swift in Sources */,
 				8B023FC726B45CBF00BAFD56 /* PaymentQueue.swift in Sources */,
+				FA6447F826B84CEB00896D81 /* Networking.swift in Sources */,
+				FA6447FA26B84D3100896D81 /* URLSession+Networking.swift in Sources */,
+				FA6447FE26B851D900896D81 /* SKProduct+MobilePayKit.swift in Sources */,
+				FA6447FC26B84D8900896D81 /* InAppPurchasesService.swift in Sources */,
 				8B023FC626B45CBC00BAFD56 /* ProductsRequestHelper.swift in Sources */,
 				8B023FC526B45CB900BAFD56 /* AppStoreProductsRequestFactory.swift in Sources */,
 				8B023FC426B45CB600BAFD56 /* AppStoreService.swift in Sources */,
@@ -306,9 +324,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B023FBE26B45B8900BAFD56 /* MockPaymentQueue.swift in Sources */,
+				FA64480426B85AFF00896D81 /* NetworkingStub.swift in Sources */,
 				8B023FBF26B45B8B00BAFD56 /* MockProductsRequestFactory.swift in Sources */,
 				8B023FBD26B45B8600BAFD56 /* AppStoreServiceTests.swift in Sources */,
 				8B023FC026B45B9600BAFD56 /* TestPaymentTransaction.swift in Sources */,
+				FA64480626B85B5B00896D81 /* InAppPurchasesServiceTests.swift in Sources */,
 				8B023FC126B45B9800BAFD56 /* TestProduct.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

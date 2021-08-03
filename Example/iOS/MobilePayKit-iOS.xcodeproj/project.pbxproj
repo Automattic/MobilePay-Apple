@@ -13,6 +13,7 @@
 		8B023F7126B451DC00BAFD56 /* ProductList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B023F6C26B451DC00BAFD56 /* ProductList.swift */; };
 		8B023F7226B451DC00BAFD56 /* MobilePay_AppleApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B023F6D26B451DC00BAFD56 /* MobilePay_AppleApp.swift */; };
 		8B023FD226B45CE900BAFD56 /* MobilePayKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B023FCE26B45CDD00BAFD56 /* MobilePayKit.framework */; };
+		FA64481C26B934DD00896D81 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA64481926B934DD00896D81 /* StoreKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		8B023F6C26B451DC00BAFD56 /* ProductList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductList.swift; sourceTree = "<group>"; };
 		8B023F6D26B451DC00BAFD56 /* MobilePay_AppleApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobilePay_AppleApp.swift; sourceTree = "<group>"; };
 		8B023F7426B4530900BAFD56 /* MobilePay-Apple.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = "MobilePay-Apple.xcodeproj"; path = "../../MobilePay-Apple.xcodeproj"; sourceTree = "<group>"; };
+		FA64481926B934DD00896D81 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +51,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B023FD226B45CE900BAFD56 /* MobilePayKit.framework in Frameworks */,
+				FA64481C26B934DD00896D81 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +101,7 @@
 		8B023FD126B45CE900BAFD56 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FA64481926B934DD00896D81 /* StoreKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
