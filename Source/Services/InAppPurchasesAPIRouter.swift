@@ -42,7 +42,7 @@ enum InAppPurchasesAPIRouter: URLRequestConvertible {
         // Set headers
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("application/json", forHTTPHeaderField: "Accept")
-        request.setValue( "Bearer \(Constants.token)", forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer \(Constants.token)", forHTTPHeaderField: "Authorization")
         request.setValue(Bundle.main.bundleIdentifier, forHTTPHeaderField: "X-APP-ID")
 
         switch self {
