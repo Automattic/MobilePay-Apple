@@ -50,7 +50,7 @@ enum InAppPurchasesAPIRouter: URLRequestConvertible {
             break
         case .createOrder(let parameters):
             do {
-                request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: [])
+                request.httpBody = try JSONEncoder().encode(parameters)
             } catch let error {
                 print("error serializing parameters: \(error.localizedDescription)")
             }
