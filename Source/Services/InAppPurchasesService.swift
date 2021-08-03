@@ -30,7 +30,6 @@ class InAppPurchasesService: InAppPurchasesServiceProtocol {
         ]
 
         return Future { $0(.success(productIdentifiers)) }
-            .delay(for: 0.5, scheduler: RunLoop.main)
             .eraseToAnyPublisher()
     }
 
@@ -54,7 +53,6 @@ class InAppPurchasesService: InAppPurchasesServiceProtocol {
         let orderIdentifier = 1
 
         return Future { $0(.success(orderIdentifier)) }
-            .delay(for: 0.5, scheduler: RunLoop.main)
             .eraseToAnyPublisher()
     }
 
