@@ -92,7 +92,7 @@ struct ProductList: View {
                 }.navigationBarItems(trailing: Button("Restore") {
                     viewModel.restorePurchases()
                 })
-            }.navigationTitle("Rocket fuel shop")
+            }.navigationTitle("MobilePayKit Demo")
         }
     }
 }
