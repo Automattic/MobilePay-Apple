@@ -55,7 +55,60 @@ final class InAppPurchasesServiceTests: XCTestCase {
 
                     expectation.fulfill()
                 },
-                receiveValue: { productIds in
+                receiveValue: { _ in
+                    XCTFail("Expected to fail")
+                }
+            )
+            .store(in: &cancellables)
+    }
+
+    func testCreateOrder_WhenReqeustSucceeds_PublishesDecodedOrderIds() throws {
+
+        let json = """
+        {
+            "order_id": 123
+        }
+        """
+
+        let data = try XCTUnwrap(json.data(using: .utf8))
+
+        let service = InAppPurchasesService(networking: NetworkingStub(returning: .success(data)))
+
+        let expectation = XCTestExpectation(description: "Publishes decoded Int")
+
+        service.createOrder(identifier: "1", price: 100, country: "", receipt: "")
+            .sink(
+                receiveCompletion: { _ in },
+                receiveValue: { orderId in
+                    XCTAssertEqual(orderId, 123)
+                    expectation.fulfill()
+                }
+            )
+            .store(in: &cancellables)
+
+        wait(for: [expectation], timeout: 1)
+    }
+
+    func testCreateOrder_WhenRequestFails_PublishesReceivedError() throws {
+
+        let expectedError = URLError(.badServerResponse)
+
+        let service = InAppPurchasesService(networking: NetworkingStub(returning: .failure(expectedError)))
+
+        let expectation = XCTestExpectation(description: "Publishes received URLError")
+
+        service.createOrder(identifier: "1", price: 100, country: "", receipt: "")
+            .sink(
+                receiveCompletion: { completion in
+                    guard case .failure(let error) = completion else {
+                        return
+                    }
+
+                    XCTAssertEqual(error as? URLError, expectedError)
+
+                    expectation.fulfill()
+                },
+                receiveValue: { _ in
                     XCTFail("Expected to fail")
                 }
             )
