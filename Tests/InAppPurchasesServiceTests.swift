@@ -7,14 +7,13 @@ final class InAppPurchasesServiceTests: XCTestCase {
 
     var cancellables = Set<AnyCancellable>()
 
-    func testFetchProducts_WhenReqeustSucceeds_PublishesDecodedIds() throws {
-
-        try XCTSkipIf(true, "skipping this for now, need to call networking.load(request) instead of returning dummy values")
+    func testFetchProducts_WhenReqeustSucceeds_PublishesDecodedSkus() throws {
 
         let json = """
         [
             "com.product.1",
-            "com.product.2"
+            "com.product.2",
+            "com.product.3"
         ]
         """
 
@@ -28,7 +27,7 @@ final class InAppPurchasesServiceTests: XCTestCase {
             .sink(
                 receiveCompletion: { _ in },
                 receiveValue: { productIds in
-                    XCTAssertEqual(productIds.count, 2)
+                    XCTAssertEqual(productIds.count, 3)
                     expectation.fulfill()
                 }
             )
@@ -38,8 +37,6 @@ final class InAppPurchasesServiceTests: XCTestCase {
     }
 
     func testFetchProducts_WhenRequestFails_PublishesReceivedError() throws {
-
-        try XCTSkipIf(true, "skipping this for now, need to call networking.load(request) instead of returning dummy values")
 
         let expectedError = URLError(.badServerResponse)
 
