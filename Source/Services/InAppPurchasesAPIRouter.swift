@@ -45,6 +45,10 @@ enum InAppPurchasesAPIRouter: URLRequestConvertible {
         request.setValue("Bearer \(Constants.token)", forHTTPHeaderField: "Authorization")
         request.setValue(Bundle.main.bundleIdentifier, forHTTPHeaderField: "X-APP-ID")
 
+        // Set HTTP method
+        request.httpMethod = httpMethod
+
+        // Set HTTP body
         switch self {
         case .products:
             break
