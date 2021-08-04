@@ -47,7 +47,16 @@ class AppStoreService: NSObject {
     func fetchProducts(completion: @escaping FetchCompletionCallback) {
         iapService.fetchProductSKUs()
             .sink(
-                receiveCompletion: { _ in },
+                receiveCompletion: { completion in
+
+                    switch completion {
+                    case .finished:
+                        print("fetch products finished")
+                    case .failure(let error):
+                        print("fetch products error: \(error.localizedDescription)")
+                    }
+
+                },
                 receiveValue: { [weak self] skus in
                     let productIdentifiers = Set(skus)
                     self?.fetchProducts(for: productIdentifiers, completion: completion)
