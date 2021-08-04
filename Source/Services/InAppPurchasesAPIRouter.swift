@@ -70,3 +70,11 @@ struct CreateOrderParameters: Encodable {
     let appstore_country: String
     let apple_receipt: String
 }
+
+struct CreateOrderResponse: Decodable {
+    let orderId: Int
+
+    enum CodingKeys: String, CodingKey {
+        case orderId = "order_id"
+    }
+}
