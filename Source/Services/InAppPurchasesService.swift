@@ -16,20 +16,10 @@ class InAppPurchasesService: InAppPurchasesServiceProtocol {
 
     func fetchProductSKUs() -> AnyPublisher<[String], Error> {
 
-//        FIXME: send actual request
-//
-//        let request = InAppPurchasesAPIRouter.products.asURLRequest()
-//
-//        return networking.load(request)
-//            .decode(type: [String].self, decoder: JSONDecoder())
-//            .eraseToAnyPublisher()
+        let request = InAppPurchasesAPIRouter.products.asURLRequest()
 
-        let productIdentifiers = [
-            "com.mobilepay.consumable.rocketfuel",
-            "com.mobilepay.consumable.premiumrocketfuel"
-        ]
-
-        return Future { $0(.success(productIdentifiers)) }
+        return networking.load(request)
+            .decode(type: [String].self, decoder: JSONDecoder())
             .eraseToAnyPublisher()
     }
 
