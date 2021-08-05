@@ -95,7 +95,7 @@ struct ProductList: View {
                     }
                 }
             }
-        }.navigationTitle("Rocket fuel shop")
+        }.navigationTitle("MobilePayKit Demo")
     }
 }
 
