@@ -28,6 +28,14 @@ class ProductListViewModel: ObservableObject {
     }
 
     init() {
+
+        let configuration = MobilePayKitConfiguration(
+            oAuthToken: "token",
+            bundleId: Bundle.main.bundleIdentifier
+        )
+
+        MobilePayKit.configure(with: configuration)
+
         MobilePayKit.fetchProducts(completion: { products in
             self.products = products.map { Product(product: $0) }
         })

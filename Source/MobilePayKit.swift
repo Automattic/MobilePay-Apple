@@ -15,15 +15,27 @@ public class MobilePayKit: NSObject {
 
     private static let sharedInstance = MobilePayKit()
 
-    private let appStoreService = AppStoreService()
+    private static var configuration: MobilePayKitConfiguration?
+
+    private let appStoreService: AppStoreService
 
     // MARK: - Init
 
-    public override init() {
+    private override init() {
+        guard let configuration = MobilePayKit.configuration else {
+            fatalError("Configuration must be set")
+        }
+
+        self.appStoreService = AppStoreService(configuration: configuration)
+
         super.init()
     }
 
     // MARK: - Public
+
+    public class func configure(with configuration: MobilePayKitConfiguration) {
+        self.configuration = configuration
+    }
 
     public class func fetchProducts(completion: @escaping FetchCompletionCallback) {
         sharedInstance.fetchProducts(completion: completion)
