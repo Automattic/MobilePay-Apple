@@ -13,8 +13,7 @@
 		8B023FBF26B45B8B00BAFD56 /* MockProductsRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B023FB926B45B7200BAFD56 /* MockProductsRequestFactory.swift */; };
 		8B023FC026B45B9600BAFD56 /* TestPaymentTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B023FBC26B45B7200BAFD56 /* TestPaymentTransaction.swift */; };
 		8B023FC126B45B9800BAFD56 /* TestProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B023FBA26B45B7200BAFD56 /* TestProduct.swift */; };
-		8B023FC226B45CAF00BAFD56 /* MobilePayKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B023EFD26B4464100BAFD56 /* MobilePayKit.swift */; };
-		8B023FC326B45CB100BAFD56 /* PaymentManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B023EFA26B4464000BAFD56 /* PaymentManager.swift */; };
+		8B023FC326B45CB100BAFD56 /* MobilePayKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B023EFA26B4464000BAFD56 /* MobilePayKit.swift */; };
 		8B023FC426B45CB600BAFD56 /* AppStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B023EE726B4464000BAFD56 /* AppStoreService.swift */; };
 		8B023FC526B45CB900BAFD56 /* AppStoreProductsRequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B023EE926B4464000BAFD56 /* AppStoreProductsRequestFactory.swift */; };
 		8B023FC626B45CBC00BAFD56 /* ProductsRequestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B023EEA26B4464000BAFD56 /* ProductsRequestHelper.swift */; };
@@ -45,9 +44,8 @@
 		8B023EE926B4464000BAFD56 /* AppStoreProductsRequestFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStoreProductsRequestFactory.swift; sourceTree = "<group>"; };
 		8B023EEA26B4464000BAFD56 /* ProductsRequestHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductsRequestHelper.swift; sourceTree = "<group>"; };
 		8B023EEC26B4464000BAFD56 /* PaymentQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentQueue.swift; sourceTree = "<group>"; };
-		8B023EFA26B4464000BAFD56 /* PaymentManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentManager.swift; sourceTree = "<group>"; };
+		8B023EFA26B4464000BAFD56 /* MobilePayKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobilePayKit.swift; sourceTree = "<group>"; };
 		8B023EFC26B4464100BAFD56 /* Product.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
-		8B023EFD26B4464100BAFD56 /* MobilePayKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MobilePayKit.swift; sourceTree = "<group>"; };
 		8B023F0D26B4468C00BAFD56 /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		8B023F1326B4471D00BAFD56 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		8B023F8326B4544400BAFD56 /* MobilePayKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MobilePayKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,8 +91,7 @@
 			children = (
 				8B023EFB26B4464100BAFD56 /* Models */,
 				8B023EE526B4464000BAFD56 /* Services */,
-				8B023EFD26B4464100BAFD56 /* MobilePayKit.swift */,
-				8B023EFA26B4464000BAFD56 /* PaymentManager.swift */,
+				8B023EFA26B4464000BAFD56 /* MobilePayKit.swift */,
 				FA64482526BBEA6E00896D81 /* debug-receipt.txt */,
 			);
 			path = Source;
@@ -308,9 +305,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B023FC326B45CB100BAFD56 /* PaymentManager.swift in Sources */,
+				8B023FC326B45CB100BAFD56 /* MobilePayKit.swift in Sources */,
 				FA64480026B8525000896D81 /* InAppPurchasesAPIRouter.swift in Sources */,
-				8B023FC226B45CAF00BAFD56 /* MobilePayKit.swift in Sources */,
 				8B023FC726B45CBF00BAFD56 /* PaymentQueue.swift in Sources */,
 				FA6447F826B84CEB00896D81 /* Networking.swift in Sources */,
 				FA6447FA26B84D3100896D81 /* URLSession+Networking.swift in Sources */,
