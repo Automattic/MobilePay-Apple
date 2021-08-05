@@ -27,6 +27,7 @@
 		FA64480026B8525000896D81 /* InAppPurchasesAPIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6447FF26B8525000896D81 /* InAppPurchasesAPIRouter.swift */; };
 		FA64480426B85AFF00896D81 /* NetworkingStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64480326B85AFF00896D81 /* NetworkingStub.swift */; };
 		FA64480626B85B5B00896D81 /* InAppPurchasesServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64480526B85B5B00896D81 /* InAppPurchasesServiceTests.swift */; };
+		FA64482626BBEA6E00896D81 /* debug-receipt.txt in Resources */ = {isa = PBXBuildFile; fileRef = FA64482526BBEA6E00896D81 /* debug-receipt.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 		FA6447FF26B8525000896D81 /* InAppPurchasesAPIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchasesAPIRouter.swift; sourceTree = "<group>"; };
 		FA64480326B85AFF00896D81 /* NetworkingStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingStub.swift; sourceTree = "<group>"; };
 		FA64480526B85B5B00896D81 /* InAppPurchasesServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchasesServiceTests.swift; sourceTree = "<group>"; };
+		FA64482526BBEA6E00896D81 /* debug-receipt.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "debug-receipt.txt"; path = "Services/debug-receipt.txt"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 				8B023EE526B4464000BAFD56 /* Services */,
 				8B023EFD26B4464100BAFD56 /* MobilePayKit.swift */,
 				8B023EFA26B4464000BAFD56 /* PaymentManager.swift */,
+				FA64482526BBEA6E00896D81 /* debug-receipt.txt */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA64482626BBEA6E00896D81 /* debug-receipt.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

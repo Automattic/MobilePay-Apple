@@ -47,7 +47,16 @@ class AppStoreService: NSObject {
     func fetchProducts(completion: @escaping FetchCompletionCallback) {
         iapService.fetchProductSKUs()
             .sink(
-                receiveCompletion: { _ in },
+                receiveCompletion: { completion in
+
+                    switch completion {
+                    case .finished:
+                        print("fetch products finished")
+                    case .failure(let error):
+                        print("fetch products error: \(error.localizedDescription)")
+                    }
+
+                },
                 receiveValue: { [weak self] skus in
                     let productIdentifiers = Set(skus)
                     self?.fetchProducts(for: productIdentifiers, completion: completion)
@@ -121,14 +130,21 @@ extension AppStoreService: SKPaymentTransactionObserver {
 
     private func handleCompletedTransaction(_ transaction: SKPaymentTransaction) {
 
+        guard let product = purchasingProduct else {
+            print("Purchasing product is nil")
+            return
+        }
+
         guard let appStoreReceiptURL = Bundle.main.appStoreReceiptURL,
               FileManager.default.fileExists(atPath: appStoreReceiptURL.path) else {
             print("Could not find app store receipt")
             return
         }
 
-        guard let product = purchasingProduct else {
-            print("Purchasing product is nil")
+        // TODO: remove later
+        let bundle = Bundle(for: type(of: self))
+        guard let debugReceiptPath = bundle.path(forResource: "debug-receipt", ofType: "txt") else {
+            print("Could not find debug receipt")
             return
         }
 
@@ -138,7 +154,11 @@ extension AppStoreService: SKPaymentTransactionObserver {
 
             let receiptString = receiptData.base64EncodedString(options: [])
 
-            createOrder(for: product, transaction: transaction, receipt: receiptString)
+            // TODO: remove later
+            let debugReceiptString = try String(contentsOfFile: debugReceiptPath, encoding: String.Encoding.utf8)
+                .trimmingCharacters(in: .newlines)
+
+            createOrder(for: product, transaction: transaction, receipt: debugReceiptString)
 
         } catch let error {
             print("Could not read receipt data: \(error.localizedDescription)")
@@ -164,6 +184,8 @@ extension AppStoreService: SKPaymentTransactionObserver {
             }
 
         }, receiveValue: { [weak self] orderId in
+
+            print("created order for: \(orderId)")
 
             // Finish the transaction once we've successfully created an order remotely
             self?.paymentQueue.finishTransaction(transaction)

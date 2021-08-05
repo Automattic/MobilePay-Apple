@@ -7,14 +7,13 @@ final class InAppPurchasesServiceTests: XCTestCase {
 
     var cancellables = Set<AnyCancellable>()
 
-    func testFetchProducts_WhenReqeustSucceeds_PublishesDecodedIds() throws {
-
-        try XCTSkipIf(true, "skipping this for now, need to call networking.load(request) instead of returning dummy values")
+    func testFetchProducts_WhenReqeustSucceeds_PublishesDecodedSkus() throws {
 
         let json = """
         [
             "com.product.1",
-            "com.product.2"
+            "com.product.2",
+            "com.product.3"
         ]
         """
 
@@ -28,7 +27,7 @@ final class InAppPurchasesServiceTests: XCTestCase {
             .sink(
                 receiveCompletion: { _ in },
                 receiveValue: { productIds in
-                    XCTAssertEqual(productIds.count, 2)
+                    XCTAssertEqual(productIds.count, 3)
                     expectation.fulfill()
                 }
             )
@@ -38,8 +37,6 @@ final class InAppPurchasesServiceTests: XCTestCase {
     }
 
     func testFetchProducts_WhenRequestFails_PublishesReceivedError() throws {
-
-        try XCTSkipIf(true, "skipping this for now, need to call networking.load(request) instead of returning dummy values")
 
         let expectedError = URLError(.badServerResponse)
 
@@ -58,7 +55,60 @@ final class InAppPurchasesServiceTests: XCTestCase {
 
                     expectation.fulfill()
                 },
-                receiveValue: { productIds in
+                receiveValue: { _ in
+                    XCTFail("Expected to fail")
+                }
+            )
+            .store(in: &cancellables)
+    }
+
+    func testCreateOrder_WhenReqeustSucceeds_PublishesDecodedOrderIds() throws {
+
+        let json = """
+        {
+            "order_id": 123
+        }
+        """
+
+        let data = try XCTUnwrap(json.data(using: .utf8))
+
+        let service = InAppPurchasesService(networking: NetworkingStub(returning: .success(data)))
+
+        let expectation = XCTestExpectation(description: "Publishes decoded Int")
+
+        service.createOrder(identifier: "1", price: 100, country: "", receipt: "")
+            .sink(
+                receiveCompletion: { _ in },
+                receiveValue: { orderId in
+                    XCTAssertEqual(orderId, 123)
+                    expectation.fulfill()
+                }
+            )
+            .store(in: &cancellables)
+
+        wait(for: [expectation], timeout: 1)
+    }
+
+    func testCreateOrder_WhenRequestFails_PublishesReceivedError() throws {
+
+        let expectedError = URLError(.badServerResponse)
+
+        let service = InAppPurchasesService(networking: NetworkingStub(returning: .failure(expectedError)))
+
+        let expectation = XCTestExpectation(description: "Publishes received URLError")
+
+        service.createOrder(identifier: "1", price: 100, country: "", receipt: "")
+            .sink(
+                receiveCompletion: { completion in
+                    guard case .failure(let error) = completion else {
+                        return
+                    }
+
+                    XCTAssertEqual(error as? URLError, expectedError)
+
+                    expectation.fulfill()
+                },
+                receiveValue: { _ in
                     XCTFail("Expected to fail")
                 }
             )
