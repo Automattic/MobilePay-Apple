@@ -156,6 +156,7 @@ extension AppStoreService: SKPaymentTransactionObserver {
 
             // TODO: remove later
             let debugReceiptString = try String(contentsOfFile: debugReceiptPath, encoding: String.Encoding.utf8)
+                .trimmingCharacters(in: .newlines)
 
             createOrder(for: product, transaction: transaction, receipt: debugReceiptString)
 
