@@ -14,7 +14,11 @@ final class AppStoreServiceTests: XCTestCase {
 
     override func setUp() {
         super.setUp()
-        service = AppStoreService(paymentQueue: paymentQueue, productsRequestFactory: requestFactory)
+        service = AppStoreService(
+            configuration: .fixture(),
+            paymentQueue: paymentQueue,
+            productsRequestFactory: requestFactory
+        )
     }
 
     override func tearDown() {

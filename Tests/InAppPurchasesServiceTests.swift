@@ -19,7 +19,10 @@ final class InAppPurchasesServiceTests: XCTestCase {
 
         let data = try XCTUnwrap(json.data(using: .utf8))
 
-        let service = InAppPurchasesService(networking: NetworkingStub(returning: .success(data)))
+        let service = InAppPurchasesService(
+            configuration: .fixture(),
+            networking: NetworkingStub(returning: .success(data))
+        )
 
         let expectation = XCTestExpectation(description: "Publishes decoded [String]")
 
@@ -40,7 +43,10 @@ final class InAppPurchasesServiceTests: XCTestCase {
 
         let expectedError = URLError(.badServerResponse)
 
-        let service = InAppPurchasesService(networking: NetworkingStub(returning: .failure(expectedError)))
+        let service = InAppPurchasesService(
+            configuration: .fixture(),
+            networking: NetworkingStub(returning: .failure(expectedError))
+        )
 
         let expectation = XCTestExpectation(description: "Publishes received URLError")
 
@@ -72,7 +78,10 @@ final class InAppPurchasesServiceTests: XCTestCase {
 
         let data = try XCTUnwrap(json.data(using: .utf8))
 
-        let service = InAppPurchasesService(networking: NetworkingStub(returning: .success(data)))
+        let service = InAppPurchasesService(
+            configuration: .fixture(),
+            networking: NetworkingStub(returning: .success(data))
+        )
 
         let expectation = XCTestExpectation(description: "Publishes decoded Int")
 
@@ -93,7 +102,10 @@ final class InAppPurchasesServiceTests: XCTestCase {
 
         let expectedError = URLError(.badServerResponse)
 
-        let service = InAppPurchasesService(networking: NetworkingStub(returning: .failure(expectedError)))
+        let service = InAppPurchasesService(
+            configuration: .fixture(),
+            networking: NetworkingStub(returning: .failure(expectedError))
+        )
 
         let expectation = XCTestExpectation(description: "Publishes received URLError")
 
