@@ -1,6 +1,16 @@
 import Foundation
 import StoreKit
 
+public struct MobilePayKitConfiguration {
+    public let oAuthToken: String
+    public let bundleId: String?
+
+    public init(oAuthToken: String, bundleId: String?) {
+        self.oAuthToken = oAuthToken
+        self.bundleId = bundleId
+    }
+}
+
 public class MobilePayKit: NSObject {
 
     private static let sharedInstance = MobilePayKit()
