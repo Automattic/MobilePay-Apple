@@ -8,6 +8,7 @@ struct MobilePayKit_macOSApp: App {
     var body: some Scene {
         WindowGroup {
             ProductList()
+                .frame(width: 700, height: 400, alignment: .center)
                 .environmentObject(viewModel)
         }.commands {
             CommandMenu("Purchases") {
