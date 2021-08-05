@@ -45,6 +45,10 @@ enum InAppPurchasesAPIRouter: URLRequestConvertible {
         request.setValue("Bearer \(Constants.token)", forHTTPHeaderField: "Authorization")
         request.setValue(Bundle.main.bundleIdentifier, forHTTPHeaderField: "X-APP-ID")
 
+        // Set HTTP method
+        request.httpMethod = httpMethod
+
+        // Set HTTP body
         switch self {
         case .products:
             break
@@ -65,4 +69,12 @@ struct CreateOrderParameters: Encodable {
     let price: Int
     let appstore_country: String
     let apple_receipt: String
+}
+
+struct CreateOrderResponse: Decodable {
+    let orderId: Int
+
+    enum CodingKeys: String, CodingKey {
+        case orderId = "order_id"
+    }
 }

@@ -10,28 +10,13 @@
       "internalID" : "9C01CDCE",
       "localizations" : [
         {
-          "description" : "Fuel for your rocket",
-          "displayName" : "Rocket Fuel",
+          "description" : "Woof!",
+          "displayName" : "Dogs",
           "locale" : "en_US"
         }
       ],
-      "productID" : "com.mobilepay.consumable.rocketfuel",
-      "referenceName" : "Rocket Fuel",
-      "type" : "Consumable"
-    },
-    {
-      "displayPrice" : "5.99",
-      "familyShareable" : false,
-      "internalID" : "5B28878A",
-      "localizations" : [
-        {
-          "description" : "Premium fuel for your rocket",
-          "displayName" : "Premium Rocket Fuel",
-          "locale" : "en_US"
-        }
-      ],
-      "productID" : "com.mobilepay.consumable.premiumrocketfuel",
-      "referenceName" : "Premium Rocket Fuel",
+      "productID" : "tools.emily.dogs",
+      "referenceName" : "Dogs",
       "type" : "Consumable"
     }
   ],

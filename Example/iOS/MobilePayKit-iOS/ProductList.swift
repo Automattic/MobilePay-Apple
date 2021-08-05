@@ -9,11 +9,11 @@ struct ProductRow: View {
     var body: some View {
         HStack {
             ZStack {
-                Image(product.imageName)
+                Image(systemName: "cart.fill")
                     .resizable()
+                    .foregroundColor(Color(.lightGray))
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 80, height: 80)
-                    .cornerRadius(9)
                     .opacity(product.isLocked ? 0.8 : 1)
                     .blur(radius: product.isLocked ? 3.0 : 0)
                     .padding()
@@ -55,12 +55,13 @@ struct ProductDetail: View {
 
     var body: some View {
         NavigationView {
+
             VStack(alignment: .center) {
-                Image(product.imageName)
+                Image(systemName: "cart.fill")
                     .resizable()
+                    .foregroundColor(Color(.lightGray))
                     .aspectRatio(contentMode: .fill)
-                    .frame(width: 256, height: 256)
-                    .cornerRadius(9)
+                    .frame(width: 200, height: 200, alignment: .center)
                     .padding()
             }
 
@@ -91,7 +92,7 @@ struct ProductList: View {
                 }.navigationBarItems(trailing: Button("Restore") {
                     viewModel.restorePurchases()
                 })
-            }.navigationTitle("Rocket fuel shop")
+            }.navigationTitle("MobilePayKit Demo")
         }
     }
 }

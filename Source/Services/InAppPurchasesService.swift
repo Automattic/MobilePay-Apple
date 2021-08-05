@@ -16,43 +16,27 @@ class InAppPurchasesService: InAppPurchasesServiceProtocol {
 
     func fetchProductSKUs() -> AnyPublisher<[String], Error> {
 
-//        FIXME: send actual request
-//
-//        let request = InAppPurchasesAPIRouter.products.asURLRequest()
-//
-//        return networking.load(request)
-//            .decode(type: [String].self, decoder: JSONDecoder())
-//            .eraseToAnyPublisher()
+        let request = InAppPurchasesAPIRouter.products.asURLRequest()
 
-        let productIdentifiers = [
-            "com.mobilepay.consumable.rocketfuel",
-            "com.mobilepay.consumable.premiumrocketfuel"
-        ]
-
-        return Future { $0(.success(productIdentifiers)) }
+        return networking.load(request)
+            .decode(type: [String].self, decoder: JSONDecoder())
             .eraseToAnyPublisher()
     }
 
     func createOrder(identifier: String, price: Int, country: String, receipt: String) -> AnyPublisher<Int, Error> {
 
-//        FIXME: send actual request
-//
-//        let parameters = CreateOrderParameters(
-//            product_id: identifier,
-//            price: price,
-//            appstore_country: country,
-//            apple_receipt: receipt
-//        )
-//
-//        let request = InAppPurchasesAPIRouter.createOrder(parameters: parameters).asURLRequest()
-//
-//        return networking.load(request)
-//            .decode(type: Int.self, decoder: JSONDecoder())
-//            .eraseToAnyPublisher()
+        let parameters = CreateOrderParameters(
+            product_id: identifier,
+            price: price,
+            appstore_country: country,
+            apple_receipt: receipt
+        )
 
-        let orderIdentifier = 1
+        let request = InAppPurchasesAPIRouter.createOrder(parameters: parameters).asURLRequest()
 
-        return Future { $0(.success(orderIdentifier)) }
+        return networking.load(request)
+            .decode(type: CreateOrderResponse.self, decoder: JSONDecoder())
+            .map { $0.orderId }
             .eraseToAnyPublisher()
     }
 
