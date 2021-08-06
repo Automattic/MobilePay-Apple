@@ -28,21 +28,18 @@ class ProductListViewModel: ObservableObject {
     }
 
     init() {
-
-        let configuration = MobilePayKitConfiguration(
+        MobilePayKit.configure(
             oAuthToken: "token",
             bundleId: Bundle.main.bundleIdentifier
         )
 
-        MobilePayKit.configure(with: configuration)
-
-        MobilePayKit.fetchProducts(completion: { products in
+        MobilePayKit.shared.fetchProducts(completion: { products in
             self.products = products.map { Product(product: $0) }
         })
     }
 
     func purchaseProduct(with identifier: String) {
-        MobilePayKit.purchaseProduct(with: identifier, completion: { [weak self] transaction in
+        MobilePayKit.shared.purchaseProduct(with: identifier, completion: { [weak self] transaction in
             guard let transaction = transaction else {
                 return
             }
@@ -51,6 +48,6 @@ class ProductListViewModel: ObservableObject {
     }
 
     func restorePurchases() {
-        MobilePayKit.restorePurchases()
+        MobilePayKit.shared.restorePurchases()
     }
 }
