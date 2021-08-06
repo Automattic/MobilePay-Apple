@@ -13,52 +13,28 @@ public struct MobilePayKitConfiguration {
 
 public class MobilePayKit: NSObject {
 
-    private static let sharedInstance = MobilePayKit()
+    public static var shared: MobilePayKit!
 
-    private static var configuration: MobilePayKitConfiguration?
+    private let configuration: MobilePayKitConfiguration
 
     private let appStoreService: AppStoreService
 
     // MARK: - Init
 
-    private override init() {
-        guard let configuration = MobilePayKit.configuration else {
-            fatalError("Configuration must be set")
-        }
-
-        self.appStoreService = AppStoreService(configuration: configuration)
-
+    public init(configuration: MobilePayKitConfiguration, appStoreService: AppStoreService? = nil) {
+        self.configuration = configuration
+        self.appStoreService = appStoreService ?? AppStoreService(configuration: configuration)
         super.init()
+        MobilePayKit.shared = self
     }
 
     // MARK: - Public
 
-    public class func configure(with configuration: MobilePayKitConfiguration) {
-        self.configuration = configuration
-    }
-
-    public class func fetchProducts(completion: @escaping FetchCompletionCallback) {
-        sharedInstance.fetchProducts(completion: completion)
-    }
-
-    public class func purchaseProduct(with identifier: String, completion: @escaping PurchaseCompletionCallback) {
-        sharedInstance.purchaseProduct(with: identifier, completion: completion)
-    }
-
-    public class func restorePurchases() {
-        sharedInstance.restorePurchases()
-    }
-}
-
-extension MobilePayKit {
-
-    // MARK: - Private
-
-    private func fetchProducts(completion: @escaping FetchCompletionCallback) {
+    public func fetchProducts(completion: @escaping FetchCompletionCallback) {
         appStoreService.fetchProducts(completion: completion)
     }
 
-    private func purchaseProduct(with identifier: String, completion: @escaping PurchaseCompletionCallback) {
+    public func purchaseProduct(with identifier: String, completion: @escaping PurchaseCompletionCallback) {
 
         // Check if the product exists in the App Store before purchasing
         guard let product = appStoreService.fetchProduct(for: identifier) else {
@@ -69,7 +45,7 @@ extension MobilePayKit {
 
     }
 
-    private func restorePurchases() {
+    public func restorePurchases() {
         appStoreService.restorePurchases()
     }
 }
