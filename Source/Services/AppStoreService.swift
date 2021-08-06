@@ -5,7 +5,14 @@ import StoreKit
 public typealias FetchCompletionCallback = ([SKProduct]) -> Void
 public typealias PurchaseCompletionCallback = (SKPaymentTransaction?) -> Void
 
-public class AppStoreService: NSObject {
+public protocol AppStoreServiceProtocol {
+    func fetchProducts(completion: @escaping FetchCompletionCallback)
+    func fetchProduct(for identifier: String) -> SKProduct?
+    func purchaseProduct(_ product: SKProduct, completion: @escaping PurchaseCompletionCallback)
+    func restorePurchases()
+}
+
+public class AppStoreService: NSObject, AppStoreServiceProtocol {
 
     private let iapService: InAppPurchasesService
 
@@ -45,7 +52,7 @@ public class AppStoreService: NSObject {
 
     // MARK: - Public
 
-    func fetchProducts(completion: @escaping FetchCompletionCallback) {
+    public func fetchProducts(completion: @escaping FetchCompletionCallback) {
         iapService.fetchProductSKUs()
             .sink(
                 receiveCompletion: { completion in
@@ -71,7 +78,7 @@ public class AppStoreService: NSObject {
         productsRequest?.start()
     }
 
-    func fetchProduct(for identifier: String) -> SKProduct? {
+    public func fetchProduct(for identifier: String) -> SKProduct? {
         guard let productsRequest = productsRequest else {
             return nil
         }
@@ -79,7 +86,7 @@ public class AppStoreService: NSObject {
         return productsRequest.fetchedProducts.first(where: { $0.productIdentifier == identifier })
     }
 
-    func purchaseProduct(_ product: SKProduct, completion: @escaping PurchaseCompletionCallback) {
+    public func purchaseProduct(_ product: SKProduct, completion: @escaping PurchaseCompletionCallback) {
 
         // Initialize the product being purchased
         purchasingProduct = product
@@ -92,7 +99,7 @@ public class AppStoreService: NSObject {
         paymentQueue.add(payment)
     }
 
-    func restorePurchases() {
+    public func restorePurchases() {
         paymentQueue.restoreCompletedTransactions()
     }
 
