@@ -30,6 +30,11 @@ public class MobilePayKit: NSObject {
 
     // MARK: - Public
 
+    public static func configure(oAuthToken: String, bundleId: String?) {
+        let configuration = MobilePayKitConfiguration(oAuthToken: oAuthToken, bundleId: bundleId    )
+        _ = MobilePayKit(configuration: configuration)
+    }
+
     public func fetchProducts(completion: @escaping FetchCompletionCallback) {
         appStoreService.fetchProducts(completion: completion)
     }
