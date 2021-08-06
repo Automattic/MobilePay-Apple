@@ -7,7 +7,7 @@ public typealias PurchaseCompletionCallback = (SKPaymentTransaction?) -> Void
 
 class AppStoreService: NSObject {
 
-    private let iapService: InAppPurchasesService?
+    private let iapService: InAppPurchasesService
 
     private let paymentQueue: PaymentQueue
 
@@ -46,7 +46,7 @@ class AppStoreService: NSObject {
     // MARK: - Public
 
     func fetchProducts(completion: @escaping FetchCompletionCallback) {
-        iapService?.fetchProductSKUs()
+        iapService.fetchProductSKUs()
             .sink(
                 receiveCompletion: { completion in
 
@@ -170,7 +170,7 @@ extension AppStoreService: SKPaymentTransactionObserver {
 
         let country = paymentQueue.storefront?.countryCode ?? ""
 
-        iapService?.createOrder(
+        iapService.createOrder(
             identifier: product.productIdentifier,
             price: product.priceInCents,
             country: country,
