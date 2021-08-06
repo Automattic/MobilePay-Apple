@@ -21,6 +21,7 @@
 		8B023FC826B45CC200BAFD56 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B023EFC26B4464100BAFD56 /* Product.swift */; };
 		FA039DDF26BC421300E900B3 /* MobilePayKitConfiguration+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA039DDE26BC421300E900B3 /* MobilePayKitConfiguration+Fixture.swift */; };
 		FA039DE126BC434C00E900B3 /* TestPaymentTransaction+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA039DE026BC434C00E900B3 /* TestPaymentTransaction+Fixture.swift */; };
+		FA039DE426BD8A0800E900B3 /* MobilePayKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA039DE326BD8A0800E900B3 /* MobilePayKitTests.swift */; };
 		FA039DE826BD8DE000E900B3 /* MockAppStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA039DE726BD8DE000E900B3 /* MockAppStoreService.swift */; };
 		FA6447F826B84CEB00896D81 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6447F726B84CEB00896D81 /* Networking.swift */; };
 		FA6447FA26B84D3100896D81 /* URLSession+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6447F926B84D3100896D81 /* URLSession+Networking.swift */; };
@@ -62,6 +63,7 @@
 		8B023FE226B464C100BAFD56 /* MobilePayKit.podspec */ = {isa = PBXFileReference; lastKnownFileType = text; path = MobilePayKit.podspec; sourceTree = "<group>"; };
 		FA039DDE26BC421300E900B3 /* MobilePayKitConfiguration+Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MobilePayKitConfiguration+Fixture.swift"; sourceTree = "<group>"; };
 		FA039DE026BC434C00E900B3 /* TestPaymentTransaction+Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TestPaymentTransaction+Fixture.swift"; sourceTree = "<group>"; };
+		FA039DE326BD8A0800E900B3 /* MobilePayKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobilePayKitTests.swift; sourceTree = "<group>"; };
 		FA039DE726BD8DE000E900B3 /* MockAppStoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAppStoreService.swift; sourceTree = "<group>"; };
 		FA6447F726B84CEB00896D81 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		FA6447F926B84D3100896D81 /* URLSession+Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Networking.swift"; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 		8B023F8F26B4544400BAFD56 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				FA039DE326BD8A0800E900B3 /* MobilePayKitTests.swift */,
 				8B023FB826B45B7200BAFD56 /* AppStoreServiceTests.swift */,
 				FA64480526B85B5B00896D81 /* InAppPurchasesServiceTests.swift */,
 				FA64480326B85AFF00896D81 /* NetworkingStub.swift */,
@@ -342,6 +345,7 @@
 				8B023FC126B45B9800BAFD56 /* TestProduct.swift in Sources */,
 				FA039DE126BC434C00E900B3 /* TestPaymentTransaction+Fixture.swift in Sources */,
 				FA039DE826BD8DE000E900B3 /* MockAppStoreService.swift in Sources */,
+				FA039DE426BD8A0800E900B3 /* MobilePayKitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
