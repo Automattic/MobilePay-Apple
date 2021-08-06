@@ -17,11 +17,11 @@ public class MobilePayKit: NSObject {
 
     private let configuration: MobilePayKitConfiguration
 
-    private let appStoreService: AppStoreService
+    private let appStoreService: AppStoreServiceProtocol
 
     // MARK: - Init
 
-    public init(configuration: MobilePayKitConfiguration, appStoreService: AppStoreService? = nil) {
+    public init(configuration: MobilePayKitConfiguration, appStoreService: AppStoreServiceProtocol? = nil) {
         self.configuration = configuration
         self.appStoreService = appStoreService ?? AppStoreService(configuration: configuration)
         super.init()
