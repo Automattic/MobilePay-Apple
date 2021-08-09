@@ -85,7 +85,7 @@ final class InAppPurchasesServiceTests: XCTestCase {
 
         let expectation = XCTestExpectation(description: "Publishes decoded Int")
 
-        service.createOrder(identifier: "1", price: 100, country: "", receipt: "")
+        service.createOrder(orderId: "1", price: 100, country: "", receipt: "")
             .sink(
                 receiveCompletion: { _ in },
                 receiveValue: { orderId in
@@ -109,7 +109,7 @@ final class InAppPurchasesServiceTests: XCTestCase {
 
         let expectation = XCTestExpectation(description: "Publishes received URLError")
 
-        service.createOrder(identifier: "1", price: 100, country: "", receipt: "")
+        service.createOrder(orderId: "1", price: 100, country: "", receipt: "")
             .sink(
                 receiveCompletion: { completion in
                     guard case .failure(let error) = completion else {
