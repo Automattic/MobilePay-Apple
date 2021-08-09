@@ -1,14 +1,13 @@
 import Foundation
 
 protocol URLRequestConvertible {
-    func asURLRequest() -> URLRequest
+    func asURLRequest(with configuration: MobilePayKitConfiguration) -> URLRequest
 }
 
 enum InAppPurchasesAPIRouter: URLRequestConvertible {
 
     private enum Constants {
         static let baseURLPath = "https://public-api.wordpress.com/wpcom/v2"
-        static let token = "token"
     }
 
     case products
@@ -32,7 +31,7 @@ enum InAppPurchasesAPIRouter: URLRequestConvertible {
         }
     }
 
-    func asURLRequest() -> URLRequest {
+    func asURLRequest(with configuration: MobilePayKitConfiguration) -> URLRequest {
         guard let baseURL = URL(string: Constants.baseURLPath) else {
             preconditionFailure("Invalid URL string: \(Constants.baseURLPath)")
         }
@@ -42,8 +41,8 @@ enum InAppPurchasesAPIRouter: URLRequestConvertible {
         // Set headers
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("application/json", forHTTPHeaderField: "Accept")
-        request.setValue("Bearer \(Constants.token)", forHTTPHeaderField: "Authorization")
-        request.setValue(Bundle.main.bundleIdentifier, forHTTPHeaderField: "X-APP-ID")
+        request.setValue("Bearer \(configuration.oAuthToken)", forHTTPHeaderField: "Authorization")
+        request.setValue(configuration.bundleId, forHTTPHeaderField: "X-APP-ID")
 
         // Set HTTP method
         request.httpMethod = httpMethod

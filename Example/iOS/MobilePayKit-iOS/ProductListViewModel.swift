@@ -4,9 +4,7 @@ import MobilePayKit
 
 class ProductListViewModel: ObservableObject {
 
-    @Published private(set) var products: [MobilePayKit.Product]
-
-    private let paymentManager: PaymentManager
+    @Published private(set) var products: [Product] = []
 
     // Here we're going to store all the completed purchases
     private var completedPurchases: [String] = [] {
@@ -29,17 +27,19 @@ class ProductListViewModel: ObservableObject {
         }
     }
 
-    init(paymentManager: PaymentManager = .init()) {
-        self.products = []
-        self.paymentManager = paymentManager
+    init() {
+        MobilePayKit.configure(
+            oAuthToken: "token",
+            bundleId: Bundle.main.bundleIdentifier
+        )
 
-        paymentManager.fetchProducts(completion: { products in
+        MobilePayKit.shared.fetchProducts(completion: { products in
             self.products = products.map { Product(product: $0) }
         })
     }
 
     func purchaseProduct(with identifier: String) {
-        paymentManager.purchaseProduct(with: identifier, completion: { [weak self] transaction in
+        MobilePayKit.shared.purchaseProduct(with: identifier, completion: { [weak self] transaction in
             guard let transaction = transaction else {
                 return
             }
@@ -48,6 +48,6 @@ class ProductListViewModel: ObservableObject {
     }
 
     func restorePurchases() {
-        paymentManager.restorePurchases()
+        MobilePayKit.shared.restorePurchases()
     }
 }

@@ -8,15 +8,18 @@ protocol InAppPurchasesServiceProtocol {
 
 class InAppPurchasesService: InAppPurchasesServiceProtocol {
 
-    let networking: Networking
+    private let configuration: MobilePayKitConfiguration
 
-    init(networking: Networking = URLSession.shared) {
+    private let networking: Networking
+
+    init(configuration: MobilePayKitConfiguration, networking: Networking = URLSession.shared) {
+        self.configuration = configuration
         self.networking = networking
     }
 
     func fetchProductSKUs() -> AnyPublisher<[String], Error> {
 
-        let request = InAppPurchasesAPIRouter.products.asURLRequest()
+        let request = createURLRequest(for: .products)
 
         return networking.load(request)
             .decode(type: [String].self, decoder: JSONDecoder())
@@ -32,7 +35,7 @@ class InAppPurchasesService: InAppPurchasesServiceProtocol {
             apple_receipt: receipt
         )
 
-        let request = InAppPurchasesAPIRouter.createOrder(parameters: parameters).asURLRequest()
+        let request = createURLRequest(for: .createOrder(parameters: parameters))
 
         return networking.load(request)
             .decode(type: CreateOrderResponse.self, decoder: JSONDecoder())
@@ -40,4 +43,7 @@ class InAppPurchasesService: InAppPurchasesServiceProtocol {
             .eraseToAnyPublisher()
     }
 
+    private func createURLRequest(for endpoint: InAppPurchasesAPIRouter) -> URLRequest {
+        return endpoint.asURLRequest(with: configuration)
+    }
 }
