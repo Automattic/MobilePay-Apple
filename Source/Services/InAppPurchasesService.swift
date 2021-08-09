@@ -29,6 +29,7 @@ class InAppPurchasesService: InAppPurchasesServiceProtocol {
     func createOrder(orderId: String, price: Int, country: String, receipt: String) -> AnyPublisher<Int, Error> {
 
         let parameters = CreateOrderParameters(
+            site_id: configuration.siteId,
             product_id: orderId,
             price: price,
             appstore_country: country,

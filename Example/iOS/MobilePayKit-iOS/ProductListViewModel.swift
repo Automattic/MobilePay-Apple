@@ -30,7 +30,8 @@ class ProductListViewModel: ObservableObject {
     init() {
         MobilePayKit.configure(
             oAuthToken: "token",
-            bundleId: Bundle.main.bundleIdentifier
+            bundleId: Bundle.main.bundleIdentifier,
+            siteId: "siteID"
         )
 
         MobilePayKit.shared.fetchProducts(completion: { products in
