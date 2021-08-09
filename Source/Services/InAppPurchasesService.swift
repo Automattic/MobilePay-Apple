@@ -3,7 +3,7 @@ import Foundation
 
 protocol InAppPurchasesServiceProtocol {
     func fetchProductSKUs() -> AnyPublisher<[String], Error>
-    func createOrder(identifier: String, price: Int, country: String, receipt: String) -> AnyPublisher<Int, Error>
+    func createOrder(orderId: String, price: Int, country: String, receipt: String) -> AnyPublisher<Int, Error>
 }
 
 class InAppPurchasesService: InAppPurchasesServiceProtocol {
@@ -26,10 +26,10 @@ class InAppPurchasesService: InAppPurchasesServiceProtocol {
             .eraseToAnyPublisher()
     }
 
-    func createOrder(identifier: String, price: Int, country: String, receipt: String) -> AnyPublisher<Int, Error> {
+    func createOrder(orderId: String, price: Int, country: String, receipt: String) -> AnyPublisher<Int, Error> {
 
         let parameters = CreateOrderParameters(
-            product_id: identifier,
+            product_id: orderId,
             price: price,
             appstore_country: country,
             apple_receipt: receipt
