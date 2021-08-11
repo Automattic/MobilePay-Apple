@@ -2,7 +2,7 @@ import Combine
 import Foundation
 import StoreKit
 
-public typealias FetchCompletionCallback = ([SKProduct]) -> Void
+public typealias FetchCompletionCallback = (Result<[SKProduct], Error>) -> Void
 public typealias PurchaseCompletionCallback = (SKPaymentTransaction?) -> Void
 
 public protocol AppStoreServiceProtocol {

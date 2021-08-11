@@ -55,7 +55,7 @@ extension ProductsRequestHelper: SKProductsRequestDelegate {
         fetchedProducts = products
 
         DispatchQueue.main.async { [weak self] in
-            self?.fetchCompletionCallback?(products)
+            self?.fetchCompletionCallback?(.success(products))
             self?.fetchCompletionCallback = nil
         }
     }
