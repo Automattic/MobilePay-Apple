@@ -33,17 +33,24 @@ class ProductListViewModel: ObservableObject {
             bundleId: Bundle.main.bundleIdentifier
         )
 
-        MobilePayKit.shared.fetchProducts(completion: { products in
-            self.products = products.map { Product(product: $0) }
+        MobilePayKit.shared.fetchProducts(completion: { result in
+            switch result {
+            case .success(let products):
+                self.products = products.map { Product(product: $0) }
+            case .failure(let error):
+                print("Error fetching products: \(error.localizedDescription)")
+            }
         })
     }
 
     func purchaseProduct(with identifier: String) {
-        MobilePayKit.shared.purchaseProduct(with: identifier, completion: { [weak self] transaction in
-            guard let transaction = transaction else {
-                return
+        MobilePayKit.shared.purchaseProduct(with: identifier, completion: { [weak self] result in
+            switch result {
+            case .success(let transaction):
+                self?.completedPurchases.append(transaction.payment.productIdentifier)
+            case .failure(let error):
+                print("Error purchasing product: \(error.localizedDescription)")
             }
-            self?.completedPurchases.append(transaction.payment.productIdentifier)
         })
     }
 
