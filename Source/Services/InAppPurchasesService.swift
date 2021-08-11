@@ -2,7 +2,7 @@ import Combine
 import Foundation
 
 protocol InAppPurchasesServiceProtocol {
-    func fetchProductSKUs() -> AnyPublisher<[String], Error>
+    func fetchProductSkus() -> AnyPublisher<[String], Error>
     func createOrder(identifier: String, price: Int, country: String, receipt: String) -> AnyPublisher<Int, Error>
 }
 
@@ -17,7 +17,7 @@ class InAppPurchasesService: InAppPurchasesServiceProtocol {
         self.networking = networking
     }
 
-    func fetchProductSKUs() -> AnyPublisher<[String], Error> {
+    func fetchProductSkus() -> AnyPublisher<[String], Error> {
 
         let request = createURLRequest(for: .products)
 

@@ -26,7 +26,7 @@ final class InAppPurchasesServiceTests: XCTestCase {
 
         let expectation = XCTestExpectation(description: "Publishes decoded [String]")
 
-        service.fetchProductSKUs()
+        service.fetchProductSkus()
             .sink(
                 receiveCompletion: { _ in },
                 receiveValue: { productIds in
@@ -50,7 +50,7 @@ final class InAppPurchasesServiceTests: XCTestCase {
 
         let expectation = XCTestExpectation(description: "Publishes received URLError")
 
-        service.fetchProductSKUs()
+        service.fetchProductSkus()
             .sink(
                 receiveCompletion: { completion in
                     guard case .failure(let error) = completion else {

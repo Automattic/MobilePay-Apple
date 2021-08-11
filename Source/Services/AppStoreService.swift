@@ -53,15 +53,15 @@ public class AppStoreService: NSObject, AppStoreServiceProtocol {
     // MARK: - Public
 
     public func fetchProducts(completion: @escaping FetchCompletionCallback) {
-        iapService.fetchProductSKUs()
+        iapService.fetchProductSkus()
             .sink(
-                receiveCompletion: { completion in
+                receiveCompletion: { fetchSkusCompletion in
 
-                    switch completion {
+                    switch fetchSkusCompletion {
                     case .finished:
                         print("fetch products finished")
                     case .failure(let error):
-                        print("fetch products error: \(error.localizedDescription)")
+                        completion(.failure(error))
                     }
 
                 },
