@@ -3,7 +3,7 @@ import Foundation
 import StoreKit
 
 public typealias FetchCompletionCallback = (Result<[SKProduct], Error>) -> Void
-public typealias PurchaseCompletionCallback = (SKPaymentTransaction?) -> Void
+public typealias PurchaseCompletionCallback = (Result<SKPaymentTransaction, Error>) -> Void
 
 public protocol AppStoreServiceProtocol {
     func fetchProducts(completion: @escaping FetchCompletionCallback)
@@ -199,7 +199,7 @@ extension AppStoreService: SKPaymentTransactionObserver {
             self?.paymentQueue.finishTransaction(transaction)
 
             DispatchQueue.main.async {
-                self?.purchaseCompletionCallback?(transaction)
+                self?.purchaseCompletionCallback?(.success(transaction))
                 self?.purchaseCompletionCallback = nil
             }
 
