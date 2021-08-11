@@ -182,13 +182,16 @@ extension AppStoreService: SKPaymentTransactionObserver {
             price: product.priceInCents,
             country: country,
             receipt: receipt
-        ).sink(receiveCompletion: { completion in
+        ).sink(receiveCompletion: { [weak self] completion in
 
             switch completion {
             case .finished:
                 print("create order finished")
             case .failure(let error):
-                print("create order error: \(error.localizedDescription)")
+                DispatchQueue.main.async {
+                    self?.purchaseCompletionCallback?(.failure(error))
+                    self?.purchaseCompletionCallback = nil
+                }
             }
 
         }, receiveValue: { [weak self] orderId in
