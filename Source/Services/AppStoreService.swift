@@ -14,6 +14,12 @@ public protocol AppStoreServiceProtocol {
 
 public class AppStoreService: NSObject, AppStoreServiceProtocol {
 
+    public enum PurchaseError: Error {
+        case missingProduct
+        case missingReceipt
+        case invalidReceipt
+    }
+
     private let iapService: InAppPurchasesServiceProtocol
 
     private let paymentQueue: PaymentQueue
@@ -145,13 +151,13 @@ extension AppStoreService: SKPaymentTransactionObserver {
     private func handleCompletedTransaction(_ transaction: SKPaymentTransaction) {
 
         guard let product = purchasingProduct else {
-            print("Purchasing product is nil")
+            purchaseCompletionCallback?(.failure(PurchaseError.missingProduct))
             return
         }
 
         guard let appStoreReceiptURL = Bundle.main.appStoreReceiptURL,
               FileManager.default.fileExists(atPath: appStoreReceiptURL.path) else {
-            print("Could not find app store receipt")
+            purchaseCompletionCallback?(.failure(PurchaseError.missingReceipt))
             return
         }
 
@@ -174,8 +180,8 @@ extension AppStoreService: SKPaymentTransactionObserver {
 
             createOrder(for: product, transaction: transaction, receipt: debugReceiptString)
 
-        } catch let error {
-            print("Could not read receipt data: \(error.localizedDescription)")
+        } catch {
+            purchaseCompletionCallback?(.failure(PurchaseError.invalidReceipt))
         }
     }
 
