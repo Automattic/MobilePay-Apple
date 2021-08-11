@@ -139,10 +139,7 @@ extension AppStoreService: SKPaymentTransactionObserver {
 
         paymentQueue.finishTransaction(transaction)
 
-        DispatchQueue.main.async {
-            self.purchaseCompletionCallback?(.failure(error))
-            self.purchaseCompletionCallback = nil
-        }
+        performPurchaseCompletionCallback(.failure(error))
     }
 
     private func handleCompletedTransaction(_ transaction: SKPaymentTransaction) {
@@ -197,10 +194,7 @@ extension AppStoreService: SKPaymentTransactionObserver {
             case .finished:
                 print("create order finished")
             case .failure(let error):
-                DispatchQueue.main.async {
-                    self?.purchaseCompletionCallback?(.failure(error))
-                    self?.purchaseCompletionCallback = nil
-                }
+                self?.performPurchaseCompletionCallback(.failure(error))
             }
 
         }, receiveValue: { [weak self] orderId in
@@ -210,12 +204,15 @@ extension AppStoreService: SKPaymentTransactionObserver {
             // Finish the transaction once we've successfully created an order remotely
             self?.paymentQueue.finishTransaction(transaction)
 
-            DispatchQueue.main.async {
-                self?.purchaseCompletionCallback?(.success(transaction))
-                self?.purchaseCompletionCallback = nil
-            }
-
+            self?.performPurchaseCompletionCallback(.success(transaction))
         })
         .store(in: &cancellables)
+    }
+
+    private func performPurchaseCompletionCallback(_ result: Result<SKPaymentTransaction, Error>) {
+        DispatchQueue.main.async {
+            self.purchaseCompletionCallback?(result)
+            self.purchaseCompletionCallback = nil
+        }
     }
 }
