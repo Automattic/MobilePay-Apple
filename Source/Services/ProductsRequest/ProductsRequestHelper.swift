@@ -59,4 +59,11 @@ extension ProductsRequestHelper: SKProductsRequestDelegate {
             self?.fetchCompletionCallback = nil
         }
     }
+
+    func request(_ request: SKRequest, didFailWithError error: Error) {
+        DispatchQueue.main.async { [weak self] in
+            self?.fetchCompletionCallback?(.failure(error))
+            self?.fetchCompletionCallback = nil
+        }
+    }
 }
