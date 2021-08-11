@@ -14,7 +14,7 @@ public protocol AppStoreServiceProtocol {
 
 public class AppStoreService: NSObject, AppStoreServiceProtocol {
 
-    private let iapService: InAppPurchasesService
+    private let iapService: InAppPurchasesServiceProtocol
 
     private let paymentQueue: PaymentQueue
 
@@ -35,7 +35,7 @@ public class AppStoreService: NSObject, AppStoreServiceProtocol {
 
     init(
         configuration: MobilePayKitConfiguration,
-        iapService: InAppPurchasesService? = nil,
+        iapService: InAppPurchasesServiceProtocol? = nil,
         paymentQueue: PaymentQueue = SKPaymentQueue.default(),
         productsRequestFactory: ProductsRequestFactory = AppStoreProductsRequestFactory()
     ) {

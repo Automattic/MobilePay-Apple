@@ -1,7 +1,7 @@
 import Combine
 import Foundation
 
-protocol InAppPurchasesServiceProtocol {
+public protocol InAppPurchasesServiceProtocol {
     func fetchProductSkus() -> AnyPublisher<[String], Error>
     func createOrder(identifier: String, price: Int, country: String, receipt: String) -> AnyPublisher<Int, Error>
 }
