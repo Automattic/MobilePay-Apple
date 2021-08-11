@@ -132,8 +132,17 @@ extension AppStoreService: SKPaymentTransactionObserver {
     }
 
     private func handleFailedTransaction(_ transaction: SKPaymentTransaction) {
-        // FIXME: handle failed transaction
+
+        guard let error = transaction.error else {
+            return
+        }
+
         paymentQueue.finishTransaction(transaction)
+
+        DispatchQueue.main.async {
+            self.purchaseCompletionCallback?(.failure(error))
+            self.purchaseCompletionCallback = nil
+        }
     }
 
     private func handleCompletedTransaction(_ transaction: SKPaymentTransaction) {
