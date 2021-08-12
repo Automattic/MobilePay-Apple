@@ -62,7 +62,7 @@ public class AppStoreService: NSObject, AppStoreServiceProtocol {
     // MARK: - Public
 
     public func fetchProducts(completion: @escaping FetchCompletionCallback) {
-        iapService.fetchProductSkus()
+        iapService.fetchProductSKUs()
             .sink(
                 receiveCompletion: { fetchSkusCompletion in
 
