@@ -4,9 +4,9 @@ import StoreKit
 public struct MobilePayKitConfiguration {
     public let oAuthToken: String
     public let bundleId: String?
-    public let siteId: String?
+    public let siteId: Int?
 
-    public init(oAuthToken: String, bundleId: String?, siteId: String?) {
+    public init(oAuthToken: String, bundleId: String?, siteId: Int?) {
         self.oAuthToken = oAuthToken
         self.bundleId = bundleId
         self.siteId = siteId
@@ -32,7 +32,7 @@ public class MobilePayKit: NSObject {
 
     // MARK: - Public
 
-    public static func configure(oAuthToken: String, bundleId: String?, siteId: String? = nil) {
+    public static func configure(oAuthToken: String, bundleId: String?, siteId: Int? = nil) {
         let configuration = MobilePayKitConfiguration(oAuthToken: oAuthToken, bundleId: bundleId, siteId: siteId)
         _ = MobilePayKit(configuration: configuration)
     }
