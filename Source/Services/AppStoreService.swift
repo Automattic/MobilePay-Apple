@@ -197,24 +197,28 @@ extension AppStoreService: SKPaymentTransactionObserver {
             price: product.priceInCents,
             country: country,
             receipt: receipt
-        ).sink(receiveCompletion: { [weak self] completion in
+        )
+        .sink(
+            receiveCompletion: { [weak self] completion in
 
-            switch completion {
-            case .finished:
-                print("create order finished")
-            case .failure(let error):
-                self?.performPurchaseCompletionCallback(.failure(error))
+                switch completion {
+                case .finished:
+                    print("create order finished")
+                case .failure(let error):
+                    self?.performPurchaseCompletionCallback(.failure(error))
+                }
+
+            },
+            receiveValue: { [weak self] orderId in
+
+                print("created order for: \(orderId)")
+
+                // Finish the transaction once we've successfully created an order remotely
+                self?.paymentQueue.finishTransaction(transaction)
+
+                self?.performPurchaseCompletionCallback(.success(transaction))
             }
-
-        }, receiveValue: { [weak self] orderId in
-
-            print("created order for: \(orderId)")
-
-            // Finish the transaction once we've successfully created an order remotely
-            self?.paymentQueue.finishTransaction(transaction)
-
-            self?.performPurchaseCompletionCallback(.success(transaction))
-        })
+        )
         .store(in: &cancellables)
     }
 
