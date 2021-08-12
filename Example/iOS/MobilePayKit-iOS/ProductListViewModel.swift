@@ -33,10 +33,10 @@ class ProductListViewModel: ObservableObject {
             bundleId: Bundle.main.bundleIdentifier
         )
 
-        MobilePayKit.shared.fetchProducts { result in
+        MobilePayKit.shared.fetchProducts { [weak self] result in
             switch result {
             case .success(let products):
-                self.products = products.map { Product(product: $0) }
+                self?.products = products.map { Product(product: $0) }
             case .failure(let error):
                 print("Error fetching products: \(error.localizedDescription)")
             }
