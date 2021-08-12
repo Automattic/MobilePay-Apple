@@ -70,8 +70,11 @@ final class AppStoreServiceTests: XCTestCase {
     // MARK: - Payment queue updated transactions
 
     func testPaymentQueueUpdatedTransactions_WhenTransactionStateIsFailed_CallsFinishTransaction() {
+
+        let error = NSError(domain: "", code: 0)
+
         let transactions: [TestPaymentTransaction] = [
-            .fixture(transactionState: .failed)
+            .fixture(transactionState: .failed, error: error)
         ]
 
         service.paymentQueue(SKPaymentQueue(), updatedTransactions: transactions)
