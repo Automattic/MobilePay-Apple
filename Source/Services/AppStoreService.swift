@@ -64,9 +64,9 @@ public class AppStoreService: NSObject, AppStoreServiceProtocol {
     public func fetchProducts(completion: @escaping FetchCompletionCallback) {
         iapService.fetchProductSKUs()
             .sink(
-                receiveCompletion: { fetchSkusCompletion in
+                receiveCompletion: { fetchSKUsCompletion in
 
-                    switch fetchSkusCompletion {
+                    switch fetchSKUsCompletion {
                     case .finished:
                         print("fetch products finished")
                     case .failure(let error):
