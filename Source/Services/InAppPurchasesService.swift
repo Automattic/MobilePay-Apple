@@ -22,7 +22,7 @@ class InAppPurchasesService: InAppPurchasesServiceProtocol {
         let request = createURLRequest(for: .products)
 
         return networking.load(request)
-            .decode(type: [String].self, decoder: JSONDecoder())
+            .decode(type: [String].self, errorType: InAppPurchasesServiceError.self)
             .eraseToAnyPublisher()
     }
 
@@ -39,7 +39,7 @@ class InAppPurchasesService: InAppPurchasesServiceProtocol {
         let request = createURLRequest(for: .createOrder(parameters: parameters))
 
         return networking.load(request)
-            .decode(type: CreateOrderResponse.self, decoder: JSONDecoder())
+            .decode(type: CreateOrderResponse.self, errorType: InAppPurchasesServiceError.self)
             .map { $0.orderId }
             .eraseToAnyPublisher()
     }
