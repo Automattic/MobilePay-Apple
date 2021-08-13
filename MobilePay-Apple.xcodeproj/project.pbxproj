@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -31,6 +31,8 @@
 		FA64480426B85AFF00896D81 /* NetworkingStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64480326B85AFF00896D81 /* NetworkingStub.swift */; };
 		FA64480626B85B5B00896D81 /* InAppPurchasesServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64480526B85B5B00896D81 /* InAppPurchasesServiceTests.swift */; };
 		FA64482626BBEA6E00896D81 /* debug-receipt.txt in Resources */ = {isa = PBXBuildFile; fileRef = FA64482526BBEA6E00896D81 /* debug-receipt.txt */; };
+		FAA35B3926C6CBEE00554B4D /* OHHTTPStubs in Frameworks */ = {isa = PBXBuildFile; productRef = FAA35B3826C6CBEE00554B4D /* OHHTTPStubs */; };
+		FAA35B3B26C6CBF200554B4D /* OHHTTPStubsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FAA35B3A26C6CBF200554B4D /* OHHTTPStubsSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +90,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B023FAD26B45B1400BAFD56 /* MobilePayKit.framework in Frameworks */,
+				FAA35B3B26C6CBF200554B4D /* OHHTTPStubsSwift in Frameworks */,
+				FAA35B3926C6CBEE00554B4D /* OHHTTPStubs in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,6 +240,8 @@
 			dependencies = (
 			);
 			name = MobilePayKit;
+			packageProductDependencies = (
+			);
 			productName = MobilePayKit;
 			productReference = 8B023F8326B4544400BAFD56 /* MobilePayKit.framework */;
 			productType = "com.apple.product-type.framework";
@@ -254,6 +260,10 @@
 				8B023FAF26B45B1400BAFD56 /* PBXTargetDependency */,
 			);
 			name = MobilePayKitTests;
+			packageProductDependencies = (
+				FAA35B3826C6CBEE00554B4D /* OHHTTPStubs */,
+				FAA35B3A26C6CBF200554B4D /* OHHTTPStubsSwift */,
+			);
 			productName = MobilePayKitTests;
 			productReference = 8B023FA826B45B1400BAFD56 /* MobilePayKitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -284,6 +294,9 @@
 				Base,
 			);
 			mainGroup = FA5DF99826A567B500664755;
+			packageReferences = (
+				FAA35B3326C6CB7300554B4D /* XCRemoteSwiftPackageReference "OHHTTPStubs" */,
+			);
 			productRefGroup = FA5DF9A626A567B600664755 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -608,6 +621,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FAA35B3326C6CB7300554B4D /* XCRemoteSwiftPackageReference "OHHTTPStubs" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AliSoftware/OHHTTPStubs";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FAA35B3826C6CBEE00554B4D /* OHHTTPStubs */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FAA35B3326C6CB7300554B4D /* XCRemoteSwiftPackageReference "OHHTTPStubs" */;
+			productName = OHHTTPStubs;
+		};
+		FAA35B3A26C6CBF200554B4D /* OHHTTPStubsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FAA35B3326C6CB7300554B4D /* XCRemoteSwiftPackageReference "OHHTTPStubs" */;
+			productName = OHHTTPStubsSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FA5DF99926A567B500664755 /* Project object */;
 }
