@@ -48,3 +48,16 @@ class InAppPurchasesService: InAppPurchasesServiceProtocol {
         return endpoint.asURLRequest(with: configuration)
     }
 }
+
+// MARK: - API Errors
+
+struct InAppPurchasesServiceError: Error, Codable {
+    let code: String
+    let message: String
+}
+
+extension InAppPurchasesServiceError: LocalizedError {
+    var errorDescription: String? {
+        return message
+    }
+}
