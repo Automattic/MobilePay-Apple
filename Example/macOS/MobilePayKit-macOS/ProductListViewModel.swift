@@ -4,9 +4,7 @@ import MobilePayKit
 
 class ProductListViewModel: ObservableObject {
 
-    @Published private(set) var products: [MobilePayKit.Product]
-
-    private let paymentManager: PaymentManager
+    @Published private(set) var products: [Product] = []
 
     // Here we're going to store all the completed purchases
     private var completedPurchases: [String] = [] {
@@ -29,25 +27,34 @@ class ProductListViewModel: ObservableObject {
         }
     }
 
-    init(paymentManager: PaymentManager = .init()) {
-        self.products = []
-        self.paymentManager = paymentManager
+    init() {
+        MobilePayKit.configure(
+            oAuthToken: "token",
+            bundleId: Bundle.main.bundleIdentifier
+        )
 
-        paymentManager.fetchProducts(completion: { products in
-            self.products = products.map { Product(product: $0) }
-        })
+        MobilePayKit.shared.fetchProducts { [weak self] result in
+            switch result {
+            case .success(let products):
+                self?.products = products.map { Product(product: $0) }
+            case .failure(let error):
+                print("Error fetching products: \(error.localizedDescription)")
+            }
+        }
     }
 
     func purchaseProduct(with identifier: String) {
-        paymentManager.purchaseProduct(with: identifier, completion: { [weak self] transaction in
-            guard let transaction = transaction else {
-                return
+        MobilePayKit.shared.purchaseProduct(with: identifier) { [weak self] result in
+            switch result {
+            case .success(let transaction):
+                self?.completedPurchases.append(transaction.payment.productIdentifier)
+            case .failure(let error):
+                print("Error purchasing product: \(error.localizedDescription)")
             }
-            self?.completedPurchases.append(transaction.payment.productIdentifier)
-        })
+        }
     }
 
     func restorePurchases() {
-        paymentManager.restorePurchases()
+        MobilePayKit.shared.restorePurchases()
     }
 }
