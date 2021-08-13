@@ -4,10 +4,12 @@ class TestPaymentTransaction: SKPaymentTransaction {
 
     let testPayment: SKPayment
     let testTransactionState: SKPaymentTransactionState
+    let testError: Error?
 
-    init(payment: SKPayment, transactionState: SKPaymentTransactionState) {
+    init(payment: SKPayment, transactionState: SKPaymentTransactionState, error: Error? = nil) {
         testPayment = payment
         testTransactionState = transactionState
+        testError = error
         super.init()
     }
 
@@ -17,5 +19,9 @@ class TestPaymentTransaction: SKPaymentTransaction {
 
     override var transactionState: SKPaymentTransactionState {
         return testTransactionState
+    }
+
+    override var error: Error? {
+        return testError
     }
 }

@@ -2,8 +2,11 @@ import Combine
 import Foundation
 import StoreKit
 
-public typealias FetchCompletionCallback = ([SKProduct]) -> Void
-public typealias PurchaseCompletionCallback = (SKPaymentTransaction?) -> Void
+public typealias FetchCompletionCallback = (ProductsResult) -> Void
+public typealias PurchaseCompletionCallback = (TransactionResult) -> Void
+
+public typealias ProductsResult = Result<[SKProduct], Error>
+public typealias TransactionResult = Result<SKPaymentTransaction, Error>
 
 public protocol AppStoreServiceProtocol {
     func fetchProducts(completion: @escaping FetchCompletionCallback)
@@ -14,7 +17,13 @@ public protocol AppStoreServiceProtocol {
 
 public class AppStoreService: NSObject, AppStoreServiceProtocol {
 
-    private let iapService: InAppPurchasesService
+    public enum PurchaseError: Error {
+        case missingProduct
+        case missingReceipt
+        case invalidReceipt
+    }
+
+    private let iapService: InAppPurchasesServiceProtocol
 
     private let paymentQueue: PaymentQueue
 
@@ -35,7 +44,7 @@ public class AppStoreService: NSObject, AppStoreServiceProtocol {
 
     init(
         configuration: MobilePayKitConfiguration,
-        iapService: InAppPurchasesService? = nil,
+        iapService: InAppPurchasesServiceProtocol? = nil,
         paymentQueue: PaymentQueue = SKPaymentQueue.default(),
         productsRequestFactory: ProductsRequestFactory = AppStoreProductsRequestFactory()
     ) {
@@ -55,13 +64,13 @@ public class AppStoreService: NSObject, AppStoreServiceProtocol {
     public func fetchProducts(completion: @escaping FetchCompletionCallback) {
         iapService.fetchProductSKUs()
             .sink(
-                receiveCompletion: { completion in
+                receiveCompletion: { fetchSKUsCompletion in
 
-                    switch completion {
+                    switch fetchSKUsCompletion {
                     case .finished:
                         print("fetch products finished")
                     case .failure(let error):
-                        print("fetch products error: \(error.localizedDescription)")
+                        completion(.failure(error))
                     }
 
                 },
@@ -132,20 +141,26 @@ extension AppStoreService: SKPaymentTransactionObserver {
     }
 
     private func handleFailedTransaction(_ transaction: SKPaymentTransaction) {
-        // FIXME: handle failed transaction
+
+        guard let error = transaction.error else {
+            return
+        }
+
         paymentQueue.finishTransaction(transaction)
+
+        performPurchaseCompletionCallback(.failure(error))
     }
 
     private func handleCompletedTransaction(_ transaction: SKPaymentTransaction) {
 
         guard let product = purchasingProduct else {
-            print("Purchasing product is nil")
+            purchaseCompletionCallback?(.failure(PurchaseError.missingProduct))
             return
         }
 
         guard let appStoreReceiptURL = Bundle.main.appStoreReceiptURL,
               FileManager.default.fileExists(atPath: appStoreReceiptURL.path) else {
-            print("Could not find app store receipt")
+            purchaseCompletionCallback?(.failure(PurchaseError.missingReceipt))
             return
         }
 
@@ -168,8 +183,8 @@ extension AppStoreService: SKPaymentTransactionObserver {
 
             createOrder(for: product, transaction: transaction, receipt: debugReceiptString)
 
-        } catch let error {
-            print("Could not read receipt data: \(error.localizedDescription)")
+        } catch {
+            purchaseCompletionCallback?(.failure(PurchaseError.invalidReceipt))
         }
     }
 
@@ -182,28 +197,35 @@ extension AppStoreService: SKPaymentTransactionObserver {
             price: product.priceInCents,
             country: country,
             receipt: receipt
-        ).sink(receiveCompletion: { completion in
+        )
+        .sink(
+            receiveCompletion: { [weak self] completion in
 
-            switch completion {
-            case .finished:
-                print("create order finished")
-            case .failure(let error):
-                print("create order error: \(error.localizedDescription)")
+                switch completion {
+                case .finished:
+                    print("create order finished")
+                case .failure(let error):
+                    self?.performPurchaseCompletionCallback(.failure(error))
+                }
+
+            },
+            receiveValue: { [weak self] orderId in
+
+                print("created order for: \(orderId)")
+
+                // Finish the transaction once we've successfully created an order remotely
+                self?.paymentQueue.finishTransaction(transaction)
+
+                self?.performPurchaseCompletionCallback(.success(transaction))
             }
-
-        }, receiveValue: { [weak self] orderId in
-
-            print("created order for: \(orderId)")
-
-            // Finish the transaction once we've successfully created an order remotely
-            self?.paymentQueue.finishTransaction(transaction)
-
-            DispatchQueue.main.async {
-                self?.purchaseCompletionCallback?(transaction)
-                self?.purchaseCompletionCallback = nil
-            }
-
-        })
+        )
         .store(in: &cancellables)
+    }
+
+    private func performPurchaseCompletionCallback(_ result: TransactionResult) {
+        DispatchQueue.main.async {
+            self.purchaseCompletionCallback?(result)
+            self.purchaseCompletionCallback = nil
+        }
     }
 }

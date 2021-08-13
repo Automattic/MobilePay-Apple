@@ -7,7 +7,7 @@ final class InAppPurchasesServiceTests: XCTestCase {
 
     var cancellables = Set<AnyCancellable>()
 
-    func testFetchProducts_WhenReqeustSucceeds_PublishesDecodedSkus() throws {
+    func testFetchProductSKUs_WhenRequestSucceeds_PublishesDecodedSKUs() throws {
 
         let json = """
         [
@@ -39,7 +39,7 @@ final class InAppPurchasesServiceTests: XCTestCase {
         wait(for: [expectation], timeout: 1)
     }
 
-    func testFetchProducts_WhenRequestFails_PublishesReceivedError() throws {
+    func testFetchProductSKUs_WhenRequestFails_PublishesReceivedError() throws {
 
         let expectedError = URLError(.badServerResponse)
 
@@ -68,7 +68,7 @@ final class InAppPurchasesServiceTests: XCTestCase {
             .store(in: &cancellables)
     }
 
-    func testCreateOrder_WhenReqeustSucceeds_PublishesDecodedOrderIds() throws {
+    func testCreateOrder_WhenRequestSucceeds_PublishesDecodedOrderIds() throws {
 
         let json = """
         {

@@ -54,8 +54,16 @@ extension ProductsRequestHelper: SKProductsRequestDelegate {
         // Here we are caching the products
         fetchedProducts = products
 
+        performFetchCompletionCallback(.success(products))
+    }
+
+    func request(_ request: SKRequest, didFailWithError error: Error) {
+        performFetchCompletionCallback(.failure(error))
+    }
+
+    private func performFetchCompletionCallback(_ result: ProductsResult) {
         DispatchQueue.main.async { [weak self] in
-            self?.fetchCompletionCallback?(products)
+            self?.fetchCompletionCallback?(result)
             self?.fetchCompletionCallback = nil
         }
     }
