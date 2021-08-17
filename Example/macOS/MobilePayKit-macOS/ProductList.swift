@@ -9,8 +9,9 @@ struct ProductRow: View {
     var body: some View {
         HStack {
             ZStack {
-                Image(product.imageName)
+                Image(systemName: "cart.fill")
                     .resizable()
+                    .foregroundColor(Color(.lightGray))
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 80, height: 80)
                     .cornerRadius(9)
@@ -63,8 +64,9 @@ struct ProductDetail: View {
     var body: some View {
         NavigationView {
             VStack(alignment: .center) {
-                Image(product.imageName)
+                Image(systemName: "cart.fill")
                     .resizable()
+                    .foregroundColor(Color(.lightGray))
                     .aspectRatio(contentMode: .fill)
                     .frame(width: 256, height: 256)
                     .cornerRadius(9)
