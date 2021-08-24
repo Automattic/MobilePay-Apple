@@ -7,7 +7,7 @@ import XCTest
 
 final class InAppPurchasesServiceTests: XCTestCase {
 
-    var service: InAppPurchasesService!
+    private var service: InAppPurchasesService!
 
     private let testDomain = "iap.test"
     private let testOrderId = "123"
@@ -117,7 +117,7 @@ final class InAppPurchasesServiceTests: XCTestCase {
     }
 }
 
-extension InAppPurchasesServiceTests {
+private extension InAppPurchasesServiceTests {
 
     func stubRemoteResponse(_ endpoint: String, filename: String, status: Int32 = 200) {
         stub(condition: { request in
