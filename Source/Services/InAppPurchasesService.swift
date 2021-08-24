@@ -51,7 +51,7 @@ class InAppPurchasesService: InAppPurchasesServiceProtocol {
 
 // MARK: - API Errors
 
-struct InAppPurchasesServiceError: Error, Codable {
+struct InAppPurchasesServiceError: Error, Decodable {
     let code: String
     let message: String
 }
