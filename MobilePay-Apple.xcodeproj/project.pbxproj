@@ -24,6 +24,7 @@
 		FA039DE426BD8A0800E900B3 /* MobilePayKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA039DE326BD8A0800E900B3 /* MobilePayKitTests.swift */; };
 		FA039DE826BD8DE000E900B3 /* MockAppStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA039DE726BD8DE000E900B3 /* MockAppStoreService.swift */; };
 		FA490A5426C6D62600DAEA52 /* Publisher+MobilePayKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA490A5326C6D62600DAEA52 /* Publisher+MobilePayKit.swift */; };
+		FA490A5626C6DB5F00DAEA52 /* iap-products-success.json in Resources */ = {isa = PBXBuildFile; fileRef = FA490A5526C6DB5F00DAEA52 /* iap-products-success.json */; };
 		FA6447F826B84CEB00896D81 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6447F726B84CEB00896D81 /* Networking.swift */; };
 		FA6447FA26B84D3100896D81 /* URLSession+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6447F926B84D3100896D81 /* URLSession+Networking.swift */; };
 		FA6447FC26B84D8900896D81 /* InAppPurchasesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6447FB26B84D8900896D81 /* InAppPurchasesService.swift */; };
@@ -69,6 +70,7 @@
 		FA039DE326BD8A0800E900B3 /* MobilePayKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobilePayKitTests.swift; sourceTree = "<group>"; };
 		FA039DE726BD8DE000E900B3 /* MockAppStoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAppStoreService.swift; sourceTree = "<group>"; };
 		FA490A5326C6D62600DAEA52 /* Publisher+MobilePayKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+MobilePayKit.swift"; sourceTree = "<group>"; };
+		FA490A5526C6DB5F00DAEA52 /* iap-products-success.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "iap-products-success.json"; sourceTree = "<group>"; };
 		FA6447F726B84CEB00896D81 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		FA6447F926B84D3100896D81 /* URLSession+Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Networking.swift"; sourceTree = "<group>"; };
 		FA6447FB26B84D8900896D81 /* InAppPurchasesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchasesService.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				FA039DE026BC434C00E900B3 /* TestPaymentTransaction+Fixture.swift */,
 				FA039DDE26BC421300E900B3 /* MobilePayKitConfiguration+Fixture.swift */,
 				8B023F9226B4544400BAFD56 /* Info.plist */,
+				FA490A5526C6DB5F00DAEA52 /* iap-products-success.json */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA490A5626C6DB5F00DAEA52 /* iap-products-success.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
