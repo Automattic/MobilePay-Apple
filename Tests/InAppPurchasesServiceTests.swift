@@ -1,30 +1,40 @@
 import Combine
+import OHHTTPStubs
+import OHHTTPStubsSwift
 import XCTest
 
 @testable import MobilePayKit
 
 final class InAppPurchasesServiceTests: XCTestCase {
 
-    var cancellables = Set<AnyCancellable>()
+    var service: InAppPurchasesService!
+
+    private let testDomain = "iap.test"
+    private let testOrderId = "123"
+    private let testOrderPrice = 100
+
+    private var cancellables = Set<AnyCancellable>()
+
+    // MARK: - Override
+
+    override func setUp() {
+        super.setUp()
+        service = InAppPurchasesService(configuration: .fixture())
+    }
+
+    override func tearDown() {
+        service = nil
+        HTTPStubs.removeAllStubs()
+        super.tearDown()
+    }
+
+    // MARK: - Fetch product SKUs
 
     func testFetchProductSKUs_WhenRequestSucceeds_PublishesDecodedSKUs() throws {
 
-        let json = """
-        [
-            "com.product.1",
-            "com.product.2",
-            "com.product.3"
-        ]
-        """
-
-        let data = try XCTUnwrap(json.data(using: .utf8))
-
-        let service = InAppPurchasesService(
-            configuration: .fixture(),
-            networking: NetworkingStub(returning: .success(data))
-        )
-
         let expectation = XCTestExpectation(description: "Publishes decoded [String]")
+
+        stubRemoteResponse("/wpcom/v2/iap/products", filename: "iap-products-success.json")
 
         service.fetchProductSKUs()
             .sink(
@@ -41,24 +51,16 @@ final class InAppPurchasesServiceTests: XCTestCase {
 
     func testFetchProductSKUs_WhenRequestFails_PublishesReceivedError() throws {
 
-        let expectedError = URLError(.badServerResponse)
+        let expectation = XCTestExpectation(description: "Publishes received error")
 
-        let service = InAppPurchasesService(
-            configuration: .fixture(),
-            networking: NetworkingStub(returning: .failure(expectedError))
-        )
-
-        let expectation = XCTestExpectation(description: "Publishes received URLError")
+        stubRemoteResponse("/wpcom/v2/iap/products", filename: "iap-products-success.json", status: 503)
 
         service.fetchProductSKUs()
             .sink(
                 receiveCompletion: { completion in
-                    guard case .failure(let error) = completion else {
+                    guard case .failure = completion else {
                         return
                     }
-
-                    XCTAssertEqual(error as? URLError, expectedError)
-
                     expectation.fulfill()
                 },
                 receiveValue: { _ in
@@ -68,24 +70,15 @@ final class InAppPurchasesServiceTests: XCTestCase {
             .store(in: &cancellables)
     }
 
+    // MARK: - Create order
+
     func testCreateOrder_WhenRequestSucceeds_PublishesDecodedOrderIds() throws {
-
-        let json = """
-        {
-            "order_id": 123
-        }
-        """
-
-        let data = try XCTUnwrap(json.data(using: .utf8))
-
-        let service = InAppPurchasesService(
-            configuration: .fixture(),
-            networking: NetworkingStub(returning: .success(data))
-        )
 
         let expectation = XCTestExpectation(description: "Publishes decoded Int")
 
-        service.createOrder(orderId: "1", price: 100, country: "", receipt: "")
+        stubRemoteResponse("/wpcom/v2/iap/orders", filename: "iap-orders-success.json")
+
+        service.createOrder(orderId: testOrderId, price: testOrderPrice, country: "", receipt: "")
             .sink(
                 receiveCompletion: { _ in },
                 receiveValue: { orderId in
@@ -100,24 +93,16 @@ final class InAppPurchasesServiceTests: XCTestCase {
 
     func testCreateOrder_WhenRequestFails_PublishesReceivedError() throws {
 
-        let expectedError = URLError(.badServerResponse)
+        let expectation = XCTestExpectation(description: "Publishes received error")
 
-        let service = InAppPurchasesService(
-            configuration: .fixture(),
-            networking: NetworkingStub(returning: .failure(expectedError))
-        )
+        stubRemoteResponse("/wpcom/v2/iap/orders", filename: "iap-orders-success.json", status: 503)
 
-        let expectation = XCTestExpectation(description: "Publishes received URLError")
-
-        service.createOrder(orderId: "1", price: 100, country: "", receipt: "")
+        service.createOrder(orderId: testOrderId, price: testOrderPrice, country: "", receipt: "")
             .sink(
                 receiveCompletion: { completion in
-                    guard case .failure(let error) = completion else {
+                    guard case .failure = completion else {
                         return
                     }
-
-                    XCTAssertEqual(error as? URLError, expectedError)
-
                     expectation.fulfill()
                 },
                 receiveValue: { _ in
@@ -125,5 +110,19 @@ final class InAppPurchasesServiceTests: XCTestCase {
                 }
             )
             .store(in: &cancellables)
+    }
+}
+
+extension InAppPurchasesServiceTests {
+
+    func stubRemoteResponse(_ endpoint: String, filename: String, status: Int32 = 200) {
+        stub(condition: { request in
+            return request.url?.absoluteString.range(of: endpoint) != nil
+        }) { _ in
+            let stubPath = OHPathForFile(filename, type(of: self))
+            let headers = ["Content-Type" as NSObject: "application/json" as AnyObject]
+
+            return fixture(filePath: stubPath!, status: status, headers: headers)
+        }
     }
 }
