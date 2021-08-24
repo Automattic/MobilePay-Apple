@@ -68,6 +68,8 @@ final class InAppPurchasesServiceTests: XCTestCase {
                 receiveValue: { _ in }
             )
             .store(in: &cancellables)
+
+        wait(for: [expectation], timeout: 1)
     }
 
     // MARK: - Create order
@@ -110,6 +112,8 @@ final class InAppPurchasesServiceTests: XCTestCase {
                 receiveValue: { _ in }
             )
             .store(in: &cancellables)
+
+        wait(for: [expectation], timeout: 1)
     }
 }
 
