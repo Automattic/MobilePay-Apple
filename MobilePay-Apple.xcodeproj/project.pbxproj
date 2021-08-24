@@ -30,7 +30,6 @@
 		FA6447FC26B84D8900896D81 /* InAppPurchasesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6447FB26B84D8900896D81 /* InAppPurchasesService.swift */; };
 		FA6447FE26B851D900896D81 /* SKProduct+MobilePayKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6447FD26B851D900896D81 /* SKProduct+MobilePayKit.swift */; };
 		FA64480026B8525000896D81 /* InAppPurchasesAPIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6447FF26B8525000896D81 /* InAppPurchasesAPIRouter.swift */; };
-		FA64480426B85AFF00896D81 /* NetworkingStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64480326B85AFF00896D81 /* NetworkingStub.swift */; };
 		FA64480626B85B5B00896D81 /* InAppPurchasesServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64480526B85B5B00896D81 /* InAppPurchasesServiceTests.swift */; };
 		FA64482626BBEA6E00896D81 /* debug-receipt.txt in Resources */ = {isa = PBXBuildFile; fileRef = FA64482526BBEA6E00896D81 /* debug-receipt.txt */; };
 		FA978DDE26D4FBD4009FB14F /* iap-orders-success.json in Resources */ = {isa = PBXBuildFile; fileRef = FA978DDD26D4FBD4009FB14F /* iap-orders-success.json */; };
@@ -77,7 +76,6 @@
 		FA6447FB26B84D8900896D81 /* InAppPurchasesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchasesService.swift; sourceTree = "<group>"; };
 		FA6447FD26B851D900896D81 /* SKProduct+MobilePayKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKProduct+MobilePayKit.swift"; sourceTree = "<group>"; };
 		FA6447FF26B8525000896D81 /* InAppPurchasesAPIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchasesAPIRouter.swift; sourceTree = "<group>"; };
-		FA64480326B85AFF00896D81 /* NetworkingStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingStub.swift; sourceTree = "<group>"; };
 		FA64480526B85B5B00896D81 /* InAppPurchasesServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchasesServiceTests.swift; sourceTree = "<group>"; };
 		FA64482526BBEA6E00896D81 /* debug-receipt.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "debug-receipt.txt"; path = "Services/debug-receipt.txt"; sourceTree = "<group>"; };
 		FA978DDD26D4FBD4009FB14F /* iap-orders-success.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "iap-orders-success.json"; sourceTree = "<group>"; };
@@ -179,7 +177,6 @@
 				FA039DE326BD8A0800E900B3 /* MobilePayKitTests.swift */,
 				8B023FB826B45B7200BAFD56 /* AppStoreServiceTests.swift */,
 				FA64480526B85B5B00896D81 /* InAppPurchasesServiceTests.swift */,
-				FA64480326B85AFF00896D81 /* NetworkingStub.swift */,
 				FA039DE726BD8DE000E900B3 /* MockAppStoreService.swift */,
 				8B023FBB26B45B7200BAFD56 /* MockPaymentQueue.swift */,
 				8B023FB926B45B7200BAFD56 /* MockProductsRequestFactory.swift */,
@@ -361,7 +358,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B023FBE26B45B8900BAFD56 /* MockPaymentQueue.swift in Sources */,
-				FA64480426B85AFF00896D81 /* NetworkingStub.swift in Sources */,
 				8B023FBF26B45B8B00BAFD56 /* MockProductsRequestFactory.swift in Sources */,
 				8B023FBD26B45B8600BAFD56 /* AppStoreServiceTests.swift in Sources */,
 				8B023FC026B45B9600BAFD56 /* TestPaymentTransaction.swift in Sources */,
