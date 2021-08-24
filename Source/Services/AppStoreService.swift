@@ -193,7 +193,7 @@ extension AppStoreService: SKPaymentTransactionObserver {
         let country = paymentQueue.storefront?.countryCode ?? ""
 
         iapService.createOrder(
-            identifier: product.productIdentifier,
+            orderId: product.productIdentifier,
             price: product.priceInCents,
             country: country,
             receipt: receipt

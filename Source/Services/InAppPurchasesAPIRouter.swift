@@ -64,6 +64,7 @@ enum InAppPurchasesAPIRouter: URLRequestConvertible {
 }
 
 struct CreateOrderParameters: Encodable {
+    let site_id: Int?
     let product_id: String
     let price: Int
     let appstore_country: String
