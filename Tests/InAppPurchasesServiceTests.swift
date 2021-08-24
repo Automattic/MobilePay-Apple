@@ -57,15 +57,15 @@ final class InAppPurchasesServiceTests: XCTestCase {
 
         service.fetchProductSKUs()
             .sink(
-                receiveCompletion: { completion in
-                    guard case .failure = completion else {
-                        return
+                receiveCompletion: {
+                    switch $0 {
+                    case .failure:
+                        expectation.fulfill()
+                    case .finished:
+                        XCTFail("Expected to fail")
                     }
-                    expectation.fulfill()
                 },
-                receiveValue: { _ in
-                    XCTFail("Expected to fail")
-                }
+                receiveValue: { _ in }
             )
             .store(in: &cancellables)
     }
@@ -99,15 +99,15 @@ final class InAppPurchasesServiceTests: XCTestCase {
 
         service.createOrder(orderId: testOrderId, price: testOrderPrice, country: "", receipt: "")
             .sink(
-                receiveCompletion: { completion in
-                    guard case .failure = completion else {
-                        return
+                receiveCompletion: {
+                    switch $0 {
+                    case .failure:
+                        expectation.fulfill()
+                    case .finished:
+                        XCTFail("Expected to fail")
                     }
-                    expectation.fulfill()
                 },
-                receiveValue: { _ in
-                    XCTFail("Expected to fail")
-                }
+                receiveValue: { _ in }
             )
             .store(in: &cancellables)
     }
