@@ -33,6 +33,7 @@
 		FA64480426B85AFF00896D81 /* NetworkingStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64480326B85AFF00896D81 /* NetworkingStub.swift */; };
 		FA64480626B85B5B00896D81 /* InAppPurchasesServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64480526B85B5B00896D81 /* InAppPurchasesServiceTests.swift */; };
 		FA64482626BBEA6E00896D81 /* debug-receipt.txt in Resources */ = {isa = PBXBuildFile; fileRef = FA64482526BBEA6E00896D81 /* debug-receipt.txt */; };
+		FA978DDE26D4FBD4009FB14F /* iap-orders-success.json in Resources */ = {isa = PBXBuildFile; fileRef = FA978DDD26D4FBD4009FB14F /* iap-orders-success.json */; };
 		FAA35B3926C6CBEE00554B4D /* OHHTTPStubs in Frameworks */ = {isa = PBXBuildFile; productRef = FAA35B3826C6CBEE00554B4D /* OHHTTPStubs */; };
 		FAA35B3B26C6CBF200554B4D /* OHHTTPStubsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FAA35B3A26C6CBF200554B4D /* OHHTTPStubsSwift */; };
 /* End PBXBuildFile section */
@@ -79,6 +80,7 @@
 		FA64480326B85AFF00896D81 /* NetworkingStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingStub.swift; sourceTree = "<group>"; };
 		FA64480526B85B5B00896D81 /* InAppPurchasesServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchasesServiceTests.swift; sourceTree = "<group>"; };
 		FA64482526BBEA6E00896D81 /* debug-receipt.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "debug-receipt.txt"; path = "Services/debug-receipt.txt"; sourceTree = "<group>"; };
+		FA978DDD26D4FBD4009FB14F /* iap-orders-success.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "iap-orders-success.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +189,7 @@
 				FA039DDE26BC421300E900B3 /* MobilePayKitConfiguration+Fixture.swift */,
 				8B023F9226B4544400BAFD56 /* Info.plist */,
 				FA490A5526C6DB5F00DAEA52 /* iap-products-success.json */,
+				FA978DDD26D4FBD4009FB14F /* iap-orders-success.json */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA490A5626C6DB5F00DAEA52 /* iap-products-success.json in Resources */,
+				FA978DDE26D4FBD4009FB14F /* iap-orders-success.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
