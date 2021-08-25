@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -23,14 +23,18 @@
 		FA039DE126BC434C00E900B3 /* TestPaymentTransaction+Fixture.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA039DE026BC434C00E900B3 /* TestPaymentTransaction+Fixture.swift */; };
 		FA039DE426BD8A0800E900B3 /* MobilePayKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA039DE326BD8A0800E900B3 /* MobilePayKitTests.swift */; };
 		FA039DE826BD8DE000E900B3 /* MockAppStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA039DE726BD8DE000E900B3 /* MockAppStoreService.swift */; };
+		FA490A5426C6D62600DAEA52 /* Publisher+MobilePayKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA490A5326C6D62600DAEA52 /* Publisher+MobilePayKit.swift */; };
+		FA490A5626C6DB5F00DAEA52 /* iap-products-success.json in Resources */ = {isa = PBXBuildFile; fileRef = FA490A5526C6DB5F00DAEA52 /* iap-products-success.json */; };
 		FA6447F826B84CEB00896D81 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6447F726B84CEB00896D81 /* Networking.swift */; };
 		FA6447FA26B84D3100896D81 /* URLSession+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6447F926B84D3100896D81 /* URLSession+Networking.swift */; };
 		FA6447FC26B84D8900896D81 /* InAppPurchasesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6447FB26B84D8900896D81 /* InAppPurchasesService.swift */; };
 		FA6447FE26B851D900896D81 /* SKProduct+MobilePayKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6447FD26B851D900896D81 /* SKProduct+MobilePayKit.swift */; };
 		FA64480026B8525000896D81 /* InAppPurchasesAPIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6447FF26B8525000896D81 /* InAppPurchasesAPIRouter.swift */; };
-		FA64480426B85AFF00896D81 /* NetworkingStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64480326B85AFF00896D81 /* NetworkingStub.swift */; };
 		FA64480626B85B5B00896D81 /* InAppPurchasesServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA64480526B85B5B00896D81 /* InAppPurchasesServiceTests.swift */; };
 		FA64482626BBEA6E00896D81 /* debug-receipt.txt in Resources */ = {isa = PBXBuildFile; fileRef = FA64482526BBEA6E00896D81 /* debug-receipt.txt */; };
+		FA978DDE26D4FBD4009FB14F /* iap-orders-success.json in Resources */ = {isa = PBXBuildFile; fileRef = FA978DDD26D4FBD4009FB14F /* iap-orders-success.json */; };
+		FAA35B3926C6CBEE00554B4D /* OHHTTPStubs in Frameworks */ = {isa = PBXBuildFile; productRef = FAA35B3826C6CBEE00554B4D /* OHHTTPStubs */; };
+		FAA35B3B26C6CBF200554B4D /* OHHTTPStubsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FAA35B3A26C6CBF200554B4D /* OHHTTPStubsSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,14 +69,16 @@
 		FA039DE026BC434C00E900B3 /* TestPaymentTransaction+Fixture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TestPaymentTransaction+Fixture.swift"; sourceTree = "<group>"; };
 		FA039DE326BD8A0800E900B3 /* MobilePayKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobilePayKitTests.swift; sourceTree = "<group>"; };
 		FA039DE726BD8DE000E900B3 /* MockAppStoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAppStoreService.swift; sourceTree = "<group>"; };
+		FA490A5326C6D62600DAEA52 /* Publisher+MobilePayKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+MobilePayKit.swift"; sourceTree = "<group>"; };
+		FA490A5526C6DB5F00DAEA52 /* iap-products-success.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "iap-products-success.json"; sourceTree = "<group>"; };
 		FA6447F726B84CEB00896D81 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		FA6447F926B84D3100896D81 /* URLSession+Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Networking.swift"; sourceTree = "<group>"; };
 		FA6447FB26B84D8900896D81 /* InAppPurchasesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchasesService.swift; sourceTree = "<group>"; };
 		FA6447FD26B851D900896D81 /* SKProduct+MobilePayKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SKProduct+MobilePayKit.swift"; sourceTree = "<group>"; };
 		FA6447FF26B8525000896D81 /* InAppPurchasesAPIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchasesAPIRouter.swift; sourceTree = "<group>"; };
-		FA64480326B85AFF00896D81 /* NetworkingStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingStub.swift; sourceTree = "<group>"; };
 		FA64480526B85B5B00896D81 /* InAppPurchasesServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppPurchasesServiceTests.swift; sourceTree = "<group>"; };
 		FA64482526BBEA6E00896D81 /* debug-receipt.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = "debug-receipt.txt"; path = "Services/debug-receipt.txt"; sourceTree = "<group>"; };
+		FA978DDD26D4FBD4009FB14F /* iap-orders-success.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = "iap-orders-success.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +94,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B023FAD26B45B1400BAFD56 /* MobilePayKit.framework in Frameworks */,
+				FAA35B3B26C6CBF200554B4D /* OHHTTPStubsSwift in Frameworks */,
+				FAA35B3926C6CBEE00554B4D /* OHHTTPStubs in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +123,7 @@
 				FA6447FF26B8525000896D81 /* InAppPurchasesAPIRouter.swift */,
 				FA6447F726B84CEB00896D81 /* Networking.swift */,
 				FA6447F926B84D3100896D81 /* URLSession+Networking.swift */,
+				FA490A5326C6D62600DAEA52 /* Publisher+MobilePayKit.swift */,
 				FA6447FD26B851D900896D81 /* SKProduct+MobilePayKit.swift */,
 			);
 			path = Services;
@@ -168,7 +177,6 @@
 				FA039DE326BD8A0800E900B3 /* MobilePayKitTests.swift */,
 				8B023FB826B45B7200BAFD56 /* AppStoreServiceTests.swift */,
 				FA64480526B85B5B00896D81 /* InAppPurchasesServiceTests.swift */,
-				FA64480326B85AFF00896D81 /* NetworkingStub.swift */,
 				FA039DE726BD8DE000E900B3 /* MockAppStoreService.swift */,
 				8B023FBB26B45B7200BAFD56 /* MockPaymentQueue.swift */,
 				8B023FB926B45B7200BAFD56 /* MockProductsRequestFactory.swift */,
@@ -177,6 +185,8 @@
 				FA039DE026BC434C00E900B3 /* TestPaymentTransaction+Fixture.swift */,
 				FA039DDE26BC421300E900B3 /* MobilePayKitConfiguration+Fixture.swift */,
 				8B023F9226B4544400BAFD56 /* Info.plist */,
+				FA490A5526C6DB5F00DAEA52 /* iap-products-success.json */,
+				FA978DDD26D4FBD4009FB14F /* iap-orders-success.json */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -236,6 +246,8 @@
 			dependencies = (
 			);
 			name = MobilePayKit;
+			packageProductDependencies = (
+			);
 			productName = MobilePayKit;
 			productReference = 8B023F8326B4544400BAFD56 /* MobilePayKit.framework */;
 			productType = "com.apple.product-type.framework";
@@ -254,6 +266,10 @@
 				8B023FAF26B45B1400BAFD56 /* PBXTargetDependency */,
 			);
 			name = MobilePayKitTests;
+			packageProductDependencies = (
+				FAA35B3826C6CBEE00554B4D /* OHHTTPStubs */,
+				FAA35B3A26C6CBF200554B4D /* OHHTTPStubsSwift */,
+			);
 			productName = MobilePayKitTests;
 			productReference = 8B023FA826B45B1400BAFD56 /* MobilePayKitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -284,6 +300,9 @@
 				Base,
 			);
 			mainGroup = FA5DF99826A567B500664755;
+			packageReferences = (
+				FAA35B3326C6CB7300554B4D /* XCRemoteSwiftPackageReference "OHHTTPStubs" */,
+			);
 			productRefGroup = FA5DF9A626A567B600664755 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -307,6 +326,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA490A5626C6DB5F00DAEA52 /* iap-products-success.json in Resources */,
+				FA978DDE26D4FBD4009FB14F /* iap-orders-success.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +340,7 @@
 			files = (
 				8B023FC326B45CB100BAFD56 /* MobilePayKit.swift in Sources */,
 				FA64480026B8525000896D81 /* InAppPurchasesAPIRouter.swift in Sources */,
+				FA490A5426C6D62600DAEA52 /* Publisher+MobilePayKit.swift in Sources */,
 				8B023FC726B45CBF00BAFD56 /* PaymentQueue.swift in Sources */,
 				FA6447F826B84CEB00896D81 /* Networking.swift in Sources */,
 				FA6447FA26B84D3100896D81 /* URLSession+Networking.swift in Sources */,
@@ -336,7 +358,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B023FBE26B45B8900BAFD56 /* MockPaymentQueue.swift in Sources */,
-				FA64480426B85AFF00896D81 /* NetworkingStub.swift in Sources */,
 				8B023FBF26B45B8B00BAFD56 /* MockProductsRequestFactory.swift in Sources */,
 				8B023FBD26B45B8600BAFD56 /* AppStoreServiceTests.swift in Sources */,
 				8B023FC026B45B9600BAFD56 /* TestPaymentTransaction.swift in Sources */,
@@ -608,6 +629,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FAA35B3326C6CB7300554B4D /* XCRemoteSwiftPackageReference "OHHTTPStubs" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AliSoftware/OHHTTPStubs";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.1.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FAA35B3826C6CBEE00554B4D /* OHHTTPStubs */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FAA35B3326C6CB7300554B4D /* XCRemoteSwiftPackageReference "OHHTTPStubs" */;
+			productName = OHHTTPStubs;
+		};
+		FAA35B3A26C6CBF200554B4D /* OHHTTPStubsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FAA35B3326C6CB7300554B4D /* XCRemoteSwiftPackageReference "OHHTTPStubs" */;
+			productName = OHHTTPStubsSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FA5DF99926A567B500664755 /* Project object */;
 }
