@@ -15,8 +15,12 @@ Realistically this library is only useful for Automattic-based projects, but the
 
 ## Features
 
-- Support for **Consumable** in-app purchases (Non-Consumable, Auto‑Renewable Subscriptions / Non-Renewable Subscriptions are not supported yet)
-- iOS and macOS compatible
+- [x] iOS and macOS compatible
+- [x] **Consumable** in-app purchases support
+- [ ]  **Non-Consumable** in-app purchases support
+- [ ]  **Auto-Renewable Subscriptions** in-app purchases support
+- [ ]  **Non-Renewable Subscriptions** in-app purchases support
+- [ ] Restoring purchases
 
 
 ## Installation
