@@ -1,6 +1,6 @@
 # MobilePayKit
 
-Client library for making in-app purchases on iOS and macOS
+Client library for making in-app purchases on iOS and macOS Automattic apps
 
 
 ## Introduction
