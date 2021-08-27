@@ -39,7 +39,7 @@ To integrate MobilePayKit into your Xcode project via [Swift Package Manager](ht
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/Automattic/MobilePay-Apple", .upToNextMajor(from: "1.0.0"))
+    .package(url: "https://github.com/Automattic/MobilePay-Apple", .upToNextMajor(from: "0.0.1"))
 ]
 ```
 
