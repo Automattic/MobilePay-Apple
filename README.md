@@ -23,6 +23,12 @@ Realistically this library is only useful for Automattic-based projects, but the
 - [ ] Restoring purchases
 
 
+## Requirements
+- iOS 13+
+- macOS 10.15+
+- Swift 5.3
+
+
 ## Installation
 
 ### Cocoapods
