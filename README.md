@@ -46,7 +46,7 @@ dependencies: [
 
 ## Usage
 
-Check out the iOS and macOS examples under the [Example](https://github.com/Automattic/MobilePay-Apple/tree/develop/Example) directory for more information on how to make in-app purchases via MobilePayKit.
+Check out the iOS and macOS examples under the [Example](./Example) directory for more information on how to make in-app purchases via MobilePayKit.
 
 ### Import MobilePayKit
 
