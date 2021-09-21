@@ -8,7 +8,7 @@ Client library for making in-app purchases on iOS and macOS Automattic apps
 MobilePayKit is a client library for making in-app purchases. This project facilitates in-app purchases by coordinating requests to:
 
 - Apple's [StoreKit APIs](https://developer.apple.com/documentation/storekit/original_api_for_in-app_purchase)
-- Our WP.com in-app purchase APIs that communicate with the [MobilePay WooCommerce plugin](https://mobilepaymentsp2.wordpress.com/2021/07/14/how-is-this-all-going-to-work-anyways/)
+- Our WP.com in-app purchase API
 
 Realistically this library is only useful for Automattic-based projects, but the idea is to share what we've made.
 
