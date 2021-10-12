@@ -56,4 +56,4 @@ steps:
       # - "test-macos"
       - "validate"
       - "lint"
-    if: build.tag != null
+    if: build.tag != null || build.branch == 'tooling/pod-push'
