@@ -17,14 +17,14 @@ platform :ios do
   end
 end
 
-platform :mac do
-  desc 'Builds the project and runs tests on macOS'
-  lane :test do
-    run_tests(
-      scheme: 'MobilePayKit',
-      project: 'MobilePay-Apple.xcodeproj',
-      buildlog_path: File.join(__dir__, '.build', 'logs'),
-      derived_data_path: File.join(__dir__, '.build', 'derived-data')
-    )
-  end
-end
+# platform :mac do
+#   desc 'Builds the project and runs tests on macOS'
+#   lane :test do
+#     run_tests(
+#       scheme: 'MobilePayKit',
+#       project: 'MobilePay-Apple.xcodeproj',
+#       buildlog_path: File.join(__dir__, '.build', 'logs'),
+#       derived_data_path: File.join(__dir__, '.build', 'derived-data')
+#     )
+#   end
+# end

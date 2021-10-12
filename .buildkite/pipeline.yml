@@ -17,12 +17,12 @@ steps:
     plugins: *common_plugins
     artifact_paths: ".build/logs/*.log"
 
-  - label: "🧪 Build and Test macOS"
-    key: "test-macos"
-    command: "build_and_test_pod 'mac test'"
-    env: *common_env
-    plugins: *common_plugins
-    artifact_paths: ".build/logs/*.log"
+  # - label: "🧪 Build and Test macOS"
+  #   key: "test-macos"
+  #   command: "build_and_test_pod 'mac test'"
+  #   env: *common_env
+  #   plugins: *common_plugins
+  #   artifact_paths: ".build/logs/*.log"
 
   #################
   # Validate Podspec
@@ -53,7 +53,7 @@ steps:
     plugins: *common_plugins
     depends_on:
       - "test-ios"
-      - "test-macos"
+      # - "test-macos"
       - "validate"
       - "lint"
     if: build.tag != null
