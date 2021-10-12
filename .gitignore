@@ -1,6 +1,4 @@
 # Xcode
-#
-# gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
 
 ## User settings
 xcuserdata/
@@ -31,11 +29,17 @@ vendor
 ## CocoaPods
 Pods
 
+## SPM
+.swiftpm/xcode
+
+## Finder
 .DS_Store
 
 ## Fastlane
-/fastlane/comment.json
-/fastlane/report.xml
+/fastlane/**/comment.json
+/fastlane/**/report.*
+/fastlane/README.md
+.build
 
 # All secrets should be stored under .configure-files
 # Everything without a .enc extension is ignored
