@@ -7,8 +7,8 @@ SLACK_WEBHOOK=$PODS_SLACK_WEBHOOK
 echo "--- :rubygems: Setting up Gems"
 install_gems
 
-# echo "--- :cocoapods: Publishing Pod to CocoaPods CDN"
-# publish_pod $PODSPEC_PATH
+echo "--- :cocoapods: Publishing Pod to CocoaPods CDN"
+publish_pod $PODSPEC_PATH
 
 echo "--- :cocoapods: Publishing Pod to WP Specs Repo"
 publish_private_pod $PODSPEC_PATH $SPECS_REPO "$SPEC_REPO_PUBLIC_DEPLOY_KEY"
