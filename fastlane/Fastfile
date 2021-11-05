@@ -1,0 +1,30 @@
+# frozen_string_literal: true
+
+default_platform(:ios)
+
+platform :ios do
+  desc 'Builds the project and runs tests on iOS'
+  lane :test do
+    run_tests(
+      scheme: 'MobilePayKit',
+      project: 'MobilePay-Apple.xcodeproj',
+      devices: ['iPhone 11'],
+      deployment_target_version: '13.0',
+      prelaunch_simulator: true,
+      buildlog_path: File.join(__dir__, '.build', 'logs'),
+      derived_data_path: File.join(__dir__, '.build', 'derived-data')
+    )
+  end
+end
+
+# platform :mac do
+#   desc 'Builds the project and runs tests on macOS'
+#   lane :test do
+#     run_tests(
+#       scheme: 'MobilePayKit',
+#       project: 'MobilePay-Apple.xcodeproj',
+#       buildlog_path: File.join(__dir__, '.build', 'logs'),
+#       derived_data_path: File.join(__dir__, '.build', 'derived-data')
+#     )
+#   end
+# end

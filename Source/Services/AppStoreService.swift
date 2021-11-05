@@ -175,7 +175,8 @@ extension AppStoreService: SKPaymentTransactionObserver {
             let receiptData = try Data(contentsOf: appStoreReceiptURL, options: .alwaysMapped)
             print(receiptData)
 
-            let receiptString = receiptData.base64EncodedString(options: [])
+            // TODO: uncomment back once ready to switch from debugReceiptString to actual receiptString
+//            let receiptString = receiptData.base64EncodedString(options: [])
 
             // TODO: remove later
             let debugReceiptString = try String(contentsOfFile: debugReceiptPath, encoding: String.Encoding.utf8)
