@@ -123,10 +123,9 @@ private extension InAppPurchasesServiceTests {
         stub(condition: { request in
             return request.url?.absoluteString.range(of: endpoint) != nil
         }) { _ in
-            let stubPath = OHPathForFile(filename, type(of: self))
+            let fullFilePath = Bundle.module.path(forResource: filename, ofType: nil)!
             let headers = ["Content-Type" as NSObject: "application/json" as AnyObject]
-
-            return fixture(filePath: stubPath!, status: status, headers: headers)
+            return fixture(filePath: fullFilePath, status: status, headers: headers)
         }
     }
 }
