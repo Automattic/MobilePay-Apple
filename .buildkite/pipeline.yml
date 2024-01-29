@@ -1,28 +1,20 @@
 # Nodes with values to reuse in the pipeline.
 common_params:
   plugins: &common_plugins
-    - automattic/a8c-ci-toolkit#2.14.0
+    - automattic/a8c-ci-toolkit#2.17.0
   env: &common_env
-    IMAGE_ID: xcode-12.5.1
+    IMAGE_ID: xcode-15.2
 
 # This is the default pipeline – it will build and test the pod
 steps:
   ################
   # Build and Test
   ################
-  - label: "🧪 Build and Test iOS"
-    key: "test-ios"
-    command: "build_and_test_pod ios test"
+  - label: "🧪 Build and Test"
+    command: swift test
     env: *common_env
     plugins: *common_plugins
     artifact_paths: ".build/logs/*.log"
-
-  # - label: "🧪 Build and Test macOS"
-  #   key: "test-macos"
-  #   command: "build_and_test_pod mac test"
-  #   env: *common_env
-  #   plugins: *common_plugins
-  #   artifact_paths: ".build/logs/*.log"
 
   #################
   # Validate Podspec
